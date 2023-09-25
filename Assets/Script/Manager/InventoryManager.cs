@@ -12,13 +12,13 @@ public class InventoryManager : MonoBehaviour
         else Destroy(instance);
         DontDestroyOnLoad(gameObject);
     }
-    public Dictionary<BulletType, int> ownBulletDictionary = new Dictionary<BulletType, int>();//拥有的数量
-    public List<BulletType> ownBulletList = new List<BulletType>();
+    public Dictionary<int, int> ownBulletDictionary = new Dictionary<int, int>();//拥有的数量
+    public List<int> ownBulletList = new List<int>();
     /// <summary>
     /// 获得子弹的方法
     /// </summary>
     /// <param name="bullet"></param>
-    public void AddBullet(BulletType bullet)
+    public void AddBullet(int bullet)
     {
         if (ownBulletDictionary.ContainsKey(bullet)) ownBulletDictionary[bullet]++;
         else ownBulletDictionary.Add(bullet, 1);
@@ -27,7 +27,7 @@ public class InventoryManager : MonoBehaviour
     public void CheckOwnType()//检测字典里拥有的type有哪些，用于遍历字典然后添加进子弹选择页面
     {
         ownBulletList.Clear();//先清除上一次的
-        foreach(BulletType bulletType in ownBulletDictionary.Keys)
+        foreach(int bulletType in ownBulletDictionary.Keys)
         {
             if (ownBulletList.Contains(bulletType)) continue;
             ownBulletList.Add(bulletType);

@@ -20,17 +20,17 @@ public class BulletManager : MonoBehaviour
     [System.Serializable]
     public struct BulletInfo
     {
-        public BulletType type;
+        public int ID;
         public GameObject prefab;
     }
     [SerializeField]
     public List<BulletInfo> bulletList = new List<BulletInfo>();//子弹列表
-    public Dictionary<BulletType, GameObject> bulletDictionary = new Dictionary<BulletType, GameObject>();//子弹字典用于检索
+    public Dictionary<int, GameObject> bulletDictionary = new Dictionary<int, GameObject>();//子弹字典用于检索
     public void InitializeDictionary()
     {
         for(int i=0;i<bulletList.Count; i++)
         {
-            bulletDictionary.Add(bulletList[i].type, bulletList[i].prefab);
+            bulletDictionary.Add(bulletList[i].ID, bulletList[i].prefab);
         }
     }//初始化字典
 
@@ -52,13 +52,14 @@ public class BulletManager : MonoBehaviour
                 if (revolver.transform.GetChild(i).GetComponent<BulletHole>().number==holeNumber)
                 {
                     Bullet bullet = revolver.transform.GetChild(i).GetComponent<BulletHole>().currentBullet;
+                    if (bullet == null) bullet = bulletDictionary[1000].GetComponent<Bullet>();//空的话给空包弹
                     if (loadedBulletDictionary.ContainsKey(holeNumber)) loadedBulletDictionary[holeNumber] = bullet;//字典已有就替换
                     else loadedBulletDictionary.Add(holeNumber, bullet);//字典没有就添加
                     holeNumber++;
                     continue;
                 }
                 //空弹匣判断，装入空包弹
-                Bullet nullBullet = bulletDictionary[BulletType.NullBullet].GetComponent<Bullet>();
+                Bullet nullBullet = bulletDictionary[1000].GetComponent<Bullet>();
                 if (loadedBulletDictionary.ContainsKey(holeNumber)) loadedBulletDictionary[holeNumber] = nullBullet;//字典已有就替换
                 else loadedBulletDictionary.Add(holeNumber, nullBullet);//此处应该装填空子弹属性
                 holeNumber++;
@@ -84,7 +85,7 @@ public class BulletManager : MonoBehaviour
     {
         ClearBulletSelect();
         InventoryManager.Instance.CheckOwnType();//先检测拥有的种类
-        List<BulletType> list = InventoryManager.Instance.ownBulletList;
+        List<int> list = InventoryManager.Instance.ownBulletList;
         //根据已有种类去搜索字典
         for (int i = 0; i < list.Count; i++)
         {

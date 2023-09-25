@@ -9,12 +9,12 @@ public class BulletHole : MonoBehaviour
     public int number;//左轮洞的序号
     public Bullet currentBullet;
     public bool if_Load;
-    public bool if_CanBeLoad;//判断这个洞玩家是否能用来装自己的子弹
+    public bool if_AutoLoad;//判断这个洞玩家是否能用来装自己的子弹
     void Start()
     {
         image = GetComponent<Image>();
         image.sprite = unLoadSprite;//开始设置为未装填状态
-        if_CanBeLoad = false;//开始玩家可以装填
+        if_AutoLoad = false;//开始玩家可以装填
     }
 
     void Update()
@@ -28,7 +28,7 @@ public class BulletHole : MonoBehaviour
 
     public void  LoadBulletPlayer()//玩家装填子弹
     {
-        if (!if_CanBeLoad) return;
+        if (if_AutoLoad) return;
         if (!if_Load && BulletManager.Instance.currentBullet != null)
         {
             if_Load = true;
@@ -53,10 +53,10 @@ public class BulletHole : MonoBehaviour
 
     }
 
-    public void LoadBulletAuto(BulletType bulletType)//电脑初始装子弹
+    public void LoadBulletAuto(int bulletID)//电脑初始装子弹
     {
-        if_CanBeLoad = true;
-        currentBullet = BulletManager.Instance.bulletDictionary[bulletType].GetComponent<Bullet>();
+        if_AutoLoad = true;
+        currentBullet = BulletManager.Instance.bulletDictionary[bulletID].GetComponent<Bullet>();
         image.sprite = currentBullet.sprite;//设置成装填图片样式
     }
     #endregion

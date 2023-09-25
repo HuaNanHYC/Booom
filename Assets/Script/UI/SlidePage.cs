@@ -12,7 +12,7 @@ public class SlidePage : MonoBehaviour
     }
     private void OnEnable()
     {
-
+        anim.SetBool("If_Show", false);
     }
     public void SetThisShowState(bool ifShow)
     {

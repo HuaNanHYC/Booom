@@ -6,7 +6,8 @@ public class test : MonoBehaviour
 {
     public void getbullet()
     {
-        InventoryManager.Instance.AddBullet(BulletType.NormalBullet);
-        InventoryManager.Instance.AddBullet(BulletType.NullBullet);
+        InventoryManager.Instance.AddBullet(1001);
+        InventoryManager.Instance.AddBullet(1002); 
+        InventoryManager.Instance.AddBullet(1003);
     }
 }

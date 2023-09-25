@@ -3,24 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-public enum BulletType
-{
-    NullBullet,
-    NormalBullet,
-}
 
 public class Bullet : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler,IPointerExitHandler
 {
     public int ID;
     public string bulletName;
+    [TextArea]
     public string description;
-    public BulletType type;
-    public float damage;
+    public float settingDamage;//设定的伤害
+    public float actualDamege;//实际的伤害
     public Sprite sprite;
 
     private void Start()
     {
         bulletInfoRectTransform = currentBulletInfo.GetComponent<RectTransform>();
+        InitializeBullet();
         UpdateBulletInfo();//同步信息
     }
 
@@ -75,10 +72,10 @@ public class Bullet : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler,IPo
 
     #endregion
 
-    #region 子弹效果选择，根据类型判断
-    protected virtual void Effect()
+    #region 子弹初始化
+    public void InitializeBullet()
     {
-        //子弹效果，写到继承的类中
+        actualDamege = settingDamage;
     }
 
 
