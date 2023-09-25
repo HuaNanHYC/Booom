@@ -3,12 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - MainCanvas
+  - BulletInfo
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - CoverUI
   - Water
   - UI
   - 
@@ -40,4 +42,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: CoverUI
+    uniqueID: 284219675
     locked: 0
