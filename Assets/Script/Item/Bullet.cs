@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+public enum BulletType
+{
+    NullBullet,
+    NormalBullet,
+}
 
 public class Bullet : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler,IPointerExitHandler
 {
     public int ID;
     public string bulletName;
     public string description;
+    public BulletType type;
     public float damage;
     public Sprite sprite;
 
@@ -66,6 +72,15 @@ public class Bullet : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler,IPo
     {
         BulletManager.Instance.currentBullet = this;
     }
+
+    #endregion
+
+    #region 子弹效果选择，根据类型判断
+    protected virtual void Effect()
+    {
+        //子弹效果，写到继承的类中
+    }
+
 
     #endregion
 }

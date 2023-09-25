@@ -141,10 +141,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0
-  bulletName: 
-  description: 
+  bulletName: Null
+  description: "\u7A7A\u5305\u5F39"
+  type: 0
   damage: 0
-  sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   currentBulletInfo: {fileID: 5715997758546670069}
 --- !u!114 &5462833218283231422
 MonoBehaviour:
