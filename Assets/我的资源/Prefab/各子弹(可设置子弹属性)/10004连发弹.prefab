@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -3051016727336081711, guid: b4e7bafa4ceb56e4797c85164ab11c77, type: 3}
       propertyPath: ID
-      value: 1003
+      value: 1004
       objectReference: {fileID: 0}
     - target: {fileID: -3051016727336081711, guid: b4e7bafa4ceb56e4797c85164ab11c77, type: 3}
       propertyPath: bulletName
-      value: "\u65E7\u5B50\u5F39 "
+      value: "\u8FDE\u53D1\u5F39"
       objectReference: {fileID: 0}
     - target: {fileID: -3051016727336081711, guid: b4e7bafa4ceb56e4797c85164ab11c77, type: 3}
       propertyPath: description

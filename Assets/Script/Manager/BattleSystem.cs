@@ -55,10 +55,10 @@ public class BattleSystem : MonoBehaviour
     {
         while(bulletIndexBeforeShoot < bullets.Count)
         {
-            switch(bulletIndexBeforeShoot)
+            switch(bullets[bulletIndexBeforeShoot].ID)
             {
                 #region 社恐弹 
-                case 1002:
+                case 10002:
                     if (bulletIndexBeforeShoot != 0)
                     {
                         bulletIndexBeforeShoot++; 
@@ -75,17 +75,70 @@ public class BattleSystem : MonoBehaviour
                     break;
             }
         }
-        StartShoot();
-    }
-    public void StartShoot()//可以开始射击
-    {
         if_ShootStart = true;
+    }
+    public void StartShootAnim()//开始射击后玩家和敌人的动作表现
+    {
+        if (if_PlayerShoot)
+        {
+            //让玩家点击开枪才开枪
+        }
+        else
+        {
+            //敌人自动拿枪开枪的动画
+            JudegeShoot();
+        }
     }
 
     [Header("判断这是谁先开枪")]
     public bool if_PlayerShoot;
     public void JudegeShoot()//开始射击，判断子弹技能
     {
+        if(bulletIndexShoot>bullets.Count-1)
+        {
+            bulletIndexShoot = 0;
+            //结束的代码
+            return;
+        }
+        //判断子弹
+
+        #region 旧子弹判断
+        if (TheFirstShootFailed()&&bulletIndexShoot==0)
+        {
+            if_PlayerShoot = !if_PlayerShoot;
+            StartShootAnim();//再次开始射击判断
+            return;
+        }
+        #endregion
+
+        #region 连发弹判断
+        if (ShootTwice())
+        {
+            StartShootAnim();
+            return;
+        }
+        #endregion
+
+        #region 普通子弹判断
+        Shoot();
+        bulletIndexShoot++;
+        StartShootAnim();
+        #endregion
+    }
+    public void Shoot()//根据目前谁射击判断子弹对谁造成伤害
+    {
+        if (bulletIndexShoot > bullets.Count) return;
+        //造成伤害
+        if (if_PlayerShoot)
+        {
+            InventoryManager.Instance.PlayerGetHurt(bullets[bulletIndexShoot].actualDamege);
+            return;
+        }
+        else if (!if_PlayerShoot)
+        {
+            //对敌人造成伤害
+            return;
+        }
 
     }
 
@@ -97,5 +150,28 @@ public class BattleSystem : MonoBehaviour
     }
 
 
+    #endregion
+
+    #region 不影响队列的子弹技能
+    public bool TheFirstShootFailed()//旧子弹
+    {
+        if(bullets.Find(x=>x.ID==1003))
+        {
+            return true;
+        }
+        return false;
+    }
+    public bool ShootTwice()//连发弹
+    {
+        if (bullets[bulletIndexShoot].ID==10004)
+        {
+            Shoot();
+            bulletIndexShoot++;
+            Shoot();
+            bulletIndexShoot++;
+            return true;
+        }
+        return false;
+    }
     #endregion
 }

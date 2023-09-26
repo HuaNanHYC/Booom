@@ -10,5 +10,6 @@ public class test : MonoBehaviour
         InventoryManager.Instance.AddBullet(10002); 
         InventoryManager.Instance.AddBullet(10003);
         InventoryManager.Instance.AddBullet(10004);
+        InventoryManager.Instance.SavePlayerData();
     }
 }

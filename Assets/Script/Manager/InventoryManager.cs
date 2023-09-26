@@ -12,6 +12,10 @@ public class InventoryManager : MonoBehaviour
         else Destroy(instance);
         DontDestroyOnLoad(gameObject);
     }
+    private void Start()
+    {
+        LoadPlayerData();//开局读取一次数据
+    }
     public Dictionary<int, int> ownBulletDictionary = new Dictionary<int, int>();//背包拥有的子弹及其拥有的数量
     public List<int> ownBulletList = new List<int>();//用于id判断
     /// <summary>
@@ -36,37 +40,46 @@ public class InventoryManager : MonoBehaviour
 
     #region 玩家属性也整合到这里,方便保存
 
-
-
-
-
+    public float playerMaxHealth;//最大生命
+    public float playerCurrentHealth;//现在的生命
+    public void PlayerGetHurt(float damage)//受到伤害
+    {
+        playerCurrentHealth = Mathf.Max(playerCurrentHealth - damage, 0);
+        if(playerCurrentHealth<=0)
+        {
+            //输的代码
+        }
+    }
     #endregion
 
 
 
     #region 保存玩家属性的方法
-    private string PLAYER_DATA_FILE_NAME = "PlayerData.GameSave";
 
+    private string PLAYER_DATA_FILE_NAME = "PlayerData.GameSave";
 
     [SerializeField]
     class PlayerSave//用于保存的类
     {
+        [System.Serializable]
         public struct InventorySave
         {
             public int id;
             public int amount;
         }
+        [SerializeField]
         public List<InventorySave> inventoryList = new List<InventorySave>();//列表，存储id及对应数量
 
 
         //放入玩家属性对应类型
-
+        public float playerHealth;
 
 
     }
-    PlayerSave playerSave()//玩家背包和属性保存
+    PlayerSave playerSave()//玩家背包和属性给保存用
     {
         PlayerSave playerDataSave = new PlayerSave();
+        //背包信息保存
         foreach (KeyValuePair<int,int> ownBullet in ownBulletDictionary)
         {
             PlayerSave.InventorySave inventorySave=new PlayerSave.InventorySave();
@@ -74,10 +87,8 @@ public class InventoryManager : MonoBehaviour
             inventorySave.amount = ownBullet.Value;
             playerDataSave.inventoryList.Add(inventorySave);
         }
-
-
         //添加玩家属性保存
-
+        playerDataSave.playerHealth = playerMaxHealth;
 
 
 
@@ -85,11 +96,19 @@ public class InventoryManager : MonoBehaviour
     }
     public void SavePlayerData()//保存
     {
-        if (SaveSystem.SaveByJson(PLAYER_DATA_FILE_NAME, playerSave(), Application.persistentDataPath))
-        {
-            Debug.Log($"保存成功{Application.persistentDataPath}");
-        }
+        SaveSystem.SaveByJson(PLAYER_DATA_FILE_NAME, playerSave(), Application.persistentDataPath);
     }
-
+    public void LoadPlayerData()//读取
+    {
+        PlayerSave playerSave = SaveSystem.LoadFromJson<PlayerSave>(PLAYER_DATA_FILE_NAME, Application.persistentDataPath);
+        if (playerSave == null) return;
+        for(int i=0; i < playerSave.inventoryList.Count; i++)//背包字典的添加
+        {
+            if (ownBulletDictionary.ContainsKey(playerSave.inventoryList[i].id))
+                ownBulletDictionary[playerSave.inventoryList[i].id] = playerSave.inventoryList[i].amount;
+            else ownBulletDictionary.Add(playerSave.inventoryList[i].id, playerSave.inventoryList[i].amount);
+        }
+        playerMaxHealth = playerSave.playerHealth;
+    }
     #endregion
 }

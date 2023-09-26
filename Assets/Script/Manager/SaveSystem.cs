@@ -19,7 +19,7 @@ public class SaveSystem
         {
             File.WriteAllText(path, jason);
         #if UNITY_EDITOR
-            Debug.Log($"Save Success{path}");
+            Debug.Log($"保存成功{path}");
 #endif
             return true;
 
@@ -27,7 +27,7 @@ public class SaveSystem
         catch (System.Exception e)
         {
         #if UNITY_EDITOR
-            Debug.Log($"Save Failed{path}.\n{e}");
+            Debug.Log($"保存失败{path}.\n{e}");
         #endif
             return false;
 
@@ -52,7 +52,7 @@ public class SaveSystem
 
             var data = JsonUtility.FromJson<T>(json);
 #if UNITY_EDITOR
-            Debug.Log($"Load Success");
+            Debug.Log($"读取成功");
 #endif
             return data;
 
@@ -61,7 +61,7 @@ public class SaveSystem
         catch (System.Exception e)
         {
 #if UNITY_EDITOR
-            Debug.Log($"Load Failed.\n{e}");
+            Debug.Log($"读取失败.\n{e}");
 #endif
             return default;
         }

@@ -44,6 +44,7 @@ public class Bullet : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler,IPo
         currentBulletInfo.transform.GetChild(0).GetComponent<Image>().sprite = bulletIcon;
         currentBulletInfo.transform.GetChild(0).GetComponentInChildren<Text>().text = bulletName;
         currentBulletInfo.transform.GetChild(1).GetComponent<Text>().text = bulletDescription;
+        currentBulletInfo.transform.GetChild(2).GetComponent<Text>().text = extraDescription;
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
