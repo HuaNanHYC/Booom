@@ -6,7 +6,8 @@ public class BattleSystem : MonoBehaviour
 {
     [SerializeField]
     [Header("子弹读取顺序的index")]
-    private int bulletIndex;
+    private int bulletIndexShoot;//射击时的index
+    private int bulletIndexBeforeShoot;//射击前排队列的index
 
     public bool if_BattleCanStart;//是否开始战斗
     public bool if_ShootStart;//是否可以开始射击，这是在子弹队列真正排列完毕之后
@@ -15,14 +16,14 @@ public class BattleSystem : MonoBehaviour
     public GameObject battlePage;//用于抖动之类的吧。。暂时没用
     private void Start()
     {
-        bulletIndex = 0;
+        bulletIndexBeforeShoot = 0;
     }
     private void Update()
     {
         if (BulletManager.Instance.loadedBulletList.Count > 0 && !if_BattleCanStart) if_BattleCanStart = true;//如果没开始战斗且满足条件，设置开始战斗
     }
     public List<Bullet> bullets=new List<Bullet>();//射击子弹队列，设置成公有方便查看
-    public void StartTheBattle()//可以赋值给按钮
+    public void StartTheBattle()//赋给开始按钮
     {
         RandomBulletQueue();
         JudgeListEnable();
@@ -48,19 +49,19 @@ public class BattleSystem : MonoBehaviour
         {
             bullets[i].InitializeBullet();
         }
-        bulletIndex = 0;//索引也要清零一次
+        bulletIndexBeforeShoot = 0;//索引也要清零一次
     }
-    public void JudgeListEnable()//判断队列是否可以作为战斗队列开启
+    public void JudgeListEnable()//判断队列是否可以作为战斗队列开启，主要放能影响队列的子弹
     {
-        while(bulletIndex < bullets.Count)
+        while(bulletIndexBeforeShoot < bullets.Count)
         {
-            switch(bulletIndex)
+            switch(bulletIndexBeforeShoot)
             {
-                #region 非第一颗子弹的判定
+                #region 社恐弹 
                 case 1002:
-                    if (bulletIndex != 0)
+                    if (bulletIndexBeforeShoot != 0)
                     {
-                        bulletIndex++; 
+                        bulletIndexBeforeShoot++; 
                         break;
                     }
                     NotTheFirst();
@@ -68,21 +69,9 @@ public class BattleSystem : MonoBehaviour
                     break;
                 #endregion
 
-                #region 下一颗子弹伤害翻倍的判断
-                case 1003:
-                    DoubleTheNextBullet();
-                    break;
-
-                #endregion
-
-
-
-
-
-
 
                 default:
-                    bulletIndex++;
+                    bulletIndexBeforeShoot++;
                     break;
             }
         }
@@ -91,19 +80,20 @@ public class BattleSystem : MonoBehaviour
     public void StartShoot()//可以开始射击
     {
         if_ShootStart = true;
+    }
+
+    [Header("判断这是谁先开枪")]
+    public bool if_PlayerShoot;
+    public void JudegeShoot()//开始射击，判断子弹技能
+    {
 
     }
 
+    #region 会影响队列的子弹技能
 
-    #region 子弹技能
-
-    public void NotTheFirst()//不能作为第一个
+    public void NotTheFirst()//社恐弹
     {
         RandomBulletQueue();//那就重新排序
-    }
-    private void DoubleTheNextBullet()//下一颗子弹翻倍伤害
-    {
-        bullets[bulletIndex + 1].actualDamege *= 2;
     }
 
 

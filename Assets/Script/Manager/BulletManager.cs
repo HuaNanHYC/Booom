@@ -37,10 +37,12 @@ public class BulletManager : MonoBehaviour
     public Bullet currentBullet;//现在选择的子弹
     #region 左轮设置与读取
     public Dictionary<int, Bullet> loadedBulletDictionary = new Dictionary<int, Bullet>();//存储左轮装的子弹及顺序
+    [Header("空包弹id")]
+    public int emptyBullet;
     [Header("用来查看左轮里子弹以方便测试的列表")]
     public List<Bullet> loadedBulletList = new List<Bullet>();
     [Header("左轮的ui")]
-    public GameObject revolver;//用来遍历的左轮，底下有一堆hole的父物体
+    public GameObject revolver;//用来遍历的左轮，底下有一堆hole的物体
     public void LoadBullet()//子弹装填进入字典，给确定按钮
     {
         loadedBulletList.Clear();
@@ -52,14 +54,14 @@ public class BulletManager : MonoBehaviour
                 if (revolver.transform.GetChild(i).GetComponent<BulletHole>().number==holeNumber)
                 {
                     Bullet bullet = revolver.transform.GetChild(i).GetComponent<BulletHole>().currentBullet;
-                    if (bullet == null) bullet = bulletDictionary[1000].GetComponent<Bullet>();//空的话给空包弹
+                    if (bullet == null) bullet = bulletDictionary[emptyBullet].GetComponent<Bullet>();//空的话给空包弹
                     if (loadedBulletDictionary.ContainsKey(holeNumber)) loadedBulletDictionary[holeNumber] = bullet;//字典已有就替换
                     else loadedBulletDictionary.Add(holeNumber, bullet);//字典没有就添加
                     holeNumber++;
                     continue;
                 }
                 //空弹匣判断，装入空包弹
-                Bullet nullBullet = bulletDictionary[1000].GetComponent<Bullet>();
+                Bullet nullBullet = bulletDictionary[emptyBullet].GetComponent<Bullet>();
                 if (loadedBulletDictionary.ContainsKey(holeNumber)) loadedBulletDictionary[holeNumber] = nullBullet;//字典已有就替换
                 else loadedBulletDictionary.Add(holeNumber, nullBullet);//此处应该装填空子弹属性
                 holeNumber++;

@@ -421,9 +421,41 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3559331044765230685}
     - target: {fileID: 3066473967299782439, guid: 741de6f575822d14bb16e7c92569dfba, type: 3}
+      propertyPath: emptyBullet
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3066473967299782439, guid: 741de6f575822d14bb16e7c92569dfba, type: 3}
       propertyPath: bulletSelect
       value: 
       objectReference: {fileID: 7462025661780520223}
+    - target: {fileID: 3066473967299782439, guid: 741de6f575822d14bb16e7c92569dfba, type: 3}
+      propertyPath: bulletList.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3066473967299782439, guid: 741de6f575822d14bb16e7c92569dfba, type: 3}
+      propertyPath: bulletList.Array.data[0].ID
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3066473967299782439, guid: 741de6f575822d14bb16e7c92569dfba, type: 3}
+      propertyPath: bulletList.Array.data[1].ID
+      value: 10001
+      objectReference: {fileID: 0}
+    - target: {fileID: 3066473967299782439, guid: 741de6f575822d14bb16e7c92569dfba, type: 3}
+      propertyPath: bulletList.Array.data[2].ID
+      value: 10002
+      objectReference: {fileID: 0}
+    - target: {fileID: 3066473967299782439, guid: 741de6f575822d14bb16e7c92569dfba, type: 3}
+      propertyPath: bulletList.Array.data[3].ID
+      value: 10003
+      objectReference: {fileID: 0}
+    - target: {fileID: 3066473967299782439, guid: 741de6f575822d14bb16e7c92569dfba, type: 3}
+      propertyPath: bulletList.Array.data[4].ID
+      value: 10004
+      objectReference: {fileID: 0}
+    - target: {fileID: 3066473967299782439, guid: 741de6f575822d14bb16e7c92569dfba, type: 3}
+      propertyPath: bulletList.Array.data[4].prefab
+      value: 
+      objectReference: {fileID: 6590769743874720366, guid: a7e1870a716b3ac4cad989a35e207630, type: 3}
     - target: {fileID: 4089300374092404196, guid: 741de6f575822d14bb16e7c92569dfba, type: 3}
       propertyPath: m_LocalPosition.x
       value: 906.77637

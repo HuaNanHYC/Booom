@@ -9,14 +9,24 @@ public class Bullet : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler,IPo
     public int ID;
     public string bulletName;
     [TextArea]
-    public string description;
-    public float settingDamage;//设定的伤害
+    public string bulletDescription;
+    [TextArea]
+    public string extraDescription;
+    public float settingDamage=1;//设定的伤害
     public float actualDamege;//实际的伤害
-    public Sprite sprite;
+
+    private Sprite bulletIcon;
+    private Sprite bulletImage;
+    [TextArea]
+    public string bulletIconPath;
+    [TextArea]
+    public string bulletImagePath;
 
     private void Start()
     {
         bulletInfoRectTransform = currentBulletInfo.GetComponent<RectTransform>();
+        bulletImage = GetComponent<Image>().sprite;
+        UpdateBulletImageAndIcon();//更新图片
         InitializeBullet();
         UpdateBulletInfo();//同步信息
     }
@@ -25,11 +35,15 @@ public class Bullet : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler,IPo
     #region 鼠标悬停显示具体ui
     private RectTransform bulletInfoRectTransform;//UI的位置
     public GameObject currentBulletInfo;
+
+    public Sprite BulletIcon { get => bulletIcon; }//只可读
+    public Sprite BulletImage { get => bulletImage;}
+
     public void UpdateBulletInfo()//让信息更新
     {
-        currentBulletInfo.transform.GetChild(0).GetComponent<Image>().sprite = sprite;
+        currentBulletInfo.transform.GetChild(0).GetComponent<Image>().sprite = bulletIcon;
         currentBulletInfo.transform.GetChild(0).GetComponentInChildren<Text>().text = bulletName;
-        currentBulletInfo.transform.GetChild(1).GetComponent<Text>().text = description;
+        currentBulletInfo.transform.GetChild(1).GetComponent<Text>().text = bulletDescription;
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -75,9 +89,32 @@ public class Bullet : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler,IPo
     #region 子弹初始化
     public void InitializeBullet()
     {
-        actualDamege = settingDamage;
+        actualDamege = settingDamage;//恢复伤害
     }
 
+    public void UpdateBulletImageAndIcon()
+    {
+        Sprite imageSprite = Resources.Load<Sprite>(bulletIconPath);
+        if (imageSprite != null)
+        {
+            // 获取物体上的Image组件
+            bulletIcon = imageSprite;
+        }
+        else
+        {
+            Debug.Log("没有找到路径图片: " + bulletIconPath);
+        }
 
+        Sprite imageSprite2 = Resources.Load<Sprite>(bulletImagePath);
+        if (imageSprite2 != null)
+        {
+            // 获取物体上的Image组件
+            bulletImage = imageSprite;
+        }
+        else
+        {
+            Debug.Log("没有找到路径图片: " + bulletImagePath);
+        }
+    }
     #endregion
 }
