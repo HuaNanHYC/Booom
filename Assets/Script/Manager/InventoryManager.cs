@@ -6,11 +6,16 @@ public class InventoryManager : MonoBehaviour
 {
     private static InventoryManager instance;
     public static InventoryManager Instance { get { return instance; } }
+
+    public Sprite PlayerHeadImage { get => playerHeadImage; set => playerHeadImage = value; }
+
     private void Awake()
     {
         if (instance == null) instance = this;
         else Destroy(instance);
         DontDestroyOnLoad(gameObject);
+
+        PlayerInfoInitialize();//更新玩家信息
     }
     private void Start()
     {
@@ -40,8 +45,12 @@ public class InventoryManager : MonoBehaviour
 
     #region 玩家属性也整合到这里,方便保存
 
+    public string playerName;//玩家名字
     public float playerMaxHealth;//最大生命
     public float playerCurrentHealth;//现在的生命
+    private Sprite playerHeadImage;//玩家的头像
+    [TextArea]
+    public string playerHeadImagePath;//玩家头像的路径
     public void PlayerGetHurt(float damage)//受到伤害
     {
         playerCurrentHealth = Mathf.Max(playerCurrentHealth - damage, 0);
@@ -49,6 +58,11 @@ public class InventoryManager : MonoBehaviour
         {
             //输的代码
         }
+    }
+    public void PlayerInfoInitialize()//初始化玩家信息，或重置
+    {
+        PlayerHeadImage = Resources.Load<Sprite>(playerHeadImagePath);
+        playerCurrentHealth = playerMaxHealth;
     }
     #endregion
 
@@ -109,6 +123,11 @@ public class InventoryManager : MonoBehaviour
             else ownBulletDictionary.Add(playerSave.inventoryList[i].id, playerSave.inventoryList[i].amount);
         }
         playerMaxHealth = playerSave.playerHealth;
+    }
+
+    public void ClearPlayerData()//清除存档
+    {
+        SaveSystem.DeleteSaveFile(PLAYER_DATA_FILE_NAME, Application.persistentDataPath);
     }
     #endregion
 }

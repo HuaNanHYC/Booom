@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     [TextArea]
     public string dialogueImagePath;//图片路径
     private Sprite dialogueImage;//对话形象
-
+    private Animator animator;//动画机
     [System.Serializable]
     public struct KeyWordAndDesc
     {
@@ -27,8 +27,14 @@ public class Enemy : MonoBehaviour
 
     public Sprite HeadImage { get => headImage; }
     public Sprite DialogueImage { get => dialogueImage; }
+    public float CurrentHealth { get => currentHealth; set => currentHealth = value; }
 
     #endregion
+    protected void Awake()
+    {
+        animator = GetComponent<Animator>();
+        InitializeEnemy();
+    }
     protected void Start()
     {
         UpdateEnemyImageAndIcon();
@@ -67,10 +73,18 @@ public class Enemy : MonoBehaviour
     {
         currentHealth = enemyHealth;
     }
+
     #region 与战斗相关
     private float currentHealth;//现在的血量
+    public void EnemyGetHurt(float damage)//敌人受到伤害
+    {
+        currentHealth = Mathf.Max(currentHealth - damage, 0);
+        if(currentHealth <= 0)
+        {
+            //游戏胜利的跳转
 
-
+        }
+    }
 
 
     #endregion

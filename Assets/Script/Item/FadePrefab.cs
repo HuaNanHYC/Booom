@@ -20,15 +20,15 @@ public class FadePrefab : MonoBehaviour
     {
         if(IfDone==true)
         {
-            pressAnyButtonToStart.SetActive(true);
-            if(Input.anyKey)
-            {
-                pressAnyButtonToStart.SetActive(false);
+            //pressAnyButtonToStart.SetActive(true);
+            //if(Input.anyKey)
+            //{
+                //pressAnyButtonToStart.SetActive(false);
                 IfPressAnyButton = true;
                 IfDone = false;
                 SceneManageSystem.Instance.IfAllowSceneActivation = true;
                 animator.SetBool("FadeOut", true);
-            }
+            //}
         }
 
     }

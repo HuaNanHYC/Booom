@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler,IPo
     [TextArea]
     public string extraDescription;
     public float settingDamage=1;//设定的伤害
-    public float actualDamege;//实际的伤害
+    public float actualDamage;//实际的伤害
 
     private Sprite bulletIcon;
     private Sprite bulletImage;
@@ -90,7 +90,7 @@ public class Bullet : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler,IPo
     #region 子弹初始化
     public void InitializeBullet()
     {
-        actualDamege = settingDamage;//恢复伤害
+        actualDamage = settingDamage;//恢复伤害
     }
 
     public void UpdateBulletImageAndIcon()

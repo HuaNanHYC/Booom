@@ -16,14 +16,20 @@ public class UIManager : MonoBehaviour
     }
 
 
-    public void StartTheGame(string targetSceneName)
+    public void LoadScene(string targetSceneName)//场景跳转
     {
-        //开始游戏的协程,先直接转
-        SceneManager.LoadScene(targetSceneName);
+        SceneManageSystem.Instance.GoToFigureScene(targetSceneName);
+    }
+    public void SaveGame()//保存游戏
+    {
+        InventoryManager.Instance.SavePlayerData();
+    }
+    public void ClearData()//清除存档
+    {
+        InventoryManager.Instance.ClearPlayerData();
     }
 
-
-    public void QuitTheGame()
+    public void QuitTheGame()//退出游戏
     {
         Application.Quit();
     }

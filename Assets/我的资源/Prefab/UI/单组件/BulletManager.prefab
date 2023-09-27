@@ -45,15 +45,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletList:
-  - ID: 1000
+  - ID: 10000
     prefab: {fileID: 7186822506411287652, guid: 407996a1c52a539459cf62a41a463842, type: 3}
-  - ID: 1001
+  - ID: 10001
     prefab: {fileID: 8140488202395012313, guid: d092c76301ed6c440a9fb60a80c0f13e, type: 3}
-  - ID: 1002
+  - ID: 10002
     prefab: {fileID: 6590769743874720366, guid: 454201f1539062a41a78eee908fca135, type: 3}
-  - ID: 1003
+  - ID: 10003
     prefab: {fileID: 6590769743874720366, guid: 704bd15e8f595a442b4d82da09c876cd, type: 3}
+  - ID: 10004
+    prefab: {fileID: 6590769743874720366, guid: a7e1870a716b3ac4cad989a35e207630, type: 3}
   currentBullet: {fileID: 0}
+  emptyBullet: 10000
   loadedBulletList: []
   revolver: {fileID: 0}
   bulletSelect: {fileID: 0}
