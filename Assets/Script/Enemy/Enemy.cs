@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     public struct KeyWordAndDesc
     {
         public string keyWord;
+        [TextArea]
         public string keyDecription;
     }
     [SerializeField]

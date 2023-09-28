@@ -88,6 +88,8 @@ public class BulletManager : MonoBehaviour
         ClearBulletSelect();
         InventoryManager.Instance.CheckOwnType();//先检测拥有的种类
         List<int> list = InventoryManager.Instance.ownBulletList;
+        if (LevelManager.Instance != null)
+            LevelManager.Instance.EnableBulletIdJudge(list);//去除不可用子弹
         //根据已有种类去搜索字典
         for (int i = 0; i < list.Count; i++)
         {

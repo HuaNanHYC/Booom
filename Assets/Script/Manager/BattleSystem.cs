@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class BattleSystem : MonoBehaviour
 {
+    [Header("本关子弹数量")]
+    public int bulletCount;
     [SerializeField]
     [Header("子弹读取顺序的index（无需设置）")]
     private int bulletIndexShoot;//射击时的index
@@ -44,9 +46,9 @@ public class BattleSystem : MonoBehaviour
             bullets.Add(BulletManager.Instance.loadedBulletList[i%listLength]);
             if (i % listLength == index - 1) break;//轮到同个元素的前一个就停下
         }
-        if(bullets.Count > 8)//保证序列只有8个，因为有时会出16个的bug
+        if(bullets.Count > BulletManager.Instance.loadedBulletList.Count)//保证序列只有8个，因为有时会出16个的bug
         {
-            bullets.RemoveRange(8, bullets.Count);
+            bullets.RemoveRange(BulletManager.Instance.loadedBulletList.Count, bullets.Count-1);
         }
         InitializeAllBullets();//清零已设置的子弹属性
 
@@ -111,6 +113,7 @@ public class BattleSystem : MonoBehaviour
     }
     public void JudegeShoot()//开始射击，判断子弹技能
     {
+        if (bulletIndexShoot >= bullets.Count) StartShootAnim();
         //判断子弹
 
         #region 旧子弹判断
@@ -133,7 +136,7 @@ public class BattleSystem : MonoBehaviour
         }
         #endregion
 
-        #region 普通子弹判断
+        #region 其他子弹，直接射出并轮盘
         Shoot();
         bulletIndexShoot++;
         StartShootAnim();
@@ -203,8 +206,7 @@ public class BattleSystem : MonoBehaviour
             Shoot();
             bulletIndexShoot++;
             if_PlayerShoot = !if_PlayerShoot;//还是同一个人射
-            Shoot();
-            bulletIndexShoot++;
+            JudegeShoot();
             return true;
         }
         return false;

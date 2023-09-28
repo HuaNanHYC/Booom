@@ -145,7 +145,7 @@ MonoBehaviour:
   bulletDescription: 
   extraDescription: 
   settingDamage: 1
-  actualDamege: 0
+  actualDamage: 0
   bulletIconPath: 
   bulletImagePath: 
   currentBulletInfo: {fileID: 5715997758546670069}

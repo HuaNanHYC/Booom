@@ -122,7 +122,6 @@ public class InventoryManager : MonoBehaviour
                 ownBulletDictionary[playerSave.inventoryList[i].id] = playerSave.inventoryList[i].amount;
             else ownBulletDictionary.Add(playerSave.inventoryList[i].id, playerSave.inventoryList[i].amount);
         }
-        playerMaxHealth = playerSave.playerHealth;
     }
 
     public void ClearPlayerData()//Çå³ý´æµµ

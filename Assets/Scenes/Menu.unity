@@ -373,6 +373,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2555116795915020942, guid: 8a4cec78c26ee22468b77710b6ffdb36, type: 3}
+      propertyPath: playerMaxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555116795915020942, guid: 8a4cec78c26ee22468b77710b6ffdb36, type: 3}
+      propertyPath: playerCurrentHealth
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6187273102722722595, guid: 8a4cec78c26ee22468b77710b6ffdb36, type: 3}
       propertyPath: m_Name
       value: InventoryManager

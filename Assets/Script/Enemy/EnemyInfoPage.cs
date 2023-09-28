@@ -17,7 +17,8 @@ public class EnemyInfoPage : MonoBehaviour
     private Enemy enemy;
 
     private List<Enemy.KeyWordAndDesc> keyWordAndDescsList = new List<Enemy.KeyWordAndDesc>();
-    public Text keyWordsText;
+    public Transform infoParent;//信息栏
+    public GameObject keywordPrefab;//用来显示关键词的预制体
     private void Start()
     {
         enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
@@ -50,9 +51,11 @@ public class EnemyInfoPage : MonoBehaviour
     }
     public void ShowTheKeyWords()
     {
-        for(int i=0;i<keyWordAndDescsList.Count;i++)
+        for (int i = 0; i < keyWordAndDescsList.Count; i++)
         {
-            keyWordsText.text += keyWordAndDescsList[i].keyWord + "\t";
+            GameObject keyWordInfo = Instantiate(keywordPrefab, infoParent);
+            keyWordInfo.GetComponentInChildren<Text>().text = keyWordAndDescsList[i].keyWord;
+            keyWordInfo.GetComponent<EnemyKeywordShow>().Description = keyWordAndDescsList[i].keyDecription;
         }
     }
 }
