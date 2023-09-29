@@ -7,6 +7,7 @@ TagManager:
   - MainCanvas
   - BulletInfo
   - Enemy
+  - BattleSystem
   layers:
   - Default
   - TransparentFX

@@ -44,7 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d03221183226ca4bb40a6d5bbeed1cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletIndex: 0
-  if_BattleStart: 0
+  bulletIndexShoot: 0
+  if_BattleCanStart: 0
   if_ShootStart: 0
+  currentEnemy: {fileID: 0}
   battlePage: {fileID: 0}
+  playerShootButton: {fileID: 0}
+  endPage: {fileID: 0}
+  bullets: []
+  if_PlayerShoot: 0
+  if_haveJudgedFirstShootFailed: 0

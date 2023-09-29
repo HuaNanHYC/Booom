@@ -291,6 +291,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 544148936}
+    - target: {fileID: 39448595563755558, guid: 407b8a2ec67a6914785c82521430843c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: LevelScene
+      objectReference: {fileID: 0}
     - target: {fileID: 503713864010245394, guid: 407b8a2ec67a6914785c82521430843c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 436

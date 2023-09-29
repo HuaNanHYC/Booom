@@ -7,7 +7,6 @@ public class InventoryManager : MonoBehaviour
     private static InventoryManager instance;
     public static InventoryManager Instance { get { return instance; } }
 
-    public Sprite PlayerHeadImage { get => playerHeadImage; set => playerHeadImage = value; }
 
     private void Awake()
     {
@@ -49,8 +48,17 @@ public class InventoryManager : MonoBehaviour
     public float playerMaxHealth;//最大生命
     public float playerCurrentHealth;//现在的生命
     private Sprite playerHeadImage;//玩家的头像
-    [TextArea]
-    public string playerHeadImagePath;//玩家头像的路径
+    [Header("玩家的图片")]
+    [TextArea] public string playerHeadImagePath;//玩家头像的路径
+    [TextArea] public string playerActionImagePath;//玩家拿枪图片路径
+    [TextArea] public string playerShotImagePath;//玩家中枪图片路径
+    private Sprite playerActionImage;
+    private Sprite playerShotImage;
+
+    public Sprite PlayerHeadImage { get => playerHeadImage;}
+    public Sprite PlayerActionImage { get => playerActionImage; }
+    public Sprite PlayerShotImage { get => playerShotImage; }
+
     public void PlayerGetHurt(float damage)//受到伤害
     {
         playerCurrentHealth = Mathf.Max(playerCurrentHealth - damage, 0);
@@ -61,7 +69,9 @@ public class InventoryManager : MonoBehaviour
     }
     public void PlayerInfoInitialize()//初始化玩家信息，或重置
     {
-        PlayerHeadImage = Resources.Load<Sprite>(playerHeadImagePath);
+        playerHeadImage = Resources.Load<Sprite>(playerHeadImagePath);
+        playerActionImage = Resources.Load<Sprite>(playerActionImagePath);
+        playerShotImage = Resources.Load<Sprite>(playerShotImagePath);
         playerCurrentHealth = playerMaxHealth;
     }
     #endregion

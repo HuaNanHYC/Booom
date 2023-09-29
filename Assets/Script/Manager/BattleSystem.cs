@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class BattleSystem : MonoBehaviour
 {
-    [Header("本关子弹数量")]
-    public int bulletCount;
     [SerializeField]
     [Header("子弹读取顺序的index（无需设置）")]
     private int bulletIndexShoot;//射击时的index
@@ -16,13 +14,17 @@ public class BattleSystem : MonoBehaviour
     public bool if_ShootStart;//是否可以开始射击，这是在子弹队列真正排列完毕之后
     [Header("目前敌人(无需设置)")]
     public Enemy currentEnemy;
-    [Header("战斗页面")]
+    [Header("战斗主页面")]
     public GameObject battlePage;//用于抖动之类的吧。。暂时没用
+    [Header("开枪按钮")]
     public Button playerShootButton;//到玩家时，让玩家点击射击开枪的按钮
+    [Header("结束页面")]
+    public GameEndPage endPage;//游戏结束页面
     private void Start()
     {
         bulletIndexBeforeShoot = 0;
         currentEnemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();//找到本场景敌人
+        currentEnemy.GetComponent<Enemy>().BattleSystem = this;
     }
     private void Update()
     {
@@ -48,7 +50,7 @@ public class BattleSystem : MonoBehaviour
         }
         if(bullets.Count > BulletManager.Instance.loadedBulletList.Count)//保证序列只有8个，因为有时会出16个的bug
         {
-            bullets.RemoveRange(BulletManager.Instance.loadedBulletList.Count, bullets.Count-1);
+            bullets.RemoveRange(BulletManager.Instance.loadedBulletList.Count, bullets.Count - BulletManager.Instance.loadedBulletList.Count);
         }
         InitializeAllBullets();//清零已设置的子弹属性
 
@@ -87,10 +89,10 @@ public class BattleSystem : MonoBehaviour
             }
         }
         if_ShootStart = true;
-        StartShootAnim();
+        StartShoot();
     }
     
-    public void StartShootAnim()//开始射击后玩家和敌人的动作表现
+    public void StartShoot()//开始射击后玩家和敌人的动作表现
     {
         if (ShootEnd()) return;
         if (if_PlayerShoot)
@@ -100,8 +102,7 @@ public class BattleSystem : MonoBehaviour
         }
         else
         {
-            //敌人自动拿枪开枪的动画
-            JudegeShoot();
+            StartCoroutine(currentEnemy.EnemyShooting());
         }
     }
 
@@ -111,9 +112,9 @@ public class BattleSystem : MonoBehaviour
     {
         if_PlayerShoot = setting;
     }
-    public void JudegeShoot()//开始射击，判断子弹技能
+    public bool JudegeShoot()//开始射击，判断子弹技能,返回是否空枪的判断
     {
-        if (bulletIndexShoot >= bullets.Count) StartShootAnim();
+        if (bulletIndexShoot >= bullets.Count) StartShoot();
         //判断子弹
 
         #region 旧子弹判断
@@ -122,8 +123,7 @@ public class BattleSystem : MonoBehaviour
             if (TheFirstShootFailed())
             {
                 if_PlayerShoot = !if_PlayerShoot;
-                StartShootAnim();//再次开始射击判断
-                return;
+                return false;
             }
         }
         #endregion
@@ -131,15 +131,14 @@ public class BattleSystem : MonoBehaviour
         #region 连发弹判断
         if (ShootTwice())
         {
-            StartShootAnim();
-            return;
+            return true;
         }
         #endregion
 
         #region 其他子弹，直接射出并轮盘
         Shoot();
         bulletIndexShoot++;
-        StartShootAnim();
+        return true;
         #endregion
     }
     public void Shoot()//根据目前谁射击判断子弹对谁造成伤害
@@ -150,30 +149,38 @@ public class BattleSystem : MonoBehaviour
         {
             InventoryManager.Instance.PlayerGetHurt(damage);
             if_PlayerShoot = false;
+            Debug.Log("玩家射击1次");
             return;
         }
         else if (!if_PlayerShoot)
         {
             currentEnemy.EnemyGetHurt(damage);
             if_PlayerShoot = true;
+            Debug.Log("敌人射击1次");
             return;
         }
-
     }
-    public bool ShootEnd()
+    public bool ShootEnd()//射击结束
     {
         if(bulletIndexShoot>bullets.Count-1)
         {
             if_haveJudgedFirstShootFailed = false;//第一次射击空枪判断恢复
             bulletIndexShoot = 0;
             //结束的代码
-
-
-
-
-
-
-
+            endPage.gameObject.SetActive(true);
+            endPage.Lose();
+            return true;
+        }
+        if(InventoryManager.Instance.playerCurrentHealth<=0)
+        {
+            endPage.gameObject.SetActive(true);
+            endPage.Lose();
+            return true;
+        }
+        else if(currentEnemy.CurrentHealth<=0)
+        {
+            endPage.gameObject.SetActive(true);
+            endPage.Win();
             return true;
         }
         return false;
