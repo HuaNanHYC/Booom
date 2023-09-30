@@ -7,7 +7,6 @@ public class InventoryManager : MonoBehaviour
     private static InventoryManager instance;
     public static InventoryManager Instance { get { return instance; } }
 
-
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -18,9 +17,10 @@ public class InventoryManager : MonoBehaviour
     }
     private void Start()
     {
-        LoadPlayerData();//开局读取一次数据
+        //LoadPlayerData();//开局读取一次数据
     }
     public Dictionary<int, int> ownBulletDictionary = new Dictionary<int, int>();//背包拥有的子弹及其拥有的数量
+    [Header("背包系统已弃用，只使用玩家属性")]
     public List<int> ownBulletList = new List<int>();//用于id判断
     /// <summary>
     /// 获得子弹的方法
@@ -43,9 +43,9 @@ public class InventoryManager : MonoBehaviour
     }
 
     #region 玩家属性也整合到这里,方便保存
-
+    [Header("玩家属性")]
     public string playerName;//玩家名字
-    public float playerMaxHealth;//最大生命
+    public const float playerMaxHealth=1;//最大生命
     public float playerCurrentHealth;//现在的生命
     private Sprite playerHeadImage;//玩家的头像
     [Header("玩家的图片")]
@@ -62,10 +62,6 @@ public class InventoryManager : MonoBehaviour
     public void PlayerGetHurt(float damage)//受到伤害
     {
         playerCurrentHealth = Mathf.Max(playerCurrentHealth - damage, 0);
-        if(playerCurrentHealth<=0)
-        {
-            //输的代码
-        }
     }
     public void PlayerInfoInitialize()//初始化玩家信息，或重置
     {
@@ -78,7 +74,7 @@ public class InventoryManager : MonoBehaviour
 
 
 
-    #region 保存玩家属性的方法
+    #region 保存玩家属性的方法，9.29日弃用
 
     private string PLAYER_DATA_FILE_NAME = "PlayerData.GameSave";
 

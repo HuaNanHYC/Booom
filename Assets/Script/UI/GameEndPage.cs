@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameEndPage : MonoBehaviour
 {
@@ -14,4 +15,13 @@ public class GameEndPage : MonoBehaviour
     {
         lose.SetActive(true);
     }
+    public void RestartButton()
+    {
+        UIManager.Instance.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void ReturnLevelSelectScene()
+    {
+        UIManager.Instance.LoadScene("LevelScene");
+    }
+    
 }

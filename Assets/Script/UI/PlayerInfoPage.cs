@@ -22,12 +22,12 @@ public class PlayerInfoPage : MonoBehaviour
         if (InventoryManager.Instance.PlayerHeadImage)
             playerHeadImage.sprite = InventoryManager.Instance.PlayerHeadImage;//…Ë÷√ÕÊº“Õ∑œÒ
         playerNameText.text = InventoryManager.Instance.playerName;
-        currentHealthSlide.maxValue = InventoryManager.Instance.playerMaxHealth;
+        currentHealthSlide.maxValue = InventoryManager.playerMaxHealth;
     }
     public void UpdatePlayerInfoPage()
     {
         string health = InventoryManager.Instance.playerCurrentHealth.ToString();
-        string maxHealth=InventoryManager.Instance.playerMaxHealth.ToString();
+        string maxHealth=InventoryManager.playerMaxHealth.ToString();
         currentHealthSlide.value = InventoryManager.Instance.playerCurrentHealth;
         currentHealthText.text = health + "/" + maxHealth;
     }

@@ -36,7 +36,7 @@ public class BulletHole : MonoBehaviour
 
             image.sprite = currentBullet.BulletIcon;//设置成装填图片样式
 
-            BulletManager.Instance.currentBullet.gameObject.SetActive(false);//将列表中的子弹隐藏
+            //BulletManager.Instance.currentBullet.gameObject.SetActive(false);//将列表中的子弹隐藏
 
             BulletManager.Instance.currentBullet = null;
         }
@@ -44,7 +44,7 @@ public class BulletHole : MonoBehaviour
         {
             if_Load = false;
 
-            currentBullet.gameObject.SetActive(true);//返还选中子弹
+            //currentBullet.gameObject.SetActive(true);//返还选中子弹
 
             image.sprite = unLoadSprite;//设置成未装填图片样式
 
@@ -57,6 +57,7 @@ public class BulletHole : MonoBehaviour
     {
         if_AutoLoad = true;
         currentBullet = BulletManager.Instance.bulletDictionary[bulletID].GetComponent<Bullet>();
+        if (currentBullet.BulletIcon == null) return;
         image.sprite = currentBullet.BulletIcon;//设置成装填图片样式
     }
     #endregion

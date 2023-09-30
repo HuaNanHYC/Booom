@@ -68,25 +68,26 @@ public class BulletManager : MonoBehaviour
                 continue;
             }
         }
-        //测试可查看的列表
+        //测试可查看的列表,同时要用的
         foreach(Bullet bullet in loadedBulletDictionary.Values)
         {
             loadedBulletList.Add(bullet);
+        }
+        for(int i = 0; i < loadedBulletList.Count; i++)
+        {
+            loadedBulletList[i].BulletInHoleNumber = i;
         }
 
     }
     #endregion
 
-    #region 子弹选择界面读取背包生成子弹
+    #region 子弹选择界面读取可用子弹生成子弹
     [Header("选择子弹的ui界面")]
     public GameObject bulletSelect;
-    /// <summary>
-    /// 生成子弹选择列表
-    /// </summary>
-    public void CreateBulletSelect()
+    public void CreateBulletSelect()// 生成子弹选择列表
     {
         ClearBulletSelect();
-        InventoryManager.Instance.CheckOwnType();//先检测拥有的种类
+        /*InventoryManager.Instance.CheckOwnType();//先检测拥有的种类
         List<int> list = InventoryManager.Instance.ownBulletList;
         if (LevelManager.Instance != null)
             LevelManager.Instance.EnableBulletIdJudge(list);//去除不可用子弹
@@ -98,8 +99,18 @@ public class BulletManager : MonoBehaviour
             {
                 Instantiate(bulletDictionary[list[i]], bulletSelect.transform);
             }
+        }*/
+
+
+        //根据关卡提供的可用子弹生成子弹
+        int currentLevel = LevelManager.Instance.currentLevelId;
+        int[] bulletsToCreate = LevelManager.Instance.levelDictionary[currentLevel].ableBulletID;
+        for (int i = 0; i < bulletsToCreate.Length; i++)
+        {
+            Instantiate(bulletDictionary[bulletsToCreate[i]], bulletSelect.transform);
         }
-        
+
+
     }
     public void ClearBulletSelect()//清除一次子弹选择界面
     {

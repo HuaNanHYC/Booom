@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler,IPo
 {
     public int ID;
     public string bulletName;
+    private int bulletInHoleNumber;
     [TextArea]
     public string bulletDescription;
     [TextArea]
@@ -38,6 +39,7 @@ public class Bullet : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler,IPo
 
     public Sprite BulletIcon { get => bulletIcon; }//只可读
     public Sprite BulletImage { get => bulletImage;}
+    public int BulletInHoleNumber { get => bulletInHoleNumber; set => bulletInHoleNumber = value; }
 
     public void UpdateBulletInfo()//让信息更新
     {

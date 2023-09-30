@@ -17,7 +17,7 @@ public class Revolver : MonoBehaviour
     {
         for(int i = 0; i < steadyBullet.Length; i++)
         {
-            transform.GetChild(i).GetComponent<BulletHole>().LoadBulletAuto(steadyBullet[i]);
+            transform.GetChild(steadyPos[i]-1).GetComponent<BulletHole>().LoadBulletAuto(steadyBullet[i]);
         }
     }
 }

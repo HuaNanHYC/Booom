@@ -16,7 +16,7 @@ public class LevelManager : MonoBehaviour
         [Header("固定数组id和位置需要对应")]
         public int[] steadyBulletID;//固定子弹数组id
         public int[] steadyBulletPosition;//固定子弹位置
-        public int[] unableBulletID;//玩家不可用子弹
+        public int[] ableBulletID;//玩家不可用子弹
         public int levelStartStoryID;//剧情开始id
         public int levelOverStoryID;//剧情结束id
     }
@@ -45,7 +45,7 @@ public class LevelManager : MonoBehaviour
     }
     public List<int> EnableBulletIdJudge(List<int> list)//提供给玩家的可用子弹
     {
-        int[] steadyBulletId = levelDictionary[currentLevelId].unableBulletID;
+        int[] steadyBulletId = levelDictionary[currentLevelId].ableBulletID;
         for(int i=0;i<steadyBulletId.Length;i++)
         {
             if(list.Contains(steadyBulletId[i]))

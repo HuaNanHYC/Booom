@@ -33,6 +33,11 @@ public class BattleSystem : MonoBehaviour
     public List<Bullet> bullets=new List<Bullet>();//射击子弹队列，设置成公有方便查看
     public void StartTheBattle()//赋给开始按钮
     {
+        //初始化三个队列
+        InitializeOddList();
+        InitializeEvenList();
+        InitializePrimeList();
+        //*********
         RandomBulletQueue();
         JudgeListEnable();
     }
@@ -70,7 +75,7 @@ public class BattleSystem : MonoBehaviour
         {
             switch(bullets[bulletIndexBeforeShoot].ID)
             {
-                #region 社恐弹 
+                #region 社恐弹
                 case 10002:
                     if (bulletIndexBeforeShoot != 0)
                     {
@@ -82,6 +87,23 @@ public class BattleSystem : MonoBehaviour
                     break;
                 #endregion
 
+                #region 奇数弹
+                case 10006:
+                    OddBullet();
+                    break;
+                #endregion
+
+                #region 偶数弹
+                case 10007:
+                    EvenBullet();
+                    break;
+                #endregion
+
+                #region 质数弹
+                case 10008:
+                    PrimeBullet();
+                    break;
+                #endregion
 
                 default:
                     bulletIndexBeforeShoot++;
@@ -91,7 +113,6 @@ public class BattleSystem : MonoBehaviour
         if_ShootStart = true;
         StartShoot();
     }
-    
     public void StartShoot()//开始射击后玩家和敌人的动作表现
     {
         if (ShootEnd()) return;
@@ -116,6 +137,14 @@ public class BattleSystem : MonoBehaviour
     {
         if (bulletIndexShoot >= bullets.Count) StartShoot();
         //判断子弹
+
+        #region 空包弹
+        if (bullets[bulletIndexShoot].ID == 10000)
+        {
+            bulletIndexShoot++;
+            return false;
+        }
+        #endregion
 
         #region 旧子弹判断
         if (!if_haveJudgedFirstShootFailed)
@@ -162,7 +191,19 @@ public class BattleSystem : MonoBehaviour
     }
     public bool ShootEnd()//射击结束
     {
-        if(bulletIndexShoot>bullets.Count-1)
+        if (InventoryManager.Instance.playerCurrentHealth <= 0)
+        {
+            endPage.gameObject.SetActive(true);
+            endPage.Lose();
+            return true;
+        }
+        else if (currentEnemy.CurrentHealth <= 0)
+        {
+            endPage.gameObject.SetActive(true);
+            endPage.Win();
+            return true;
+        }
+        if (bulletIndexShoot>bullets.Count-1)
         {
             if_haveJudgedFirstShootFailed = false;//第一次射击空枪判断恢复
             bulletIndexShoot = 0;
@@ -171,28 +212,77 @@ public class BattleSystem : MonoBehaviour
             endPage.Lose();
             return true;
         }
-        if(InventoryManager.Instance.playerCurrentHealth<=0)
-        {
-            endPage.gameObject.SetActive(true);
-            endPage.Lose();
-            return true;
-        }
-        else if(currentEnemy.CurrentHealth<=0)
-        {
-            endPage.gameObject.SetActive(true);
-            endPage.Win();
-            return true;
-        }
+        
         return false;
     }
-    #region 会影响队列的子弹技能
 
+    #region 会影响队列的子弹技能
     public void NotTheFirst()//社恐弹
     {
         RandomBulletQueue();//那就重新排序
     }
+    public void AllTheFirst()//判断是否全都是社恐弹
+    {
 
+    }
+    public void OddBullet()//奇数弹
+    {
+        if (oddList.Contains(bullets[0]))
+        {
+            RandomBulletQueue();
+            JudgeListEnable();
+        }
+        else bulletIndexBeforeShoot++;
+    }
+    public void EvenBullet()//偶数弹
+    {
+        if (evenList.Contains(bullets[0]))
+        {
+            RandomBulletQueue();
+            JudgeListEnable();
+        }
+        else bulletIndexBeforeShoot++;
+    }
+    public void PrimeBullet()//质数弹
+    {
+        if (primeList.Contains(bullets[0]))
+        {
+            RandomBulletQueue();
+            JudgeListEnable();
+        }
+        else bulletIndexBeforeShoot++;
+    }
 
+    //用于以上子弹的队列在此：
+    public List<Bullet> oddList = new List<Bullet>();
+    public List<Bullet> evenList = new List<Bullet>();
+    public List<Bullet> primeList = new List<Bullet>();
+    //以上列表初始化
+    void InitializeOddList()
+    {
+        oddList.Clear();
+        for(int i=0;i<BulletManager.Instance.loadedBulletList.Count;i+=2)//将队列的奇数子弹装进来
+        {
+            oddList.Add(BulletManager.Instance.loadedBulletList[i]);
+        }
+    }
+    void InitializeEvenList()
+    {
+        evenList.Clear();
+        for (int i = 1; i < BulletManager.Instance.loadedBulletList.Count; i += 2)//将队列的偶数子弹装进来
+        {
+            evenList.Add(BulletManager.Instance.loadedBulletList[i]);
+        }
+    }
+    void InitializePrimeList()
+    {
+        primeList.Clear();
+        for (int i = 1; i < BulletManager.Instance.loadedBulletList.Count; i += 1)//将队列的质数子弹装进来
+        {
+            if (i == 1 || i == 2 || i == 4 || i == 6)
+                primeList.Add(BulletManager.Instance.loadedBulletList[i]);
+        }
+    }
     #endregion
 
     #region 不影响队列的子弹技能

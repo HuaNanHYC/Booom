@@ -82,6 +82,15 @@ public class Enemy : MonoBehaviour
     {
         currentHealth = Mathf.Max(currentHealth - damage, 0);
     }
+    protected virtual void EnemyCharacterWhenTrue()//返回值为true时敌人的特性
+    {
+
+    }
+    protected virtual void EnemyCharacterWhenFalse()//返回值为false时敌人的特性
+    {
+        //这个为默认值，可以随意改变
+        battleSystem.SetIfPlayerFirst(false);
+    }
     public IEnumerator EnemyShooting()//敌人开枪
     {
         //敌人拿枪
@@ -94,9 +103,14 @@ public class Enemy : MonoBehaviour
         if (battleSystem.JudegeShoot())
         {
             enemySpriteRenderer.sprite = shotImage;//中枪
+            EnemyCharacterWhenTrue();
             //子弹爆炸的图片
         }
-        else enemySpriteRenderer.sprite = dodgeImage;//没中枪
+        else
+        {
+            enemySpriteRenderer.sprite = dodgeImage;//没中枪
+            EnemyCharacterWhenFalse();
+        }
         //回到初始装态，敌人把枪放回
         yield return new WaitForSeconds(0.5f);
         enemySpriteRenderer.sprite = readyImage;

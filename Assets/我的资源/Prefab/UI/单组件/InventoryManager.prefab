@@ -45,3 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ownBulletList: 
+  playerName: Player
+  playerCurrentHealth: 0
+  playerHeadImagePath: 
+  playerActionImagePath: 
+  playerShotImagePath: 

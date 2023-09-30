@@ -602,12 +602,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
+      propertyPath: levelList.Array.data[0].ableBulletID.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
       propertyPath: levelList.Array.data[0].steadyBulletID.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
       propertyPath: levelList.Array.data[0].unableBulletID.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
+      propertyPath: levelList.Array.data[0].ableBulletID.Array.data[0]
+      value: 10002
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
+      propertyPath: levelList.Array.data[0].ableBulletID.Array.data[1]
+      value: 10006
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
+      propertyPath: levelList.Array.data[0].ableBulletID.Array.data[2]
+      value: 10007
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
+      propertyPath: levelList.Array.data[0].ableBulletID.Array.data[3]
+      value: 10008
       objectReference: {fileID: 0}
     - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
       propertyPath: levelList.Array.data[0].steadyBulletID.Array.data[0]
