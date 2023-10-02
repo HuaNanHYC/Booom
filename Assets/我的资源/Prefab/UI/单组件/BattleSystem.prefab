@@ -53,4 +53,7 @@ MonoBehaviour:
   endPage: {fileID: 0}
   bullets: []
   if_PlayerShoot: 0
+  oddList: []
+  evenList: []
+  primeList: []
   if_haveJudgedFirstShootFailed: 0

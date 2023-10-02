@@ -31,6 +31,7 @@ public class BulletHole : MonoBehaviour
         if (if_AutoLoad) return;
         if (!if_Load && BulletManager.Instance.currentBullet != null)
         {
+            if (BulletManager.Instance.JudgeExistTogether_IfCanPutIn(BulletManager.Instance.currentBullet.ID) == false) return;
             if_Load = true;
             currentBullet = BulletManager.Instance.currentBullet;//记录现在装填的子弹
 

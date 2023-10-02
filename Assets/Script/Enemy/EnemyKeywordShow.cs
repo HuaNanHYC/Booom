@@ -17,7 +17,7 @@ public class EnemyKeywordShow : MonoBehaviour, IPointerEnterHandler, IPointerMov
     public void OnPointerEnter(PointerEventData eventData)
     {
         keywordDescriptionShow.SetActive(true);
-        keywordDescriptionShow.GetComponentInChildren<Text>().text = description;
+        keywordDescriptionShow.transform.GetChild(1).GetComponent<Text>().text = description;
     }
 
     public void OnPointerExit(PointerEventData eventData)

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class BattlePage : MonoBehaviour
 {
     public BattleSystem battleSystem;
-    public Button startBattle;//开始的按钮
+    public GameObject startBattle;//开始的按钮
     [Header("开始后的左轮盘显示")]
     public GameObject revolverPage;
 

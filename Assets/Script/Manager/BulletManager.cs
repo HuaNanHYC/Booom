@@ -79,6 +79,50 @@ public class BulletManager : MonoBehaviour
         }
 
     }
+    public bool JudgeExistTogether_IfCanPutIn(int id)
+    {
+        if (id == 10005)//需要判断是否有偶数弹和质数弹存在
+        {
+            for(int i=0;i<revolver.transform.childCount;i++)
+            {
+                Bullet bullet = revolver.transform.GetChild(i).GetComponent<BulletHole>().currentBullet;
+                if (bullet != null)
+                {
+                    if (bullet.ID == 10006 || bullet.ID == 10007)
+                        return false;
+                }
+            }
+            return true;
+        }
+        else if (id == 10006)//需要判断是否有奇数弹和质数弹存在
+        {
+            for (int i = 0; i < revolver.transform.childCount; i++)
+            {
+                Bullet bullet = revolver.transform.GetChild(i).GetComponent<BulletHole>().currentBullet;
+                if (bullet != null)
+                {
+                    if (bullet.ID == 10005 || bullet.ID == 10007)
+                        return false;
+                }
+            }
+            return true;
+        }
+        else if (id == 10007)//需要判断是否有奇数弹和偶数弹存在
+        {
+            for (int i = 0; i < revolver.transform.childCount; i++)
+            {
+                Bullet bullet = revolver.transform.GetChild(i).GetComponent<BulletHole>().currentBullet;
+                if (bullet != null)
+                {
+                    if (bullet.ID == 10005 || bullet.ID == 10006)
+                        return false;
+                }
+            }
+            return true;
+        }
+
+        return true;
+    }
     #endregion
 
     #region 子弹选择界面读取可用子弹生成子弹

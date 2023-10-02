@@ -17,8 +17,6 @@ public class LevelManager : MonoBehaviour
         public int[] steadyBulletID;//固定子弹数组id
         public int[] steadyBulletPosition;//固定子弹位置
         public int[] ableBulletID;//玩家不可用子弹
-        public int levelStartStoryID;//剧情开始id
-        public int levelOverStoryID;//剧情结束id
     }
     [SerializeField]
     public List<LevelInfo> levelList = new List<LevelInfo>();//关卡列表

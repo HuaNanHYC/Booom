@@ -12,6 +12,8 @@ public class BattleSystem : MonoBehaviour
 
     public bool if_BattleCanStart;//是否开始战斗
     public bool if_ShootStart;//是否可以开始射击，这是在子弹队列真正排列完毕之后
+    public int BulletIndexShoot { get => bulletIndexShoot; set => bulletIndexShoot = value; }
+    public int BulletIndexBeforeShoot { get => bulletIndexBeforeShoot; set => bulletIndexBeforeShoot = value; }
     [Header("目前敌人(无需设置)")]
     public Enemy currentEnemy;
     [Header("战斗主页面")]
@@ -68,6 +70,7 @@ public class BattleSystem : MonoBehaviour
             bullets[i].InitializeBullet();
         }
         bulletIndexBeforeShoot = 0;//索引也要清零一次
+        bulletIndexShoot = 0;
     }
     public void JudgeListEnable()//判断队列是否可以作为战斗队列开启，主要放能影响队列的子弹
     {
@@ -88,19 +91,19 @@ public class BattleSystem : MonoBehaviour
                 #endregion
 
                 #region 奇数弹
-                case 10006:
+                case 10005:
                     OddBullet();
                     break;
                 #endregion
 
                 #region 偶数弹
-                case 10007:
+                case 10006:
                     EvenBullet();
                     break;
                 #endregion
 
                 #region 质数弹
-                case 10008:
+                case 10007:
                     PrimeBullet();
                     break;
                 #endregion
@@ -123,6 +126,7 @@ public class BattleSystem : MonoBehaviour
         }
         else
         {
+            StopAllCoroutines();
             StartCoroutine(currentEnemy.EnemyShooting());
         }
     }
@@ -141,6 +145,7 @@ public class BattleSystem : MonoBehaviour
         #region 空包弹
         if (bullets[bulletIndexShoot].ID == 10000)
         {
+            Shoot();
             bulletIndexShoot++;
             return false;
         }
@@ -176,14 +181,14 @@ public class BattleSystem : MonoBehaviour
         float damage = bullets[bulletIndexShoot].actualDamage;
         if (if_PlayerShoot)
         {
-            InventoryManager.Instance.PlayerGetHurt(damage);
+            InventoryManager.Instance.PlayerGetHurt(damage, bulletIndexShoot);
             if_PlayerShoot = false;
             Debug.Log("玩家射击1次");
             return;
         }
         else if (!if_PlayerShoot)
         {
-            currentEnemy.EnemyGetHurt(damage);
+            currentEnemy.EnemyGetHurt(damage,bulletIndexShoot);
             if_PlayerShoot = true;
             Debug.Log("敌人射击1次");
             return;
@@ -300,6 +305,7 @@ public class BattleSystem : MonoBehaviour
     {
         if (bullets[bulletIndexShoot].ID==10004)
         {
+            bullets[bulletIndexShoot].actualDamage = 0;
             Shoot();
             bulletIndexShoot++;
             if_PlayerShoot = !if_PlayerShoot;//还是同一个人射

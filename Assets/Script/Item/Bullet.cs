@@ -11,25 +11,32 @@ public class Bullet : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler,IPo
     private int bulletInHoleNumber;
     [TextArea]
     public string bulletDescription;
-    [TextArea]
-    public string extraDescription;
+    /*[TextArea]
+    public string extraDescription;*/
     public float settingDamage=1;//设定的伤害
     public float actualDamage;//实际的伤害
 
     private Sprite bulletIcon;
-    private Sprite bulletImage;
-    [TextArea]
-    public string bulletIconPath;
-    [TextArea]
-    public string bulletImagePath;
+    private Sprite bulletImageMain;
+    private Sprite bulletImageHover;
+    private Sprite bulletImageSelected;
+    [TextArea] public string bulletIconPath;
+    [TextArea] public string bulletImagePath;
+    [TextArea] public string bulletImageHoverPath;
+    [TextArea] public string bulletImageSelectedPath;
 
+    private Image bulletImageSelf;
     private void Start()
     {
         bulletInfoRectTransform = currentBulletInfo.GetComponent<RectTransform>();
-        bulletImage = GetComponent<Image>().sprite;
+        bulletImageSelf = transform.GetComponent<Image>();
         UpdateBulletImageAndIcon();//更新图片
         InitializeBullet();
         UpdateBulletInfo();//同步信息
+    }
+    private void Update()
+    {
+        IfSelected();
     }
 
 
@@ -38,25 +45,34 @@ public class Bullet : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler,IPo
     public GameObject currentBulletInfo;
 
     public Sprite BulletIcon { get => bulletIcon; }//只可读
-    public Sprite BulletImage { get => bulletImage;}
+    //public Sprite BulletImage { get => bulletImage;}
     public int BulletInHoleNumber { get => bulletInHoleNumber; set => bulletInHoleNumber = value; }
 
     public void UpdateBulletInfo()//让信息更新
     {
-        currentBulletInfo.transform.GetChild(0).GetComponent<Image>().sprite = bulletIcon;
-        currentBulletInfo.transform.GetChild(0).GetComponentInChildren<Text>().text = bulletName;
+        currentBulletInfo.transform.GetChild(0).GetComponent<Text>().text = bulletName;
         currentBulletInfo.transform.GetChild(1).GetComponent<Text>().text = bulletDescription;
-        currentBulletInfo.transform.GetChild(2).GetComponent<Text>().text = extraDescription;
+        //currentBulletInfo.transform.GetChild(2).GetComponent<Text>().text = extraDescription;
     }
+    private bool if_PointerEnter;
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if_PointerEnter = true;
+
         // 鼠标进入对象时显示提示
         currentBulletInfo.SetActive(true);
+        //图片形象变换
+        bulletImageSelf.sprite = bulletImageHover;
+        
     }
     public void OnPointerExit(PointerEventData eventData)
     {
+        if_PointerEnter = false;
+
         // 鼠标离开对象时隐藏提示
         currentBulletInfo.SetActive(false);
+
+        bulletImageSelf.sprite = bulletImageMain;
     }
 
     public void OnPointerMove(PointerEventData eventData)
@@ -79,6 +95,18 @@ public class Bullet : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler,IPo
             bulletInfoRectTransform.localPosition = localMousePos + offset;
         }
     }
+
+   public void IfSelected()
+    {
+        if(BulletManager.Instance.currentBullet==this)
+        {
+            bulletImageSelf.sprite = bulletImageSelected;
+        }
+        else if(if_PointerEnter==false)
+        {
+            bulletImageSelf.sprite = bulletImageMain;
+        }
+    }
     #endregion
 
     #region 用于按钮操作
@@ -97,27 +125,13 @@ public class Bullet : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler,IPo
 
     public void UpdateBulletImageAndIcon()
     {
-        Sprite imageSprite = Resources.Load<Sprite>(bulletIconPath);
-        if (imageSprite != null)
-        {
-            // 获取物体上的Image组件
-            bulletIcon = imageSprite;
-        }
-        else
-        {
-            Debug.Log("没有找到路径图片: " + bulletIconPath);
-        }
+        bulletIcon = Resources.Load<Sprite>(bulletIconPath);
+        bulletImageMain = Resources.Load<Sprite>(bulletImagePath);
+        bulletImageHover = Resources.Load<Sprite>(bulletImageHoverPath);
+        bulletImageSelected = Resources.Load<Sprite>(bulletImageSelectedPath);
 
-        Sprite imageSprite2 = Resources.Load<Sprite>(bulletImagePath);
-        if (imageSprite2 != null)
-        {
-            // 获取物体上的Image组件
-            bulletImage = imageSprite;
-        }
-        else
-        {
-            Debug.Log("没有找到路径图片: " + bulletImagePath);
-        }
+        bulletImageSelf.sprite = bulletImageMain;
     }
+
     #endregion
 }

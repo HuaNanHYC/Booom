@@ -11,7 +11,6 @@ public class InventoryManager : MonoBehaviour
     {
         if (instance == null) instance = this;
         else Destroy(instance);
-        DontDestroyOnLoad(gameObject);
 
         PlayerInfoInitialize();//更新玩家信息
     }
@@ -54,13 +53,19 @@ public class InventoryManager : MonoBehaviour
     [TextArea] public string playerShotImagePath;//玩家中枪图片路径
     private Sprite playerActionImage;
     private Sprite playerShotImage;
-
+    private bool if_Immute = false;
     public Sprite PlayerHeadImage { get => playerHeadImage;}
     public Sprite PlayerActionImage { get => playerActionImage; }
     public Sprite PlayerShotImage { get => playerShotImage; }
+    public bool If_Immute { get => if_Immute; set => if_Immute = value; }
 
-    public void PlayerGetHurt(float damage)//受到伤害
+    public void PlayerGetHurt(float damage,int bulletIndex)//受到伤害
     {
+        if (if_Immute && bulletIndex == 0)
+        {
+            if_Immute = false;
+            return;
+        }
         playerCurrentHealth = Mathf.Max(playerCurrentHealth - damage, 0);
     }
     public void PlayerInfoInitialize()//初始化玩家信息，或重置

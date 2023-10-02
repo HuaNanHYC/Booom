@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class PlayerInfoPage : MonoBehaviour
 {
-    public Text playerNameText;
+    //public Text playerNameText;
     public Text currentHealthText;
-    public Slider currentHealthSlide;
-    public Image playerHeadImage;
+    public GameObject bloodImage;
+    //public Slider currentHealthSlide;
+    //public Image playerHeadImage;
     private void Start()
     {
         InitializePlayerInfoPage();
@@ -19,16 +20,20 @@ public class PlayerInfoPage : MonoBehaviour
     }
     public void InitializePlayerInfoPage()
     {
-        if (InventoryManager.Instance.PlayerHeadImage)
-            playerHeadImage.sprite = InventoryManager.Instance.PlayerHeadImage;//设置玩家头像
-        playerNameText.text = InventoryManager.Instance.playerName;
-        currentHealthSlide.maxValue = InventoryManager.playerMaxHealth;
+        //if (InventoryManager.Instance.PlayerHeadImage) 
+            //playerHeadImage.sprite = InventoryManager.Instance.PlayerHeadImage;//设置玩家头像
+        //playerNameText.text = InventoryManager.Instance.playerName;
+        //currentHealthSlide.maxValue = InventoryManager.playerMaxHealth;
     }
     public void UpdatePlayerInfoPage()
     {
         string health = InventoryManager.Instance.playerCurrentHealth.ToString();
         string maxHealth=InventoryManager.playerMaxHealth.ToString();
-        currentHealthSlide.value = InventoryManager.Instance.playerCurrentHealth;
+        //currentHealthSlide.value = InventoryManager.Instance.playerCurrentHealth;
         currentHealthText.text = health + "/" + maxHealth;
+        if(InventoryManager.Instance.playerCurrentHealth==0)
+        {
+            if (bloodImage.transform.GetChild(0) != null) bloodImage.transform.GetChild(0).gameObject.SetActive(true);
+        }
     }
 }

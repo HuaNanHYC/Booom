@@ -55,6 +55,14 @@ MonoBehaviour:
     prefab: {fileID: 6590769743874720366, guid: 704bd15e8f595a442b4d82da09c876cd, type: 3}
   - ID: 10004
     prefab: {fileID: 6590769743874720366, guid: a7e1870a716b3ac4cad989a35e207630, type: 3}
+  - ID: 10005
+    prefab: {fileID: 6590769743874720366, guid: 78dd4533b40cf9b4bb80ad986c53d68e, type: 3}
+  - ID: 10006
+    prefab: {fileID: 6590769743874720366, guid: e054edf2a85a2a343963a80ba929cfaf, type: 3}
+  - ID: 10007
+    prefab: {fileID: 6590769743874720366, guid: 7c664eeaae310a74a87243d38596ca4c, type: 3}
+  - ID: 10008
+    prefab: {fileID: 6590769743874720366, guid: adab39c936fad1945a438e01c7f01f0c, type: 3}
   currentBullet: {fileID: 0}
   emptyBullet: 10000
   loadedBulletList: []

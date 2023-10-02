@@ -10,14 +10,15 @@ public class EnemyInfoPage : MonoBehaviour
     private Sprite headImage;//头像
 
     public Text enemyNameText;
-    public Slider enemyHealthSlide;
+    //public Slider enemyHealthSlide;
     public Image enemyHeadImage;
     public Text enemyHealthText;
+    public Transform healthManage;//血量图片生成管理的父物体
+    public GameObject healthImagePrefab;//血量图片
 
     private Enemy enemy;
 
     private List<Enemy.KeyWordAndDesc> keyWordAndDescsList = new List<Enemy.KeyWordAndDesc>();
-    public Transform infoParent;//信息栏
     public GameObject keywordPrefab;//用来显示关键词的预制体
     private void Start()
     {
@@ -39,23 +40,41 @@ public class EnemyInfoPage : MonoBehaviour
             enemyHeadImage.sprite = enemy.HeadImage;
         keyWordAndDescsList = enemy.keyWordAndDescsList;
 
-        enemyHealthSlide.maxValue = enemyHealth;
+        //enemyHealthSlide.maxValue = enemyHealth;
 
         ShowTheKeyWords();
+        InstantiateBloodImage();//生成血量图片
     }
     public void UpdateEnemyInfoPage()//实时更新敌人血量等数据
     {
         currentHealth = enemy.CurrentHealth;
-        enemyHealthSlide.value = currentHealth;
+        //enemyHealthSlide.value = currentHealth;
         enemyHealthText.text = currentHealth.ToString() + "/" + enemyHealth.ToString();
+
+        float falseBlood = enemyHealth - currentHealth;
+        for(int i = healthManage.childCount-1; i > currentHealth-1; i--)
+        {
+            if(healthManage.GetChild(i) != null)
+            {
+                if (healthManage.GetChild(i).GetChild(0).gameObject.activeSelf)
+                    healthManage.GetChild(i).GetChild(0).gameObject.SetActive(false);
+            }
+        }
     }
     public void ShowTheKeyWords()
     {
         for (int i = 0; i < keyWordAndDescsList.Count; i++)
         {
-            GameObject keyWordInfo = Instantiate(keywordPrefab, infoParent);
-            keyWordInfo.GetComponentInChildren<Text>().text = keyWordAndDescsList[i].keyWord;
-            keyWordInfo.GetComponent<EnemyKeywordShow>().Description = keyWordAndDescsList[i].keyDecription;
+            keywordPrefab.GetComponentInChildren<Text>().text = keyWordAndDescsList[i].keyWord;
+            keywordPrefab.GetComponent<EnemyKeywordShow>().Description = keyWordAndDescsList[i].keyDecription;
+            keywordPrefab.GetComponent<EnemyKeywordShow>().keywordDescriptionShow.transform.GetChild(0).GetComponent<Text>().text = enemyName;
+        }
+    }
+    public void InstantiateBloodImage()
+    {
+        for(int i=0;i<enemyHealth;i++)
+        {
+            Instantiate(healthImagePrefab, healthManage);
         }
     }
 }

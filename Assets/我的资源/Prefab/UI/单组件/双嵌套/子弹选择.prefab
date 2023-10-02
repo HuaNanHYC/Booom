@@ -143,7 +143,6 @@ MonoBehaviour:
   ID: 0
   bulletName: Null
   bulletDescription: 
-  extraDescription: 
   settingDamage: 1
   actualDamage: 0
   bulletIconPath: 
@@ -384,7 +383,8 @@ PrefabInstance:
       value: "\u5B50\u5F39\u63CF\u8FF0"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1335705980184569603, guid: e1ee5e67fbff75a4995147ecc7184b2c, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1ee5e67fbff75a4995147ecc7184b2c, type: 3}
