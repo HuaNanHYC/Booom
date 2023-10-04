@@ -180,6 +180,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5971131048590740790, guid: b4e7bafa4ceb56e4797c85164ab11c77, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -65.9127
+      objectReference: {fileID: 0}
+    - target: {fileID: 5971131048590740790, guid: b4e7bafa4ceb56e4797c85164ab11c77, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 32.9564
+      objectReference: {fileID: 0}
     - target: {fileID: 6086461300400110652, guid: b4e7bafa4ceb56e4797c85164ab11c77, type: 3}
       propertyPath: m_Transition
       value: 0
@@ -203,6 +211,30 @@ PrefabInstance:
     - target: {fileID: 7790614811371234000, guid: b4e7bafa4ceb56e4797c85164ab11c77, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8153115144618273577, guid: b4e7bafa4ceb56e4797c85164ab11c77, type: 3}
+      propertyPath: m_Text
+      value: "\u8D28\u6570\u5F39"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8153115144618273577, guid: b4e7bafa4ceb56e4797c85164ab11c77, type: 3}
+      propertyPath: m_Color.b
+      value: 0.16078432
+      objectReference: {fileID: 0}
+    - target: {fileID: 8153115144618273577, guid: b4e7bafa4ceb56e4797c85164ab11c77, type: 3}
+      propertyPath: m_Color.g
+      value: 0.4392157
+      objectReference: {fileID: 0}
+    - target: {fileID: 8153115144618273577, guid: b4e7bafa4ceb56e4797c85164ab11c77, type: 3}
+      propertyPath: m_Color.r
+      value: 0.95686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 8153115144618273577, guid: b4e7bafa4ceb56e4797c85164ab11c77, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 364394e4af1faf7498c1a60b726ad925, type: 3}
+    - target: {fileID: 8153115144618273577, guid: b4e7bafa4ceb56e4797c85164ab11c77, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8331490877131415644, guid: b4e7bafa4ceb56e4797c85164ab11c77, type: 3}
       propertyPath: m_AnchorMax.y

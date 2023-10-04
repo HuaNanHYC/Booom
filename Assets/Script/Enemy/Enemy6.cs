@@ -41,7 +41,7 @@ public class Enemy6 : Enemy
         }
         else
         {
-            enemySpriteRenderer.sprite = dodgeImage;//没中枪
+            EnemyDodge();//没中枪
         }
         //回到初始装态，敌人把枪放回
         yield return new WaitForSeconds(0.5f);

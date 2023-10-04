@@ -15,32 +15,52 @@ public class Enemy3 : Enemy
     {
         //敌人拿枪
         yield return new WaitForSeconds(0.5f);//等待0.5秒
-        enemySpriteRenderer.sprite = actionImage;
+        EnemyAction(true);
         yield return new WaitForSeconds(0.5f);
-        enemySpriteRenderer.sprite = readyImage;
+        EnemyReady(false);
         //准备开枪
         yield return new WaitForSeconds(0.5f);
         if(if_Immute)
         {
-            enemySpriteRenderer.sprite = dodgeImage;//没中枪
+            EnemyDodge();//没中枪
+            yield return new WaitForSeconds(0.5f);
+            EnemyReady(false);
+            yield return new WaitForSeconds(0.5f);
+            EnemyDodgeAction();
+            actionHand.SetActive(true);
+            yield return new WaitForSeconds(0.5f);
+            actionHand.SetActive(false);
+            EnemyIdle();
             battleSystem.JudegeShoot();
+            battleSystem.StartShoot();
+            StopAllCoroutines();
         }
         else if (battleSystem.JudegeShoot())
         {
-            enemySpriteRenderer.sprite = shotImage;//中枪
+            EnemyShot();//中枪
+            yield return new WaitForSeconds(0.5f);
+            EnemyReady(false);
+            yield return new WaitForSeconds(0.5f);
+            EnemyAction(true);
+            yield return new WaitForSeconds(0.5f);
+            actionHand.SetActive(false);
+            EnemyIdle();
+            battleSystem.StartShoot();
+            StopAllCoroutines();
         }
         else
         {
-            enemySpriteRenderer.sprite = dodgeImage;//没中枪
+            EnemyDodge();//没中枪
+            yield return new WaitForSeconds(0.5f);
+            EnemyReady(false);
+            yield return new WaitForSeconds(0.5f);
+            EnemyDodgeAction();
+            actionHand.SetActive(true);
+            yield return new WaitForSeconds(0.5f);
+            actionHand.SetActive(false);
+            EnemyIdle();
+            battleSystem.StartShoot();
+            StopAllCoroutines();
         }
-        //回到初始装态，敌人把枪放回
-        yield return new WaitForSeconds(0.5f);
-        enemySpriteRenderer.sprite = readyImage;
-        yield return new WaitForSeconds(0.5f);
-        enemySpriteRenderer.sprite = actionImage;
-        yield return new WaitForSeconds(0.5f);
-        enemySpriteRenderer.sprite = dialogueImage;
-        battleSystem.StartShoot();
-        yield return null;
     }
 }

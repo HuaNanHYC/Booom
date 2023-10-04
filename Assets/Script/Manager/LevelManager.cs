@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour
     public struct LevelInfo
     {
         public int levelID;
-        public string targetScene;
+        //public string targetScene;
         public int enemyID;
         [Header("固定数组id和位置需要对应")]
         public int[] steadyBulletID;//固定子弹数组id

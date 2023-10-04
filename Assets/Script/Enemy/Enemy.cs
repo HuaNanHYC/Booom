@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Enemy : MonoBehaviour
 {
     #region 基础信息
@@ -20,14 +19,14 @@ public class Enemy : MonoBehaviour
     [Header("所有和开枪动作有关的图片路径")]
     [TextArea] public string actionImagePath;
     [TextArea] public string readyImagePath;   
-    [TextArea] public string dodgeImagePath;
     [TextArea] public string shotImagePath;
-    [TextArea] public string dodgeActionImagePath;
+    public SpriteRenderer shootText;//开枪或空枪的文字，用子物体的赋予
+    public Sprite dodgeActionText;//空枪嘲讽
+    public Sprite dodgeText;//空枪字
+    public Sprite shotText;//中枪字
     protected Sprite actionImage;//拿枪动作形象
     protected Sprite readyImage;//准备开枪形象
-    protected Sprite dodgeImage;//未中枪形象 
     protected Sprite shotImage;//中枪形象
-    protected Sprite dodgeActionImage;//没中枪后放枪的形象
 
     protected SpriteRenderer enemySpriteRenderer;//敌人图像管理
     protected Animator animator;//动画机
@@ -65,9 +64,7 @@ public class Enemy : MonoBehaviour
 
         actionImage= Resources.Load<Sprite>(actionImagePath);
         readyImage = Resources.Load<Sprite>(readyImagePath);
-        dodgeImage = Resources.Load<Sprite>(dodgeImagePath);
         shotImage = Resources.Load<Sprite>(shotImagePath);
-        dodgeActionImage = Resources.Load<Sprite>(dodgeActionImagePath);
     }
     public void InitializeEnemy()
     {
@@ -91,43 +88,79 @@ public class Enemy : MonoBehaviour
     {
         //敌人拿枪
         yield return new WaitForSeconds(0.5f);//等待0.5秒
-        enemySpriteRenderer.sprite = actionImage;
-        actionHand.SetActive(true);
+        EnemyAction(true);
         yield return new WaitForSeconds(0.5f);
-        actionHand.SetActive(false);
-        enemySpriteRenderer.sprite = readyImage;
+        EnemyReady(false);
         //准备开枪
         yield return new WaitForSeconds(0.5f);
         if (battleSystem.JudegeShoot())
         {
-            enemySpriteRenderer.sprite = shotImage;//中枪
+            EnemyShot();//中枪
             yield return new WaitForSeconds(0.5f);
-            enemySpriteRenderer.sprite = readyImage;
+            EnemyReady(false);
             yield return new WaitForSeconds(0.5f);
-            enemySpriteRenderer.sprite = actionImage;
-            actionHand.SetActive(true);
+            EnemyAction(true);
             yield return new WaitForSeconds(0.5f);
             actionHand.SetActive(false);
-            enemySpriteRenderer.sprite = dialogueImage;
+            EnemyIdle();
             battleSystem.StartShoot();
             StopAllCoroutines();
         }
         else
         {
-            enemySpriteRenderer.sprite = dodgeImage;//没中枪
+            EnemyDodge();//没中枪
             yield return new WaitForSeconds(0.5f);
-            enemySpriteRenderer.sprite = readyImage;
+            EnemyReady(false);
             yield return new WaitForSeconds(0.5f);
-            enemySpriteRenderer.sprite = dodgeActionImage;
+            EnemyDodgeAction();
             actionHand.SetActive(true);
             yield return new WaitForSeconds(0.5f);
             actionHand.SetActive(false);
-            enemySpriteRenderer.sprite = dialogueImage;
+            EnemyIdle();
             battleSystem.StartShoot();
             StopAllCoroutines();
         }
-        
+
     }
+
+    protected void EnemyDodgeAction()
+    {
+        enemySpriteRenderer.sprite = actionImage;
+        shootText.sprite = dodgeActionText;
+    }
+
+    protected void EnemyDodge()
+    {
+        enemySpriteRenderer.sprite = readyImage;
+        shootText.sprite = dodgeText;//咔哒的文字
+    }
+
+    protected void EnemyIdle()
+    {
+        enemySpriteRenderer.sprite = dialogueImage;
+        shootText.sprite = null;
+    }
+
+    protected void EnemyShot()
+    {
+        enemySpriteRenderer.sprite = shotImage;
+        shootText.sprite = shotText;
+    }
+
+    protected void EnemyReady(bool hand)
+    {
+        enemySpriteRenderer.sprite = readyImage;
+        actionHand.SetActive(hand);
+        shootText.sprite = null;
+    }
+
+    protected void EnemyAction(bool hand)
+    {
+        enemySpriteRenderer.sprite = actionImage;
+        actionHand.SetActive(hand);
+        shootText.sprite = null;
+    }
+
 
     #endregion
 }

@@ -44,7 +44,7 @@ public class Bullet : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler,IPo
     private RectTransform bulletInfoRectTransform;//UI的位置
     public GameObject currentBulletInfo;
 
-    public Sprite BulletIcon { get => bulletIcon; }//只可读
+    public Sprite BulletIcon { get => bulletIcon; set => bulletIcon = value; }//只可读
     //public Sprite BulletImage { get => bulletImage;}
     public int BulletInHoleNumber { get => bulletInHoleNumber; set => bulletInHoleNumber = value; }
 

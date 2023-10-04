@@ -96,6 +96,10 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: -3051016727336081711, guid: b4e7bafa4ceb56e4797c85164ab11c77, type: 3}
+      propertyPath: bulletIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 7bf4aaf6144706e4482d498e42fe43cf, type: 3}
+    - target: {fileID: -3051016727336081711, guid: b4e7bafa4ceb56e4797c85164ab11c77, type: 3}
       propertyPath: bulletName
       value: "\u666E\u901A\u5F39 "
       objectReference: {fileID: 0}
