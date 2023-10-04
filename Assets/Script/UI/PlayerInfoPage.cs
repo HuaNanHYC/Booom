@@ -33,7 +33,7 @@ public class PlayerInfoPage : MonoBehaviour
         currentHealthText.text = health + "/" + maxHealth;
         if(InventoryManager.Instance.playerCurrentHealth==0)
         {
-            if (bloodImage.transform.GetChild(0) != null) bloodImage.transform.GetChild(0).gameObject.SetActive(true);
+            if (bloodImage.transform.GetChild(0) != null) bloodImage.transform.GetChild(0).gameObject.SetActive(false);
         }
     }
 }

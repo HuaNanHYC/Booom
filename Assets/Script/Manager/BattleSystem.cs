@@ -152,14 +152,14 @@ public class BattleSystem : MonoBehaviour
         #endregion
 
         #region 旧子弹判断
-        if (!if_haveJudgedFirstShootFailed)
+        if (!if_haveJudgedFirstShootFailed && bullets[bulletIndexShoot].ID==10003)
         {
-            if (TheFirstShootFailed())
-            {
-                if_PlayerShoot = !if_PlayerShoot;
-                return false;
-            }
+            if_PlayerShoot = !if_PlayerShoot;
+            if_haveJudgedFirstShootFailed = true;
+            return false;
         }
+        else
+            if_haveJudgedFirstShootFailed = false;
         #endregion
 
         #region 连发弹判断
@@ -181,16 +181,16 @@ public class BattleSystem : MonoBehaviour
         float damage = bullets[bulletIndexShoot].actualDamage;
         if (if_PlayerShoot)
         {
-            InventoryManager.Instance.PlayerGetHurt(damage, bulletIndexShoot);
+            InventoryManager.Instance.PlayerGetHurt(damage);
             if_PlayerShoot = false;
-            Debug.Log("玩家射击1次");
+            Debug.Log($"玩家射击1次{bullets[BulletIndexShoot]}");
             return;
         }
         else if (!if_PlayerShoot)
         {
-            currentEnemy.EnemyGetHurt(damage,bulletIndexShoot);
+            currentEnemy.EnemyGetHurt(damage);
             if_PlayerShoot = true;
-            Debug.Log("敌人射击1次");
+            Debug.Log($"敌人射击1次{bullets[BulletIndexShoot]}");
             return;
         }
     }
@@ -292,7 +292,7 @@ public class BattleSystem : MonoBehaviour
 
     #region 不影响队列的子弹技能
     public bool if_haveJudgedFirstShootFailed;//判断是否已经判定了第一次射击失效
-    public bool TheFirstShootFailed()//旧子弹
+    /*public bool TheFirstShootFailed()//旧子弹
     {
         if(bullets.Find(x=>x.ID==10003))
         {
@@ -300,7 +300,7 @@ public class BattleSystem : MonoBehaviour
             return true;
         }
         return false;
-    }
+    }*/
     public bool ShootTwice()//连发弹
     {
         if (bullets[bulletIndexShoot].ID==10004)

@@ -59,9 +59,9 @@ public class InventoryManager : MonoBehaviour
     public Sprite PlayerShotImage { get => playerShotImage; }
     public bool If_Immute { get => if_Immute; set => if_Immute = value; }
 
-    public void PlayerGetHurt(float damage,int bulletIndex)//受到伤害
+    public void PlayerGetHurt(float damage)//受到伤害
     {
-        if (if_Immute && bulletIndex == 0)
+        if (if_Immute && damage != 0)
         {
             if_Immute = false;
             return;

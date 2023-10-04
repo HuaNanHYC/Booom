@@ -74,13 +74,8 @@ public class Enemy : MonoBehaviour
     #region 与战斗相关
     protected float currentHealth;//现在的血量
     protected bool if_Immute=false;//是否免疫
-    public void EnemyGetHurt(float damage,int bulletIndex)//敌人受到伤害
+    public void EnemyGetHurt(float damage)//敌人受到伤害
     {
-        if (if_Immute && bulletIndex == 0)
-        {
-            if_Immute = false;
-            return;
-        }
         currentHealth = Mathf.Max(currentHealth - damage, 0);
     }
     

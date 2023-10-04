@@ -1813,6 +1813,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -191
       objectReference: {fileID: 0}
+    - target: {fileID: 6076594679423716601, guid: ee41dfa1db57af94f9eed927fd88cafc, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 519802dd784eae9438cc001f5cd75e8e, type: 3}
+    - target: {fileID: 6076594679423716601, guid: ee41dfa1db57af94f9eed927fd88cafc, type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 519802dd784eae9438cc001f5cd75e8e, type: 3}
     - target: {fileID: 6110086897042156984, guid: ee41dfa1db57af94f9eed927fd88cafc, type: 3}
       propertyPath: battleSystem
       value: 

@@ -23,11 +23,8 @@ public class PlayerShootButton : MonoBehaviour
         playerSprite.sprite = null;
         yield return new WaitForSeconds(0.5f);
         //¿ªÇ¹
-        if (InventoryManager.Instance.If_Immute)
-        {
-            battleSystem.JudegeShoot();
-        }
-        else if (battleSystem.JudegeShoot())
+        
+        if (battleSystem.JudegeShoot())
         {
             playerSprite.sprite = InventoryManager.Instance.PlayerShotImage;
         }

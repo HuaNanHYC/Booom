@@ -25,6 +25,11 @@ public class AudioManager : MonoBehaviour
         audioSource1MainSource = GetComponent<AudioSource>();
         audioSource2EffectSource = transform.GetChild(0).GetComponent<AudioSource>();
     }
+    private void Update()
+    {
+        audioSource1MainSource = GetComponent<AudioSource>();
+        audioSource2EffectSource = transform.GetChild(0).GetComponent<AudioSource>();
+    }
     public void SetVolumn(float volumn)
     {
         audioSource1MainSource.volume = volumn;

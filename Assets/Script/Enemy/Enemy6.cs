@@ -16,9 +16,9 @@ public class Enemy6 : Enemy
     {
         //敌人拿枪
         yield return new WaitForSeconds(0.5f);//等待0.5秒
-        enemySpriteRenderer.sprite = actionImage;
+        EnemyAction(true);
         yield return new WaitForSeconds(0.5f);
-        enemySpriteRenderer.sprite = readyImage;
+        EnemyReady(false);
         //准备开枪
         yield return new WaitForSeconds(0.5f);
         //剩1滴血时将枪口对准你
@@ -29,28 +29,40 @@ public class Enemy6 : Enemy
             battleSystem.if_PlayerShoot = true;
             battleSystem.JudegeShoot();
             yield return new WaitForSeconds(0.5f);
-            enemySpriteRenderer.sprite = actionImage;
+            EnemyAction(true);
             yield return new WaitForSeconds(0.5f);
-            enemySpriteRenderer.sprite = dialogueImage;
+            actionHand.SetActive(false);
+            EnemyIdle();
+            battleSystem.if_PlayerShoot = true;
             battleSystem.StartShoot();
             StopAllCoroutines();//停止协程
         }
-        if (battleSystem.JudegeShoot())
+        else if (battleSystem.JudegeShoot())
         {
-            enemySpriteRenderer.sprite = shotImage;//中枪
+            EnemyShot();//中枪
+            yield return new WaitForSeconds(0.5f);
+            EnemyReady(false);
+            yield return new WaitForSeconds(0.5f);
+            EnemyAction(true);
+            yield return new WaitForSeconds(0.5f);
+            actionHand.SetActive(false);
+            EnemyIdle();
+            battleSystem.StartShoot();
+            StopAllCoroutines();
         }
         else
         {
             EnemyDodge();//没中枪
+            yield return new WaitForSeconds(0.5f);
+            EnemyReady(false);
+            yield return new WaitForSeconds(0.5f);
+            EnemyDodgeAction();
+            actionHand.SetActive(true);
+            yield return new WaitForSeconds(0.5f);
+            actionHand.SetActive(false);
+            EnemyIdle();
+            battleSystem.StartShoot();
+            StopAllCoroutines();
         }
-        //回到初始装态，敌人把枪放回
-        yield return new WaitForSeconds(0.5f);
-        enemySpriteRenderer.sprite = readyImage;
-        yield return new WaitForSeconds(0.5f);
-        enemySpriteRenderer.sprite = actionImage;
-        yield return new WaitForSeconds(0.5f);
-        enemySpriteRenderer.sprite = dialogueImage;
-        battleSystem.StartShoot();
-        yield return null;
     }
 }

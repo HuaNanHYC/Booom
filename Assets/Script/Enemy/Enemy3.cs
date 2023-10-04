@@ -20,22 +20,12 @@ public class Enemy3 : Enemy
         EnemyReady(false);
         //准备开枪
         yield return new WaitForSeconds(0.5f);
-        if(if_Immute)
+        if (if_Immute && battleSystem.bullets[battleSystem.BulletIndexShoot].actualDamage != 0)
         {
-            EnemyDodge();//没中枪
-            yield return new WaitForSeconds(0.5f);
-            EnemyReady(false);
-            yield return new WaitForSeconds(0.5f);
-            EnemyDodgeAction();
-            actionHand.SetActive(true);
-            yield return new WaitForSeconds(0.5f);
-            actionHand.SetActive(false);
-            EnemyIdle();
-            battleSystem.JudegeShoot();
-            battleSystem.StartShoot();
-            StopAllCoroutines();
+            if_Immute = false;
+            battleSystem.bullets[battleSystem.BulletIndexShoot].actualDamage = 0;
         }
-        else if (battleSystem.JudegeShoot())
+        if (battleSystem.JudegeShoot())
         {
             EnemyShot();//中枪
             yield return new WaitForSeconds(0.5f);
