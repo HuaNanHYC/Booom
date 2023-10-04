@@ -276,6 +276,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2652649160780926059}
   - component: {fileID: 5337936950011149191}
+  - component: {fileID: 7133900219567284362}
   - component: {fileID: 6712791828952363864}
   - component: {fileID: 8627485056655853721}
   m_Layer: 5
@@ -313,6 +314,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2330316778606630986}
   m_CullTransparentMesh: 1
+--- !u!114 &7133900219567284362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2330316778606630986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 496e5bd9f1596724f9879f6f08b95c14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6712791828952363864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -386,7 +399,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6712791828952363864}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7133900219567284362}
+        m_TargetAssemblyTypeName: test, Assembly-CSharp
+        m_MethodName: NextScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4215665855174477256
 GameObject:
   m_ObjectHideFlags: 0

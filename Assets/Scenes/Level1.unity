@@ -193,7 +193,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 3
+  m_Text: 2
 --- !u!222 &120032455
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -272,7 +272,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 2
+  m_Text: 1
 --- !u!222 &249474505
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -419,7 +419,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 4
 --- !u!222 &1150118615
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -590,7 +590,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 4
+  m_Text: 3
 --- !u!222 &1220656938
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -723,11 +723,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 30187012630731461, guid: c9bfae703469f2143a4269dcf822756a, type: 3}
       propertyPath: number
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 444885763886223331, guid: c9bfae703469f2143a4269dcf822756a, type: 3}
       propertyPath: number
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 725200668209476516, guid: c9bfae703469f2143a4269dcf822756a, type: 3}
       propertyPath: m_SizeDelta.y
@@ -747,7 +747,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2749104770932892687, guid: c9bfae703469f2143a4269dcf822756a, type: 3}
       propertyPath: number
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4205545684905899468, guid: c9bfae703469f2143a4269dcf822756a, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -827,7 +827,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8111507107870292205, guid: c9bfae703469f2143a4269dcf822756a, type: 3}
       propertyPath: number
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8844464827808045679, guid: c9bfae703469f2143a4269dcf822756a, type: 3}
       propertyPath: m_AnchoredPosition.x
