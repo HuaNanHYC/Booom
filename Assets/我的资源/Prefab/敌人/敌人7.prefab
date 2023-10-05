@@ -51,11 +51,11 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA7"
   enemyHealth: 6
   actionHand: {fileID: 5360949764938762960}
-  headImagePath: Icon/Enemy1/Enemy_Head
-  dialogueImagePath: Image/Enemy6/06_01
-  actionImagePath: Image/Enemy6/06_02_01
-  readyImagePath: Image/Enemy6/06_03
-  shotImagePath: Image/Enemy6/06_04
+  headImagePath: Icon/Enemy/H_07
+  dialogueImagePath: Image/Enemy7/07_01
+  actionImagePath: Image/Enemy7/07_02_01
+  readyImagePath: Image/Enemy7/07_03
+  shotImagePath: Image/Enemy7/07_04
   shootText: {fileID: 4151193392116518802}
   dodgeActionText: {fileID: 21300000, guid: 4f8e36f043e13e54cb9a35a4bd432960, type: 3}
   dodgeText: {fileID: 21300000, guid: 1195c8e76fdffba4cbd3b3e6461129bc, type: 3}
@@ -104,12 +104,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2fcd3667425447a45887fc72c359766c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d5fe9b86891dd0a40b86eacbef054958, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 19.57, y: 19.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -141,7 +141,7 @@ Transform:
   m_GameObject: {fileID: 5360949764938762960}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.59, y: -4.34, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -188,12 +188,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 748fc71f6f2aff6488f0d8ab6bacb004, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 56d7208232c7a314794b35ed6e46b5c0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 9.16, y: 8.42}
+  m_Size: {x: 35.93756, y: 21.179998}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -225,9 +225,9 @@ Transform:
   m_GameObject: {fileID: 8827797236946400207}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3.39, y: 0, z: 0}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3342772388384295796}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

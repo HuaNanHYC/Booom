@@ -79,7 +79,10 @@ public class BulletManager : MonoBehaviour
         }
 
     }
-    public bool JudgeExistTogether_IfCanPutIn(int id)
+
+    [Header("子弹冲突ui")]
+    public GameObject putIn_Conflict;
+    public bool JudgeExistTogether_IfCanPutIn(int id)//判断是否可以装奇数弹等有无冲突
     {
         if (id == 10005)//需要判断是否有偶数弹和质数弹存在
         {
@@ -89,7 +92,10 @@ public class BulletManager : MonoBehaviour
                 if (bullet != null)
                 {
                     if (bullet.ID == 10006 || bullet.ID == 10007)
+                    {
+                        PutInConflicStart();
                         return false;
+                    }
                 }
             }
             return true;
@@ -102,7 +108,10 @@ public class BulletManager : MonoBehaviour
                 if (bullet != null)
                 {
                     if (bullet.ID == 10005 || bullet.ID == 10007)
+                    {
+                        PutInConflicStart();
                         return false;
+                    }
                 }
             }
             return true;
@@ -115,13 +124,28 @@ public class BulletManager : MonoBehaviour
                 if (bullet != null)
                 {
                     if (bullet.ID == 10005 || bullet.ID == 10006)
+                    {
+                        PutInConflicStart();
                         return false;
+                    }
                 }
             }
             return true;
         }
 
         return true;
+    }
+    public void PutInConflicStart()
+    {
+        StopAllCoroutines();
+        StartCoroutine(PutInConflict());
+    }
+    IEnumerator PutInConflict()
+    {
+        putIn_Conflict.SetActive(true);
+        yield return new WaitForSeconds(1);
+        putIn_Conflict.SetActive(false);
+        yield return null;
     }
     #endregion
 

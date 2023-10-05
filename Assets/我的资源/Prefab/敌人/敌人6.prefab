@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3257239543061584287}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.9, y: -5.08, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -73,12 +73,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 68c149ae1a77e554e8d8497397946577, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9999f37b22a508c46ad0bc934b8054da, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 9.16, y: 8.42}
+  m_Size: {x: 35.93756, y: 21.179998}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -135,11 +135,11 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA6"
   enemyHealth: 4
   actionHand: {fileID: 3257239543061584287}
-  headImagePath: 
-  dialogueImagePath: Image/Enemy5/05_01
-  actionImagePath: Image/Enemy5/05_02_01
-  readyImagePath: Image/Enemy5/05_03
-  shotImagePath: Image/Enemy5/05_04
+  headImagePath: Icon/Enemy/H_06
+  dialogueImagePath: Image/Enemy6/06_01
+  actionImagePath: Image/Enemy6/06_02_01
+  readyImagePath: Image/Enemy6/06_03
+  shotImagePath: Image/Enemy6/06_04
   shootText: {fileID: 7745530342623415035}
   dodgeActionText: {fileID: 21300000, guid: 4f8e36f043e13e54cb9a35a4bd432960, type: 3}
   dodgeText: {fileID: 21300000, guid: 1195c8e76fdffba4cbd3b3e6461129bc, type: 3}
@@ -147,7 +147,7 @@ MonoBehaviour:
   keyWordAndDescsList:
   - keyWord: "\u6076\u9B54\u7684\u4EA4\u6613"
     keyDecription: "\u4F60\u514D\u75AB\u7B2C\u4E00\u9897\u5B50\u5F39\uFF0C\u4F46\u662F\u5F53\u5979\u8840\u91CF\u964D\u52301\u65F6\uFF0C\u5979\u7684\u4E0B\u6B21\u653B\u51FB\u4F1A\u5BF9\u51C6\u4F60"
-  shootToYouImage: {fileID: 0}
+  shootToYouImage: {fileID: 21300000, guid: b30258b1f27208845b9df520ad53f8b8, type: 3}
 --- !u!212 &3582626950613304918
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -189,12 +189,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d9809f84b3f365d4c91f59977d5cfc35, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 63a1b92af3a32d34f8c17b8407c7d024, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 35.93756, y: 21.179998}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -226,7 +226,7 @@ Transform:
   m_GameObject: {fileID: 5017959736153773797}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -4.46, y: 0, z: 0}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_ConstrainProportionsScale: 0
   m_Children: []

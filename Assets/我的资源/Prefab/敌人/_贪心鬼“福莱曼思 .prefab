@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 842807123195783203}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.83, y: -4.52, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -73,12 +73,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: de47d8a7b0a99ab4fa676cfcb75eb596, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 123514fefeb333244ac0e480c46741a3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 9.16, y: 8.42}
+  m_Size: {x: 35.93756, y: 21.179998}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -110,7 +110,7 @@ Transform:
   m_GameObject: {fileID: 3886906749834588944}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3.83, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -162,7 +162,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 19.57, y: 10.7}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -219,9 +219,9 @@ MonoBehaviour:
   enemyName: "\"\u8D2A\u5FC3\u9B3C\"\u798F\u83B1\u66FC\u601D "
   enemyHealth: 2
   actionHand: {fileID: 842807123195783203}
-  headImagePath: Icon/Enemy1/Enemy_Head
+  headImagePath: Icon/Enemy/H_01
   dialogueImagePath: Image/Enemy1/01_01
-  actionImagePath: Image/Enemy1/01_02_1
+  actionImagePath: Image/Enemy1/01_02_01
   readyImagePath: Image/Enemy1/01_03
   shotImagePath: Image/Enemy1/01_04
   shootText: {fileID: 2512593171754126485}

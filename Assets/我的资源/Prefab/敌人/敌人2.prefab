@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 545200777589722959}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.56, y: -3.71, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 9.16, y: 8.42}
+  m_Size: {x: 35.93756, y: 21.179998}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -110,7 +110,7 @@ Transform:
   m_GameObject: {fileID: 1151813161438690684}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3.78, y: 0, z: 0}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -162,7 +162,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 19.57, y: 10.7}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -219,7 +219,7 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA2"
   enemyHealth: 3
   actionHand: {fileID: 545200777589722959}
-  headImagePath: 
+  headImagePath: Icon/Enemy/H_02
   dialogueImagePath: Image/Enemy2/02_01
   actionImagePath: Image/Enemy2/02_02_01
   readyImagePath: Image/Enemy2/02_03
@@ -277,7 +277,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 35.93756, y: 21.179998}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

@@ -50,12 +50,12 @@ MonoBehaviour:
   enemyID: 20008
   enemyName: 
   enemyHealth: 1
-  actionHand: {fileID: 0}
-  headImagePath: 
-  dialogueImagePath: Image/Enemy7/07_01
-  actionImagePath: Image/Enemy7/07_02_01
-  readyImagePath: Image/Enemy7/07_03
-  shotImagePath: Image/Enemy7/07_04
+  actionHand: {fileID: 9124938699752408730}
+  headImagePath: Icon/Enemy/H_08
+  dialogueImagePath: Image/Enemy8/08_01
+  actionImagePath: Image/Enemy8/08_02_01
+  readyImagePath: Image/Enemy8/08_03
+  shotImagePath: Image/Enemy8/08_04
   shootText: {fileID: 4119659197399536108}
   dodgeActionText: {fileID: 21300000, guid: 4f8e36f043e13e54cb9a35a4bd432960, type: 3}
   dodgeText: {fileID: 21300000, guid: 1195c8e76fdffba4cbd3b3e6461129bc, type: 3}
@@ -104,12 +104,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 27e1ba16d22586f40aed9fc4267cfacb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c1e64ae7963dc1d4281fe4fdceefa367, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 35.93756, y: 21.179998}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -141,9 +141,9 @@ Transform:
   m_GameObject: {fileID: 5771675239831603128}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -4.36, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3342772388384295796}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -225,7 +225,7 @@ Transform:
   m_GameObject: {fileID: 9124938699752408730}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.13, y: -4.14, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -272,12 +272,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 3b402b77f81ff03448127b820e0ecd1e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5575f833fe5561a42ad211bd7d67cba7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 9.16, y: 8.42}
+  m_Size: {x: 35.93756, y: 21.179998}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

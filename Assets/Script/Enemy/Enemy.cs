@@ -57,7 +57,7 @@ public class Enemy : MonoBehaviour
     {
         InitializeEnemyImageAndIcon();
     }
-    protected void InitializeEnemyImageAndIcon()//初始化加载敌人的所有图片
+    public void InitializeEnemyImageAndIcon()//初始化加载敌人的所有图片
     {
         headImage = Resources.Load<Sprite>(headImagePath);
         dialogueImage = Resources.Load<Sprite>(dialogueImagePath);

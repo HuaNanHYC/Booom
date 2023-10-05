@@ -23,6 +23,7 @@ public class EnemyInfoPage : MonoBehaviour
     private void Start()
     {
         enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
+        enemy.InitializeEnemyImageAndIcon();
         InitializePage();
     }
     private void Update()
@@ -67,7 +68,7 @@ public class EnemyInfoPage : MonoBehaviour
         {
             keywordPrefab.GetComponentInChildren<Text>().text = keyWordAndDescsList[i].keyWord;
             keywordPrefab.GetComponent<EnemyKeywordShow>().Description = keyWordAndDescsList[i].keyDecription;
-            keywordPrefab.GetComponent<EnemyKeywordShow>().keywordDescriptionShow.transform.GetChild(0).GetComponent<Text>().text = enemyName;
+            keywordPrefab.GetComponent<EnemyKeywordShow>().keywordDescriptionShow.transform.GetChild(0).GetComponent<Text>().text = keyWordAndDescsList[0].keyWord;
         }
     }
     public void InstantiateBloodImage()
