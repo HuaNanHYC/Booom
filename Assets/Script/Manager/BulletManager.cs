@@ -138,12 +138,13 @@ public class BulletManager : MonoBehaviour
     public void PutInConflicStart()
     {
         StopAllCoroutines();
+        putIn_Conflict.SetActive(false);
         StartCoroutine(PutInConflict());
     }
     IEnumerator PutInConflict()
     {
         putIn_Conflict.SetActive(true);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         putIn_Conflict.SetActive(false);
         yield return null;
     }

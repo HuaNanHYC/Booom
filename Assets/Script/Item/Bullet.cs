@@ -101,10 +101,12 @@ public class Bullet : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler,IPo
         if(BulletManager.Instance.currentBullet==this)
         {
             bulletImageSelf.sprite = bulletImageSelected;
+            transform.GetChild(0).GetComponent<Text>().color=Color.white;
         }
         else if(if_PointerEnter==false)
         {
             bulletImageSelf.sprite = bulletImageMain;
+            transform.GetChild(0).GetComponent<Text>().color = new Color(0.9568627f, 0.4392157f, 0.1607843f);
         }
     }
     #endregion
