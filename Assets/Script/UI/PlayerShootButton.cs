@@ -5,10 +5,14 @@ using UnityEngine;
 public class PlayerShootButton : MonoBehaviour
 {
     public BattleSystem battleSystem;
-    private SpriteRenderer playerSprite;
+    private SpriteRenderer playerSpriteRenderer;
+    private SpriteRenderer playerHurtSpriteRenderer;
+    private GameObject gunSprite;
     private void Start()
     {
-        playerSprite = GameObject.FindWithTag("Player").GetComponent<SpriteRenderer>();
+        playerSpriteRenderer = GameObject.FindWithTag("Player").GetComponent<SpriteRenderer>();
+        playerHurtSpriteRenderer = playerSpriteRenderer.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        gunSprite = GameObject.FindWithTag("Gun");
     }
     public void JudgeShoot()
     {
@@ -17,22 +21,26 @@ public class PlayerShootButton : MonoBehaviour
     public IEnumerator Shoot()//玩家进行射击
     {
         //拿枪
-        playerSprite.sprite = InventoryManager.Instance.PlayerActionImage;
+        playerSpriteRenderer.sprite = InventoryManager.Instance.PlayerActionImage;
         yield return new WaitForSeconds(0.5f);
         //在头顶
-        playerSprite.sprite = null;
-        yield return new WaitForSeconds(1f);
+        playerSpriteRenderer.sprite = null;
+        gunSprite.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
         //开枪
         
         if (battleSystem.JudegeShoot())
         {
-            playerSprite.sprite = InventoryManager.Instance.PlayerShotImage;
+            playerHurtSpriteRenderer.sprite = InventoryManager.Instance.PlayerHurtImage;
         }
         //把枪放回去
         yield return new WaitForSeconds(0.5f);
-        playerSprite.sprite = InventoryManager.Instance.PlayerActionImage;
+        playerHurtSpriteRenderer.sprite = null;
         yield return new WaitForSeconds(0.5f);
-        playerSprite.sprite = null;
+        playerSpriteRenderer.sprite = InventoryManager.Instance.PlayerActionImage;
+        gunSprite.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        playerSpriteRenderer.sprite = null;
         battleSystem.StartShoot();
     }
 }

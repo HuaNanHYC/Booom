@@ -15,6 +15,7 @@ public class BulletManager : MonoBehaviour
     }
     private void Start()
     {
+        bulletList.Clear();
         CreateBulletSelect();
     }
     [System.Serializable]
@@ -45,7 +46,13 @@ public class BulletManager : MonoBehaviour
     public GameObject revolver;//用来遍历的左轮，底下有一堆hole的物体
     public void LoadBullet()//子弹装填进入字典，给确定按钮
     {
+        //清除列表及列表生成的子物体
+        for (int i = bulletList.Count - 1; i >= 0; i--)
+        {
+            Destroy(transform.GetChild(i));
+        }
         loadedBulletList.Clear();
+        
         int holeNumber=1;
         while (holeNumber <= revolver.transform.childCount)
         { 
@@ -71,7 +78,16 @@ public class BulletManager : MonoBehaviour
         //测试可查看的列表,同时要用的
         foreach(Bullet bullet in loadedBulletDictionary.Values)
         {
-            loadedBulletList.Add(bullet);
+            GameObject newBulletObject=new GameObject("子弹");
+            newBulletObject.transform.SetParent(transform);
+            newBulletObject.AddComponent<Bullet>();
+            Bullet newBullet= newBulletObject.GetComponent<Bullet>();
+            newBullet.actualDamage = bullet.actualDamage;
+            newBullet.settingDamage = bullet.settingDamage;
+            newBullet.ID = bullet.ID;
+            newBullet.bulletName = bullet.bulletName;
+            newBullet.If_OnlyUseBullet = true;
+            loadedBulletList.Add(newBullet);
         }
         for(int i = 0; i < loadedBulletList.Count; i++)
         {

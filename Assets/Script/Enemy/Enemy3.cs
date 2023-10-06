@@ -20,26 +20,39 @@ public class Enemy3 : Enemy
         EnemyReady(false);
         //准备开枪
         yield return new WaitForSeconds(0.5f);
-        if (if_Immute && battleSystem.bullets[battleSystem.BulletIndexShoot].actualDamage != 0)
+        if (!if_Immute)
         {
-            if_Immute = false;
-            battleSystem.bullets[battleSystem.BulletIndexShoot].actualDamage = 0;
-        }
-        if (battleSystem.JudegeShoot())
-        {
-            EnemyShot();//中枪
-            yield return new WaitForSeconds(0.5f);
-            EnemyReady(false);
-            yield return new WaitForSeconds(0.5f);
-            EnemyAction(true);
-            yield return new WaitForSeconds(0.5f);
-            actionHand.SetActive(false);
-            EnemyIdle();
-            battleSystem.StartShoot();
-            StopAllCoroutines();
+            if (battleSystem.JudegeShoot())
+            {
+                EnemyShot();//中枪
+                yield return new WaitForSeconds(0.5f);
+                EnemyReady(false);
+                yield return new WaitForSeconds(0.5f);
+                EnemyAction(true);
+                yield return new WaitForSeconds(0.5f);
+                actionHand.SetActive(false);
+                EnemyIdle();
+                battleSystem.StartShoot();
+                StopAllCoroutines();
+            }
+            else
+            {
+                EnemyDodge();//没中枪
+                yield return new WaitForSeconds(0.5f);
+                EnemyReady(false);
+                yield return new WaitForSeconds(0.5f);
+                EnemyDodgeAction();
+                actionHand.SetActive(true);
+                yield return new WaitForSeconds(0.5f);
+                actionHand.SetActive(false);
+                EnemyIdle();
+                battleSystem.StartShoot();
+                StopAllCoroutines();
+            }
         }
         else
         {
+            battleSystem.JudegeShoot();
             EnemyDodge();//没中枪
             yield return new WaitForSeconds(0.5f);
             EnemyReady(false);

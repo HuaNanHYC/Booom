@@ -8,6 +8,7 @@ public class PlayerInfoPage : MonoBehaviour
     //public Text playerNameText;
     public Text currentHealthText;
     public GameObject bloodImage;
+    public GameObject huiHe;
     //public Slider currentHealthSlide;
     //public Image playerHeadImage;
     private void Start()

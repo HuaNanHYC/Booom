@@ -22,6 +22,8 @@ public class BattleSystem : MonoBehaviour
     public Button playerShootButton;//到玩家时，让玩家点击射击开枪的按钮
     [Header("结束页面")]
     public GameEndPage endPage;//游戏结束页面
+    public PlayerInfoPage playerInfoPage;
+    public EnemyInfoPage enemyInfoPage;
     private void Start()
     {
         bulletIndexBeforeShoot = 0;
@@ -40,6 +42,7 @@ public class BattleSystem : MonoBehaviour
         InitializeEvenList();
         InitializePrimeList();
         //*********
+        AudioManager.Instance.AudioSource2EffectSource.PlayOneShot(AudioManager.Instance.Revolver_Spin);
         RandomBulletQueue();
         JudgeListEnable();
     }
@@ -114,11 +117,12 @@ public class BattleSystem : MonoBehaviour
             }
         }
         if_ShootStart = true;
-        StartShoot();
+        StartCoroutine(StartShootAfterSpin());
     }
     public void StartShoot()//开始射击后玩家和敌人的动作表现
     {
         if (ShootEnd()) return;
+        JudgeWhoShootImage(if_PlayerShoot, !if_PlayerShoot);//回合图片显示
         if (if_PlayerShoot)
         {
             playerShootButton.gameObject.SetActive(true);
@@ -156,6 +160,7 @@ public class BattleSystem : MonoBehaviour
         {
             if_PlayerShoot = !if_PlayerShoot;
             if_haveJudgedFirstShootFailed = true;
+            AudioManager.Instance.AudioSource2EffectSource.PlayOneShot(AudioManager.Instance.Revolver_MissFire);
             return false;
         }
         else
@@ -220,15 +225,24 @@ public class BattleSystem : MonoBehaviour
         
         return false;
     }
+    IEnumerator StartShootAfterSpin()//左轮声音播完后开始的判断
+    {
+        while(AudioManager.Instance.AudioSource2EffectSource.isPlaying)
+        {
+            yield return null;
+        }
+        StartShoot();
+    }
+    public void JudgeWhoShootImage(bool player,bool enemy)//谁射击的图片设置
+    {
+        playerInfoPage.huiHe.SetActive(player);
+        enemyInfoPage.huiHe.SetActive(enemy);
+    }
 
     #region 会影响队列的子弹技能
     public void NotTheFirst()//社恐弹
     {
         RandomBulletQueue();//那就重新排序
-    }
-    public void AllTheFirst()//判断是否全都是社恐弹
-    {
-
     }
     public void OddBullet()//奇数弹
     {

@@ -47,6 +47,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource2EffectSource: {fileID: 0}
+  revolver_Spin_Path: Music/Revolver-Spin
+  revolver_Fire_Path: Music/Revolver-Fire
+  revolver_NoBullet_Path: Music/Revolver-NoBullet
+  revelver_MissFire_Path: Music/Revolver-MissFire
 --- !u!82 &6661702511298613744
 AudioSource:
   m_ObjectHideFlags: 0

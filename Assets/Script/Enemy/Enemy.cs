@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
     protected SpriteRenderer enemySpriteRenderer;//敌人图像管理
     protected Animator animator;//动画机
     protected BattleSystem battleSystem;//战斗系统
+    protected GameObject gunSprite;
     [System.Serializable]
     public struct KeyWordAndDesc
     {
@@ -55,6 +56,7 @@ public class Enemy : MonoBehaviour
     }
     protected virtual void Start()
     {
+        gunSprite = GameObject.FindWithTag("Gun");
         InitializeEnemyImageAndIcon();
     }
     public void InitializeEnemyImageAndIcon()//初始化加载敌人的所有图片
@@ -76,7 +78,26 @@ public class Enemy : MonoBehaviour
     protected bool if_Immute=false;//是否免疫
     public void EnemyGetHurt(float damage)//敌人受到伤害
     {
+        if (if_Immute && damage != 0)
+        {
+            AudioManager.Instance.AudioSource2EffectSource.PlayOneShot(AudioManager.Instance.Revolver_MissFire);
+            if_Immute = false;
+            return;
+        }
         currentHealth = Mathf.Max(currentHealth - damage, 0);
+        /*if(damage == 0 && battleSystem.bullets[battleSystem.BulletIndexShoot].ID==10003)//旧子弹判定
+        {
+            AudioManager.Instance.AudioSource2EffectSource.PlayOneShot(AudioManager.Instance.Revolver_MissFire);
+            return;
+        }*/
+        if (damage > 0)
+        {
+            AudioManager.Instance.AudioSource2EffectSource.PlayOneShot(AudioManager.Instance.Revolver_Fire);//射中声音
+        }
+        else
+        {
+            AudioManager.Instance.AudioSource2EffectSource.PlayOneShot(AudioManager.Instance.Revolver_NoBullet);//空弹声音
+        }
     }
     
     public virtual IEnumerator EnemyShooting()//敌人开枪
@@ -86,6 +107,7 @@ public class Enemy : MonoBehaviour
         EnemyAction(true);
         yield return new WaitForSeconds(0.5f);
         EnemyReady(false);
+        
         //准备开枪
         yield return new WaitForSeconds(0.5f);
         if (battleSystem.JudegeShoot())
@@ -132,6 +154,7 @@ public class Enemy : MonoBehaviour
 
     protected void EnemyIdle()
     {
+        gunSprite.SetActive(true);
         enemySpriteRenderer.sprite = dialogueImage;
         shootText.sprite = null;
     }
@@ -151,6 +174,7 @@ public class Enemy : MonoBehaviour
 
     protected void EnemyAction(bool hand)
     {
+        gunSprite.SetActive(false);
         enemySpriteRenderer.sprite = actionImage;
         actionHand.SetActive(hand);
         shootText.sprite = null;

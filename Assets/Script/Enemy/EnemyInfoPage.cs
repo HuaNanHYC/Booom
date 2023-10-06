@@ -20,6 +20,7 @@ public class EnemyInfoPage : MonoBehaviour
 
     private List<Enemy.KeyWordAndDesc> keyWordAndDescsList = new List<Enemy.KeyWordAndDesc>();
     public GameObject keywordPrefab;//用来显示关键词的预制体
+    public GameObject huiHe;//回合图片
     private void Start()
     {
         enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();

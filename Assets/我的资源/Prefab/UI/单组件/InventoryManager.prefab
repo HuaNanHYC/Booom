@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ownBulletList: 
-  playerName: Player
+  playerName: "\u4E0D\u9700\u8981"
   playerCurrentHealth: 0
   playerHeadImagePath: Icon/Enemy/H_00
   playerActionImagePath: Image/Player/00_02
-  playerShotImagePath: 
+  playerHurtImagePath: Image/Player/playerHurtEffect
+  battleSystem: {fileID: 0}

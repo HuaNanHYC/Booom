@@ -26,8 +26,10 @@ public class Bullet : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler,IPo
     [TextArea] public string bulletImageSelectedPath;
 
     private Image bulletImageSelf;
+    private bool if_OnlyUseBullet;
     private void Start()
     {
+        if (if_OnlyUseBullet) return;
         bulletInfoRectTransform = currentBulletInfo.GetComponent<RectTransform>();
         bulletImageSelf = transform.GetComponent<Image>();
         UpdateBulletImageAndIcon();//更新图片
@@ -36,6 +38,7 @@ public class Bullet : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler,IPo
     }
     private void Update()
     {
+        if (if_OnlyUseBullet) return;
         IfSelected();
     }
 
@@ -47,6 +50,7 @@ public class Bullet : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler,IPo
     public Sprite BulletIcon { get => bulletIcon; set => bulletIcon = value; }//只可读
     //public Sprite BulletImage { get => bulletImage;}
     public int BulletInHoleNumber { get => bulletInHoleNumber; set => bulletInHoleNumber = value; }
+    public bool If_OnlyUseBullet { get => if_OnlyUseBullet; set => if_OnlyUseBullet = value; }
 
     public void UpdateBulletInfo()//让信息更新
     {

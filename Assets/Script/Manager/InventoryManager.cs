@@ -50,29 +50,44 @@ public class InventoryManager : MonoBehaviour
     [Header("玩家的图片")]
     [TextArea] public string playerHeadImagePath;//玩家头像的路径
     [TextArea] public string playerActionImagePath;//玩家拿枪图片路径
-    [TextArea] public string playerShotImagePath;//玩家中枪图片路径
+    [TextArea] public string playerHurtImagePath;//玩家中枪图片路径
     private Sprite playerActionImage;
-    private Sprite playerShotImage;
+    private Sprite playerHurtImage;
     private bool if_Immute = false;
+    public BattleSystem battleSystem;//战斗系统
     public Sprite PlayerHeadImage { get => playerHeadImage;}
     public Sprite PlayerActionImage { get => playerActionImage; }
-    public Sprite PlayerShotImage { get => playerShotImage; }
+    public Sprite PlayerHurtImage { get => playerHurtImage; }
     public bool If_Immute { get => if_Immute; set => if_Immute = value; }
 
     public void PlayerGetHurt(float damage)//受到伤害
     {
-        if (if_Immute && damage != 0)
+        if (if_Immute && damage != 0)//免疫的方法
         {
+            AudioManager.Instance.AudioSource2EffectSource.PlayOneShot(AudioManager.Instance.Revolver_MissFire);
             if_Immute = false;
             return;
         }
         playerCurrentHealth = Mathf.Max(playerCurrentHealth - damage, 0);
+        /*if (damage == 0 && battleSystem.bullets[battleSystem.BulletIndexShoot].ID == 10003)//旧子弹判定
+        {
+            AudioManager.Instance.AudioSource2EffectSource.PlayOneShot(AudioManager.Instance.Revolver_MissFire);
+            return;
+        }*/
+        if (damage>0)//声音播放
+        {
+            AudioManager.Instance.AudioSource2EffectSource.PlayOneShot(AudioManager.Instance.Revolver_Fire);
+        }
+        else
+        {
+            AudioManager.Instance.AudioSource2EffectSource.PlayOneShot(AudioManager.Instance.Revolver_NoBullet);
+        }
     }
     public void PlayerInfoInitialize()//初始化玩家信息，或重置
     {
         playerHeadImage = Resources.Load<Sprite>(playerHeadImagePath);
         playerActionImage = Resources.Load<Sprite>(playerActionImagePath);
-        playerShotImage = Resources.Load<Sprite>(playerShotImagePath);
+        playerHurtImage = Resources.Load<Sprite>(playerHurtImagePath);
         playerCurrentHealth = playerMaxHealth;
     }
     #endregion
