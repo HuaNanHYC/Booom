@@ -27,6 +27,7 @@ public class BulletHole : MonoBehaviour
     }
 
     #region 装填子弹
+    public Sprite loadedSprite;//已经装填的样式
     public Sprite unLoadSprite;
     public Sprite loadSprite;//装填子弹
 
@@ -39,7 +40,8 @@ public class BulletHole : MonoBehaviour
             if_Load = true;
             currentBullet = BulletManager.Instance.currentBullet;//记录现在装填的子弹
 
-            image.sprite = currentBullet.BulletIcon;//设置成装填图片样式
+            image.sprite = loadedSprite;//设置成装填图片样式
+            UpdateLoadedSpriteInChild(true);
 
             //BulletManager.Instance.currentBullet.gameObject.SetActive(false);//将列表中的子弹隐藏
 
@@ -52,6 +54,7 @@ public class BulletHole : MonoBehaviour
             //currentBullet.gameObject.SetActive(true);//返还选中子弹
 
             image.sprite = unLoadSprite;//设置成未装填图片样式
+            UpdateLoadedSpriteInChild(false);
 
             currentBullet = null;
         }
@@ -64,7 +67,39 @@ public class BulletHole : MonoBehaviour
         currentBullet = BulletManager.Instance.bulletDictionary[bulletID].GetComponent<Bullet>();
         currentBullet.BulletIcon = Resources.Load<Sprite>(currentBullet.bulletIconPath);
         if (currentBullet.BulletIcon == null) return;
-        image.sprite = currentBullet.BulletIcon;//设置成装填图片样式
+        image.sprite = loadedSprite;//设置成装填图片样式
+        UpdateLoadedSpriteInChild(true);
+    }
+
+    public void UpdateLoadedSpriteInChild(bool if_setIcon)//生成一个子物体用来承载子弹的icon
+    {
+        if (if_setIcon)
+        {
+            if (!transform.Find("bulletIcon"))
+            {
+                GameObject childIcon = new GameObject("bulletIcon");
+                childIcon.transform.SetParent(transform,false);
+                Image childIconImage = childIcon.AddComponent<Image>();
+                childIconImage.sprite = currentBullet.BulletIcon;
+            }
+            else
+            {
+                Image childIconImage = transform.Find("bulletIcon").GetComponent<Image>();
+                childIconImage.sprite = currentBullet.BulletIcon;
+            }
+        }
+        else
+        {
+            if (!transform.Find("bulletIcon"))
+            {
+                return;
+            }
+            else
+            {
+                Image childIconImage = transform.Find("bulletIcon").GetComponent<Image>();
+                childIconImage.sprite = unLoadSprite;
+            }
+        }
     }
     #endregion
 }

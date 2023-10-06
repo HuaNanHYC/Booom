@@ -21,7 +21,7 @@ public class PlayerShootButton : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         //ÔÚÍ·¶¥
         playerSprite.sprite = null;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         //¿ªÇ¹
         
         if (battleSystem.JudegeShoot())
@@ -32,6 +32,7 @@ public class PlayerShootButton : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         playerSprite.sprite = InventoryManager.Instance.PlayerActionImage;
         yield return new WaitForSeconds(0.5f);
+        playerSprite.sprite = null;
         battleSystem.StartShoot();
     }
 }
