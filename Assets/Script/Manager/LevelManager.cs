@@ -25,7 +25,7 @@ public class LevelManager : MonoBehaviour
     private void Awake()
     {
         if(instance == null)instance = this;
-        else Destroy(instance);
+        else Destroy(gameObject);
         DontDestroyOnLoad(this);
 
         InitializeLevelDictionary();

@@ -28,8 +28,12 @@ public class PlayerShootButton : MonoBehaviour
         gunSprite.SetActive(false);
         yield return new WaitForSeconds(0.5f);
         //¿ªÇ¹
-        
-        if (battleSystem.JudegeShoot())
+        if(InventoryManager.Instance.If_Immute)
+        {
+            playerHurtSpriteRenderer.sprite = null;
+            battleSystem.JudegeShoot();
+        }
+        else if (battleSystem.JudegeShoot())
         {
             playerHurtSpriteRenderer.sprite = InventoryManager.Instance.PlayerHurtImage;
         }

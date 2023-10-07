@@ -32,4 +32,8 @@ public class SettingPage : MonoBehaviour
         }
         AudioManager.Instance.SetVolumn(volunmSlider.value);
     }
+    public void BackToLevelSelect()
+    {
+        UIManager.Instance.LoadScene("LevelScene");
+    }
 }

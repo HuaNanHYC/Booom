@@ -78,7 +78,8 @@ public class BulletManager : MonoBehaviour
         //测试可查看的列表,同时要用的
         foreach(Bullet bullet in loadedBulletDictionary.Values)
         {
-            GameObject newBulletObject=new GameObject("子弹");
+            string name = bullet.bulletName;
+            GameObject newBulletObject=new GameObject(name);
             newBulletObject.transform.SetParent(transform);
             newBulletObject.AddComponent<Bullet>();
             Bullet newBullet= newBulletObject.GetComponent<Bullet>();
