@@ -16,7 +16,7 @@ public class SettingPage : MonoBehaviour
     }
     private void Update()
     {
-        SettingsApply();
+        
     }
     public void SettingsApply()
     {
@@ -35,5 +35,11 @@ public class SettingPage : MonoBehaviour
     public void BackToLevelSelect()
     {
         UIManager.Instance.LoadScene("LevelScene");
+    }
+    public void SetVolumn(bool if_Silence)
+    {
+        if (if_Silence)
+            AudioManager.Instance.SetVolumn(0);
+        else AudioManager.Instance.SetVolumn(volunmSlider.value);
     }
 }

@@ -30,6 +30,9 @@ public class BattleSystem : MonoBehaviour
         bulletIndexBeforeShoot = 0;
         currentEnemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();//找到本场景敌人
         currentEnemy.GetComponent<Enemy>().BattleSystem = this;
+
+        if (LevelManager.Instance.currentLevelId == 30008) LevelManager.Instance.lastLevelJudge = true;
+        else LevelManager.Instance.lastLevelJudge = false;
     }
     private void Update()
     {

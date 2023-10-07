@@ -44,13 +44,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6063aefbe31015741a8c2f83d7754be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevelId: 0
+  currentLevelId: 30000
+  lastLevelJudge: 0
   levelList:
   - levelID: 30001
-    targetScene: GameDemoScene
     enemyID: 20001
     steadyBulletID: 
     steadyBulletPosition: 
-    unableBulletID: 
-    levelStartStoryID: 0
-    levelOverStoryID: 0
+    ableBulletID: 112700001527000016270000
+  - levelID: 30002
+    enemyID: 20002
+    steadyBulletID: 
+    steadyBulletPosition: 
+    ableBulletID: 11270000152700001627000013270000
+  - levelID: 30003
+    enemyID: 20003
+    steadyBulletID: 18270000
+    steadyBulletPosition: 02000000
+    ableBulletID: 1127000015270000162700001327000012270000
+  - levelID: 30004
+    enemyID: 20004
+    steadyBulletID: 18270000
+    steadyBulletPosition: 02000000
+    ableBulletID: 112700001527000016270000132700001227000017270000
+  - levelID: 30005
+    enemyID: 20005
+    steadyBulletID: 18270000
+    steadyBulletPosition: 06000000
+    ableBulletID: 112700001527000016270000132700001227000017270000
+  - levelID: 30006
+    enemyID: 20006
+    steadyBulletID: 1827000018270000
+    steadyBulletPosition: 0100000004000000
+    ableBulletID: 11270000152700001627000013270000122700001727000014270000
+  - levelID: 30007
+    enemyID: 20007
+    steadyBulletID: 18270000
+    steadyBulletPosition: 05000000
+    ableBulletID: 11270000152700001627000013270000122700001727000014270000
+  - levelID: 30008
+    enemyID: 20008
+    steadyBulletID: 11270000
+    steadyBulletPosition: 01000000
+    ableBulletID: 

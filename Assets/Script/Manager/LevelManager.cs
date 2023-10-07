@@ -7,7 +7,7 @@ public class LevelManager : MonoBehaviour
     private static LevelManager instance;
     public static LevelManager Instance { get { return instance; } }
     public int currentLevelId;
-    public bool lastLevelJudge = true;//最后一关的第一次必输判断
+    public bool lastLevelJudge;//最后一关的第一次必输判断
     [System.Serializable]
     public struct LevelInfo
     {

@@ -17,6 +17,7 @@ public class BulletManager : MonoBehaviour
     {
         bulletList.Clear();
         CreateBulletSelect();
+        if (LevelManager.Instance.lastLevelJudge) LoadBullet();
     }
     [System.Serializable]
     public struct BulletInfo

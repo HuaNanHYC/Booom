@@ -19,18 +19,23 @@ public class BattlePage : MonoBehaviour
     void Update()
     {
         JudgeCanBattle();
-        JudgeRevolverBulletRotate();
+        //JudgeRevolverBulletRotate();
     }
     bool if_show_StartButton=false;//是否显示开始按钮
     public void JudgeCanBattle()//判断是否可以开始战斗，显示开始按钮
     {
+        if (LevelManager.Instance.currentLevelId == 30008 && !if_show_StartButton)
+        {
+            startBattle.gameObject.SetActive(true);
+            if_show_StartButton = true;
+        }
         if(battleSystem.if_BattleCanStart&& !if_show_StartButton)//只让它显示一次
         {
             startBattle.gameObject.SetActive(true);
             if_show_StartButton = true;
         }
     }
-    public void JudgeRevolverBulletRotate()//判断是否旋转左轮
+    public void JudgeRevolverBulletRotate()//判断是否旋转左轮,10.7弃用
     {
         if(battleSystem.if_BattleCanStart&&!battleSystem.if_ShootStart)
         {

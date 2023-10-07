@@ -376,6 +376,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 57d44d0d1a01f5c43951c2250b56ad69, type: 3}
+    - target: {fileID: 2337678532868873132, guid: c9bfae703469f2143a4269dcf822756a, type: 3}
+      propertyPath: levelId
+      value: 30003
+      objectReference: {fileID: 0}
+    - target: {fileID: 2337678532868873132, guid: c9bfae703469f2143a4269dcf822756a, type: 3}
+      propertyPath: figureScene
+      value: Level3
+      objectReference: {fileID: 0}
     - target: {fileID: 2384346062126559410, guid: c9bfae703469f2143a4269dcf822756a, type: 3}
       propertyPath: m_Name
       value: "\u4E00\u5173\u7684\u5957\u4EF6"

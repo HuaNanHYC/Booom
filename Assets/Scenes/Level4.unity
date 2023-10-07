@@ -356,6 +356,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 214
       objectReference: {fileID: 0}
+    - target: {fileID: 2337678532868873132, guid: c9bfae703469f2143a4269dcf822756a, type: 3}
+      propertyPath: levelId
+      value: 30005
+      objectReference: {fileID: 0}
+    - target: {fileID: 2337678532868873132, guid: c9bfae703469f2143a4269dcf822756a, type: 3}
+      propertyPath: figureScene
+      value: Leve5
+      objectReference: {fileID: 0}
     - target: {fileID: 2384346062126559410, guid: c9bfae703469f2143a4269dcf822756a, type: 3}
       propertyPath: m_Name
       value: "\u4E00\u5173\u7684\u5957\u4EF6"
