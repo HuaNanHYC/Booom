@@ -21,6 +21,10 @@ PrefabInstance:
       value: "\u4E0B\u4E00\u9897\u5B50\u5F39\u4F24\u5BB3\u7FFB\u500D"
       objectReference: {fileID: 0}
     - target: {fileID: -3051016727336081711, guid: b4e7bafa4ceb56e4797c85164ab11c77, type: 3}
+      propertyPath: actualDamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3051016727336081711, guid: b4e7bafa4ceb56e4797c85164ab11c77, type: 3}
       propertyPath: actualDamege
       value: 1
       objectReference: {fileID: 0}

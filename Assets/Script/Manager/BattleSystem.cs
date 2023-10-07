@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class BattleSystem : MonoBehaviour
 {
+    public bool if_TheLastLevel;
     [SerializeField]
     [Header("子弹读取顺序的index（无需设置）")]
     private int bulletIndexShoot;//射击时的index
@@ -49,6 +50,35 @@ public class BattleSystem : MonoBehaviour
    
     public void RandomBulletQueue()//随机选取子弹
     {
+        //最后一关第一次必失败
+        if(LevelManager.Instance.lastLevelJudge)
+        {
+            LevelManager.Instance.lastLevelJudge = false;
+            bullets.Clear();
+            for (int i = 0; i < BulletManager.Instance.loadedBulletList.Count; i++)
+            { 
+                bullets.Add(BulletManager.Instance.loadedBulletList[5]); 
+            }
+            Bullet newBullet = BulletManager.Instance.bulletDictionary[10001].GetComponent<Bullet>();
+            if (if_PlayerShoot)
+            {
+                int random = Random.Range(1, 91);
+                if (random <= 30) bullets[0] = newBullet;
+                else if (random > 30 && random <= 60) bullets[2] = newBullet;
+                else if (random > 60) bullets[4]= newBullet;
+            }
+            else if (!if_PlayerShoot)
+            {
+                int random = Random.Range(1, 91);
+                if (random <= 30) bullets[1] = newBullet;
+                else if (random > 30 && random <= 60) bullets[3] = newBullet;
+                else if (random > 60) bullets[5] = newBullet;
+            }
+            return;
+        }
+
+
+
         bullets.Clear();//清除所有，然后再次随机
         //随机到了一个子弹，并将其作为第一个
         int listLength = BulletManager.Instance.loadedBulletList.Count;
@@ -147,7 +177,7 @@ public class BattleSystem : MonoBehaviour
         //判断子弹
 
         #region 空包弹
-        if (bullets[bulletIndexShoot].ID == 10000)
+        if (bullets[bulletIndexShoot].ID == 10000 && bullets[bulletIndexShoot].actualDamage == 0)
         {
             Shoot();
             bulletIndexShoot++;
