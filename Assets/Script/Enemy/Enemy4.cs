@@ -14,12 +14,22 @@ public class Enemy4 : Enemy
         EnemyReady(false);
         //准备开枪
         yield return new WaitForSeconds(0.5f);
-        if (battleSystem.JudegeShoot())
+A:      if (battleSystem.JudegeShoot())
         {
             EnemyShot();//中枪
             yield return new WaitForSeconds(0.5f);
             EnemyReady(false);
             yield return new WaitForSeconds(0.5f);
+            if (!have_ShootTwice)
+            {
+                battleSystem.if_PlayerShoot = false;
+                have_ShootTwice = true;
+                goto A;
+            }
+            else
+            {
+                have_ShootTwice = false;
+            }
             EnemyAction(true);
             yield return new WaitForSeconds(0.5f);
             actionHand.SetActive(false);
@@ -31,6 +41,16 @@ public class Enemy4 : Enemy
             yield return new WaitForSeconds(0.5f);
             EnemyReady(false);
             yield return new WaitForSeconds(0.5f);
+            if (!have_ShootTwice)
+            {
+                battleSystem.if_PlayerShoot = false;
+                have_ShootTwice = true;
+                goto A;
+            }
+            else
+            {
+                have_ShootTwice = false;
+            }
             EnemyDodgeAction();
             actionHand.SetActive(true);
             yield return new WaitForSeconds(0.5f);
@@ -39,15 +59,16 @@ public class Enemy4 : Enemy
         }
        
         //连开两枪的判断
-        if (!have_ShootTwice)
+        /*if (!have_ShootTwice)
         {
             battleSystem.if_PlayerShoot = false;
             have_ShootTwice = true;
+            goto A;
         }
         else
         {
             have_ShootTwice = false;
-        }
+        }*/
         battleSystem.StartShoot();
         yield return null;
     }
