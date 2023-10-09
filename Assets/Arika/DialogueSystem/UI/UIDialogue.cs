@@ -35,7 +35,7 @@ namespace DialogueSystem
             DialogueManager.OnConversationStarted += ConversationStarted;
             DialogueManager.OnConversationUpdated += ConversationUpdated;
             DialogueManager.OnConversationEnded += ConversationEnded;
-            
+
             RefreshPanel();
         }
 
@@ -85,6 +85,12 @@ namespace DialogueSystem
             tmpDialogueText.text = DialogueManager.CurrentNodeText;
         }
 
+        [Header("CharactersDisplay")] [SerializeField]
+        private Color actorSpeakingColor = Color.white;
+
+        [SerializeField] private Color actorNotSpeakingColor = Color.gray;
+
+
         private void RefreshCharactersDisplay()
         {
             for (int i = 0; i < DialogueManager.actors.Length; i++)
@@ -110,6 +116,17 @@ namespace DialogueSystem
 
                     imgActorDisplay[i].sprite = null;
                     imgActorDisplay[i].gameObject.SetActive(false);
+                }
+
+                if (DialogueManager.CurrentActor == DialogueManager.actors[i])
+                {
+                    tmpActorNameDisplay[i].color = actorSpeakingColor;
+                    imgActorDisplay[i].color = actorSpeakingColor;
+                }
+                else
+                {
+                    tmpActorNameDisplay[i].color = actorNotSpeakingColor;
+                    imgActorDisplay[i].color = actorNotSpeakingColor;
                 }
             }
         }
