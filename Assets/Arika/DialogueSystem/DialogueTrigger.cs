@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -6,7 +7,8 @@ namespace DialogueSystem
 {
     public sealed class DialogueTrigger : MonoBehaviour
     {
-        [SerializeField] private DialogueSingleTrigger[] triggers = Array.Empty<DialogueSingleTrigger>();
+        [SerializeField] private List<DialogueSingleTrigger> triggers = new List<DialogueSingleTrigger>();
+        public IList<DialogueSingleTrigger> Triggers => triggers;
 
         public void TriggerAction(NodeAction action)
         {
@@ -16,7 +18,7 @@ namespace DialogueSystem
                 // Debug.Log($"action {action.actionName} trigger {trigger.actionName} ");
                 if (trigger.actionName != action.actionName) continue;
                 Debug.Log($"Found {trigger.actionName}, Triggering");
-                trigger.triggerEvent.Invoke(action.actionArgs);
+                trigger.triggerEvent?.Invoke(action.actionArgs);
                 return;
             }
         }

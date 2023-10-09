@@ -106,7 +106,7 @@ namespace DialogueSystem
 
                     var imgActor = imgActorDisplay[i];
 
-                    imgActor.sprite = actor.ActorSprite;
+                    imgActor.sprite = actor.CurrentSprite;
                     imgActorDisplay[i].gameObject.SetActive(true);
                 }
                 else

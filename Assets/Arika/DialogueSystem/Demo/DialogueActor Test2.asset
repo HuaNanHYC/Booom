@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: DialogueActor Test2
   m_EditorClassIdentifier: 
   actorName: 2222222222
-  actorSprite: {fileID: 21300000, guid: 04d2927ad76914d49bcfb1cd80104be3, type: 3}
+  actorSprites:
+  - {fileID: 21300000, guid: 04d2927ad76914d49bcfb1cd80104be3, type: 3}
