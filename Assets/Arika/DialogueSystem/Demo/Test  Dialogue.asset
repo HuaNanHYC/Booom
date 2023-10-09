@@ -17,7 +17,35 @@ MonoBehaviour:
   - {fileID: 8337328450896513888}
   - {fileID: 5526874977362965942}
   - {fileID: 6376897557923591742}
+  - {fileID: 399500566830828755}
   newNodeOffset: {x: 250, y: 0}
+--- !u!114 &399500566830828755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d2ef30bde2b84041a278eee1d8556ae, type: 3}
+  m_Name: ef6b7296-bc7e-4a11-be13-d47e2e08802f
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 1026
+    y: 163
+    width: 200
+    height: 100
+  children: []
+  condition:
+    and: []
+  actor: {fileID: 11400000, guid: 319add6df1615d241b9ccd28f7e4ef68, type: 2}
+  text: 44444444444444444444
+  onEnterActions: []
+  onExitActions:
+  - actionName: ActorLeaveDialogue
+    actionArgs: []
 --- !u!114 &2074000814008318414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,9 +90,11 @@ MonoBehaviour:
   - f07bad4e-0e53-48a1-b7de-a4521c5de42c
   condition:
     and: []
-  actor: {fileID: 11400000, guid: 0cebebaca4a51c046b3a501d7e064f88, type: 2}
+  actor: {fileID: 11400000, guid: 319add6df1615d241b9ccd28f7e4ef68, type: 2}
   text: 22222222222222222
-  onEnterActions: []
+  onEnterActions:
+  - actionName: SetDisplayActor
+    actionArgs: []
   onExitActions: []
 --- !u!114 &6376897557923591742
 MonoBehaviour:
@@ -84,13 +114,16 @@ MonoBehaviour:
     y: 163
     width: 200
     height: 100
-  children: []
+  children:
+  - ef6b7296-bc7e-4a11-be13-d47e2e08802f
   condition:
     and: []
   actor: {fileID: 11400000, guid: 0cebebaca4a51c046b3a501d7e064f88, type: 2}
   text: 33333333333333
   onEnterActions: []
-  onExitActions: []
+  onExitActions:
+  - actionName: ActorLeaveDialogue
+    actionArgs: []
 --- !u!114 &8337328450896513888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,5 +148,7 @@ MonoBehaviour:
     and: []
   actor: {fileID: 11400000, guid: 0cebebaca4a51c046b3a501d7e064f88, type: 2}
   text: 1111111111111111
-  onEnterActions: []
+  onEnterActions:
+  - actionName: SetDisplayActor
+    actionArgs: []
   onExitActions: []

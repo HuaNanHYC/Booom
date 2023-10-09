@@ -10,13 +10,13 @@ namespace DialogueSystem
 {
     public sealed class DialogueManager : Singleton<DialogueManager>
     {
+        private DialogueTrigger DialogueTrigger { get; set; }
         private Dialogue CurrentDialogue { get; set; }
         public DialogueNode CurrentNode { get; set; }
 
-        public DialogueActor FirstActor { get; set; }
-        public DialogueActor SecondActor { get; set; }
-        public DialogueActor ThirdActor { get; set; }
-        
+        // [Header("Dialogue Actors")] 
+        public DialogueActor[] actors = new DialogueActor[3];
+
         [Header("Dialogue Event Channel")] [SerializeField]
         private DialogueEventChannel dialogueEventChannel;
 
@@ -34,6 +34,11 @@ namespace DialogueSystem
         [SerializeField] private ConditionEvaluator conditionEvaluator;
         [SerializeField] private DialogueStateMachine dialogueStateMachine;
 
+        protected override void Awake()
+        {
+            base.Awake();
+            DialogueTrigger = GetComponent<DialogueTrigger>();
+        }
 
         private void OnEnable()
         {
@@ -77,6 +82,7 @@ namespace DialogueSystem
             : null;
 
         public string CurrentActorName => (CurrentNode is DialogueNodeBasic basicNode) ? basicNode.ActorName : null;
+        public DialogueActor CurrentActor => CurrentNode is DialogueNodeBasic basicNode ? basicNode.Actor : null;
 
         public void Next()
         {
@@ -125,19 +131,14 @@ namespace DialogueSystem
         {
             if (actions.Count == 0) return;
 
-            // var dialogueInteractableDialogueTrigger = CurrentDialogueInteractable.GetComponent<DialogueTrigger>();
-            // var playerDialogueTrigger = PlayerDialogueComponent.GetComponent<DialogueTrigger>();
-            //
-            // foreach (var action in actions)
-            // {
-            //     if (action.isPlayerAction)
-            //     {
-            //         if (playerDialogueTrigger) playerDialogueTrigger.TriggerAction(action);
-            //         break;
-            //     }
-            //
-            //     dialogueInteractableDialogueTrigger.TriggerAction(action);
-            // }
+
+            if (DialogueTrigger)
+            {
+                foreach (var action in actions)
+                {
+                    DialogueTrigger.TriggerAction(action);
+                }
+            }
         }
 
         #endregion

@@ -1,7 +1,6 @@
 ﻿using System;
 using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace DialogueSystem
@@ -9,16 +8,10 @@ namespace DialogueSystem
     public sealed class UIDialogue : MonoBehaviour
     {
         [Header("Actor Name")] [SerializeField]
-        private TextMeshProUGUI tmpFirstActorName;
-
-        [SerializeField] private TextMeshProUGUI tmpSecondActorName;
-        [SerializeField] private TextMeshProUGUI tmpThirdActorName;
+        private TextMeshProUGUI[] tmpActorNameDisplay = new TextMeshProUGUI[3];
 
         [Header("Actor Image")] [SerializeField]
-        private Image imgFirstActor;
-
-        [SerializeField] private Image imgSecondActor;
-        [SerializeField] private Image imgThirdActor;
+        private Image[] imgActorDisplay = new Image[3];
 
 
         [Header("Text")] [SerializeField] private TextMeshProUGUI tmpDialogueText;
@@ -42,6 +35,8 @@ namespace DialogueSystem
             DialogueManager.OnConversationStarted += ConversationStarted;
             DialogueManager.OnConversationUpdated += ConversationUpdated;
             DialogueManager.OnConversationEnded += ConversationEnded;
+            
+            RefreshPanel();
         }
 
 
@@ -75,17 +70,48 @@ namespace DialogueSystem
 
         private void RefreshPanel()
         {
+            Debug.Log("RefreshPanel");
             if (!DialogueManager)
                 return;
             transform.gameObject.SetActive(DialogueManager.IsInDialogue);
             if (!DialogueManager.IsInDialogue) return;
             RefreshDialogue();
+            RefreshCharactersDisplay();
         }
+
 
         private void RefreshDialogue()
         {
             tmpDialogueText.text = DialogueManager.CurrentNodeText;
-            // TODO: Add support for multiple actors
+        }
+
+        private void RefreshCharactersDisplay()
+        {
+            for (int i = 0; i < DialogueManager.actors.Length; i++)
+            {
+                if (DialogueManager.actors[i])
+                {
+                    var actor = DialogueManager.actors[i];
+
+                    var tmpActorName = tmpActorNameDisplay[i];
+
+                    tmpActorName.text = actor.ActorName;
+                    tmpActorName.transform.parent.gameObject.SetActive(true);
+
+                    var imgActor = imgActorDisplay[i];
+
+                    imgActor.sprite = actor.ActorSprite;
+                    imgActorDisplay[i].gameObject.SetActive(true);
+                }
+                else
+                {
+                    tmpActorNameDisplay[i].text = string.Empty;
+                    tmpActorNameDisplay[i].transform.parent.gameObject.SetActive(false);
+
+                    imgActorDisplay[i].sprite = null;
+                    imgActorDisplay[i].gameObject.SetActive(false);
+                }
+            }
         }
     }
 }
