@@ -21,7 +21,7 @@ public class GameEndPage : MonoBehaviour
     }
     public void ReturnLevelSelectScene()
     {
-        UIManager.Instance.LoadScene("LevelScene");
+        UIManager.Instance.LoadScene("Menu");
     }
     
 }

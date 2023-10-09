@@ -27,6 +27,7 @@ public class Enemy6 : Enemy
             if_ShootYou = true;
             enemySpriteRenderer.sprite = shootToYouImage;
             battleSystem.if_PlayerShoot = true;
+            yield return new WaitForSeconds(0.5f);
             battleSystem.JudegeShoot();
             yield return new WaitForSeconds(0.5f);
             EnemyAction(true);

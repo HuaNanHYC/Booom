@@ -18,7 +18,7 @@ public class BattleSystem : MonoBehaviour
     [Header("目前敌人(无需设置)")]
     public Enemy currentEnemy;
     [Header("战斗主页面")]
-    public GameObject battlePage;//用于抖动之类的吧。。暂时没用
+    public GameObject battlePage;//用于控制左轮旋转
     [Header("开枪按钮")]
     public Button playerShootButton;//到玩家时，让玩家点击射击开枪的按钮
     [Header("结束页面")]
@@ -260,10 +260,12 @@ public class BattleSystem : MonoBehaviour
     }
     IEnumerator StartShootAfterSpin()//左轮声音播完后开始的判断
     {
+        battlePage.GetComponent<BattlePage>().SetRevolverBulletRotate(true);//左轮旋转画面
         while(AudioManager.Instance.AudioSource2EffectSource.isPlaying)
         {
             yield return null;
         }
+        battlePage.GetComponent<BattlePage>().SetRevolverBulletRotate(false);
         StartShoot();
     }
     public void JudgeWhoShootImage(bool player,bool enemy)//谁射击的图片设置

@@ -35,17 +35,8 @@ public class BattlePage : MonoBehaviour
             if_show_StartButton = true;
         }
     }
-    public void JudgeRevolverBulletRotate()//判断是否旋转左轮,10.7弃用
+    public void SetRevolverBulletRotate(bool if_Show)//判断是否旋转左轮,10.7弃用
     {
-        if(battleSystem.if_BattleCanStart&&!battleSystem.if_ShootStart)
-        {
-            //放左轮旋转动画
-        }
-        else if(battleSystem.if_ShootStart)//旋转结束，开始射击
-        {
-            //这里放左轮停止旋转的动画
-
-            return;
-        }
+        revolverPage.SetActive(if_Show);
     }
 }

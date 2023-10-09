@@ -283,30 +283,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 862023237461202935, guid: 407b8a2ec67a6914785c82521430843c, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 862023237461202935, guid: 407b8a2ec67a6914785c82521430843c, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4920725927965585712, guid: 407b8a2ec67a6914785c82521430843c, type: 3}
-      propertyPath: index
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9046793542176296518, guid: 407b8a2ec67a6914785c82521430843c, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9046793542176296518, guid: 407b8a2ec67a6914785c82521430843c, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9046793542176296518, guid: 407b8a2ec67a6914785c82521430843c, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -635,6 +611,22 @@ PrefabInstance:
     - target: {fileID: 2668863169726483281, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
       propertyPath: m_Name
       value: LevelManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
+      propertyPath: levelList.Array.data[1].steadyBulletID.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
+      propertyPath: levelList.Array.data[1].steadyBulletID.Array.data[0]
+      value: 10001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
+      propertyPath: levelList.Array.data[1].steadyBulletPosition.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
+      propertyPath: levelList.Array.data[1].steadyBulletPosition.Array.data[0]
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

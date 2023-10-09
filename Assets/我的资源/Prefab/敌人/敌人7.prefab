@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyID: 20007
-  enemyName: "\u654C\u4EBA7"
+  enemyName: "\u9EC4\u56DB\u90CE"
   enemyHealth: 6
   actionHand: {fileID: 5360949764938762960}
   headImagePath: Icon/Enemy/H_07

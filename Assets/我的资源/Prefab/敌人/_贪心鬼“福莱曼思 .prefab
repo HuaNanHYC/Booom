@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyID: 20001
-  enemyName: "\"\u8D2A\u5FC3\u9B3C\"\u798F\u83B1\u66FC\u601D "
+  enemyName: "\u70ED\u8840\u9E21\u86CB\u541B"
   enemyHealth: 2
   actionHand: {fileID: 842807123195783203}
   headImagePath: Icon/Enemy/H_01
