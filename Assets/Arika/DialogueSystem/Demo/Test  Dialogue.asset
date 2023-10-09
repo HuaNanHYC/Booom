@@ -1,0 +1,154 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20020754e2d077c45a6d80bb16361ff0, type: 3}
+  m_Name: Test  Dialogue
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 2074000814008318414}
+  - {fileID: 8337328450896513888}
+  - {fileID: 5526874977362965942}
+  - {fileID: 6376897557923591742}
+  - {fileID: 399500566830828755}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &399500566830828755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d2ef30bde2b84041a278eee1d8556ae, type: 3}
+  m_Name: ef6b7296-bc7e-4a11-be13-d47e2e08802f
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 1026
+    y: 163
+    width: 200
+    height: 100
+  children: []
+  condition:
+    and: []
+  actor: {fileID: 11400000, guid: 319add6df1615d241b9ccd28f7e4ef68, type: 2}
+  text: 44444444444444444444
+  onEnterActions: []
+  onExitActions:
+  - actionName: ActorLeaveDialogue
+    actionArgs: []
+--- !u!114 &2074000814008318414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 822a81aab4654797922d52078d026c07, type: 3}
+  m_Name: Start
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 26
+    y: 163
+    width: 200
+    height: 100
+  children:
+  - de05954c-74b4-47da-a4f4-d3570f132fb8
+  condition:
+    and: []
+--- !u!114 &5526874977362965942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d2ef30bde2b84041a278eee1d8556ae, type: 3}
+  m_Name: d482c927-8895-40fc-b87a-3b60f009be09
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 526
+    y: 163
+    width: 200
+    height: 100
+  children:
+  - f07bad4e-0e53-48a1-b7de-a4521c5de42c
+  condition:
+    and: []
+  actor: {fileID: 11400000, guid: 319add6df1615d241b9ccd28f7e4ef68, type: 2}
+  text: 22222222222222222
+  onEnterActions:
+  - actionName: SetDisplayActor
+    actionArgs: []
+  onExitActions: []
+--- !u!114 &6376897557923591742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d2ef30bde2b84041a278eee1d8556ae, type: 3}
+  m_Name: f07bad4e-0e53-48a1-b7de-a4521c5de42c
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 776
+    y: 163
+    width: 200
+    height: 100
+  children:
+  - ef6b7296-bc7e-4a11-be13-d47e2e08802f
+  condition:
+    and: []
+  actor: {fileID: 11400000, guid: 0cebebaca4a51c046b3a501d7e064f88, type: 2}
+  text: 33333333333333
+  onEnterActions: []
+  onExitActions:
+  - actionName: ActorLeaveDialogue
+    actionArgs: []
+--- !u!114 &8337328450896513888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d2ef30bde2b84041a278eee1d8556ae, type: 3}
+  m_Name: de05954c-74b4-47da-a4f4-d3570f132fb8
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 276
+    y: 163
+    width: 200
+    height: 100
+  children:
+  - d482c927-8895-40fc-b87a-3b60f009be09
+  condition:
+    and: []
+  actor: {fileID: 11400000, guid: 0cebebaca4a51c046b3a501d7e064f88, type: 2}
+  text: 1111111111111111
+  onEnterActions:
+  - actionName: SetDisplayActor
+    actionArgs: []
+  onExitActions: []
