@@ -20,8 +20,8 @@ public class BattleSystem : MonoBehaviour
     [Header("战斗主页面")]
     public GameObject battlePage;//用于控制左轮旋转
     [Header("开枪按钮")]
-    public Button playerShootButton;//到玩家时，让玩家点击射击开枪的按钮
-    public Button playerAutoShootButton;//到玩家时，让玩家点击射击开枪的按钮
+    public PlayerShootButton playerShootButton;//玩家射击
+    public GameObject playerShootButtons;//玩家点击射击的按钮
     [Header("结束页面")]
     public GameEndPage endPage;//游戏结束页面
     public PlayerInfoPage playerInfoPage;
@@ -177,10 +177,10 @@ public class BattleSystem : MonoBehaviour
         if (if_PlayerShoot)
         {
             if(if_AutoShoot)
-                playerShootButton.GetComponent<PlayerShootButton>().JudgeShoot();
+                playerShootButton.JudgeShoot();
             else 
             {
-                playerShootButton.gameObject.SetActive(true);
+                playerShootButtons.SetActive(true);
             }
             //点击按钮后播放开枪动画
         }

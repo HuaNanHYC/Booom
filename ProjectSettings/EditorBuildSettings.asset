@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level8.unity
     guid: 94e5e5ebb4d8e7f4eadc5b766265252d
+  - enabled: 1
+    path: Assets/Scenes/Dialogue.unity
+    guid: 788a641825050344b85243a087726b30
+  - enabled: 1
+    path: Assets/Scenes/StartAndEnd.unity
+    guid: 6b673e34c79ef2c42918f00fb8c49f6d
   m_configObjects: {}

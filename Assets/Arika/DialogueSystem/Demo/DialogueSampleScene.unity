@@ -330,8 +330,7 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3755066445084737981, guid: 342a336f4be6df64ea589ef766867a7e, type: 3}
   m_PrefabInstance: {fileID: 271225863}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-=======
+
 --- !u!1 &574126533
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,7 +443,7 @@ MonoBehaviour:
   testSprites:
   - {fileID: 21300000, guid: 5a4f8ce2855203843bb0b26d8c0a572d, type: 3}
   - {fileID: 21300000, guid: e12ee3f01aa72b74ea608203edb73000, type: 3}
->>>>>>> fe8a9c6b0601f44e8f5c4e7c10e54e7ae03f64e4
+
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1044,7 +1043,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
+
 --- !u!1001 &4796428192311466090
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1102,7 +1101,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7afbf4960cdbdb4e8232a85354e78ba, type: 3}
-=======
+
 --- !u!1 &2137167837
 GameObject:
   m_ObjectHideFlags: 0
@@ -1138,7 +1137,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
->>>>>>> fe8a9c6b0601f44e8f5c4e7c10e54e7ae03f64e4
+
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

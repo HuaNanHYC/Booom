@@ -14,6 +14,10 @@ public class PlayerShootButton : MonoBehaviour
         playerHurtSpriteRenderer = playerSpriteRenderer.transform.GetChild(0).GetComponent<SpriteRenderer>();
         gunSprite = GameObject.FindWithTag("Gun");
     }
+    public void SetAuto()
+    {
+        battleSystem.if_AutoShoot = true;
+    }
     public void JudgeShoot()
     {
         StartCoroutine(Shoot());
@@ -21,6 +25,7 @@ public class PlayerShootButton : MonoBehaviour
     public IEnumerator Shoot()//玩家进行射击
     {
         //拿枪
+        yield return new WaitForSeconds(0.5f);
         playerSpriteRenderer.sprite = InventoryManager.Instance.PlayerActionImage;
         yield return new WaitForSeconds(0.5f);
         //在头顶

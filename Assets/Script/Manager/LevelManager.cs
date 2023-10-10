@@ -67,11 +67,17 @@ public class LevelManager : MonoBehaviour
     }
     public void NextLevel()//给调用去往下一关,包括场景跳转
     {
+        if (currentLevelId + 1 >= 30009)
+        {
+            UIManager.Instance.LoadScene("StartAndEnd");
+            return;
+        }
         SetCurrentLevel(currentLevelId+1);
         SceneManageSystem.Instance.GoToFigureScene("Dialogue");
     }
     public void CurrentLevel()//调用加载本关
     {
+        if_StartDialogue = false;
         SceneManageSystem.Instance.GoToFigureScene("Level" + (currentLevelId - 30000).ToString());
     }
     #endregion
@@ -186,6 +192,9 @@ public class LevelManager : MonoBehaviour
     }
     private bool continueSprite;//停留图片判断
     public bool ContinueSprite { get { return continueSprite; } set { continueSprite = value; } }
+
+
+
     public void DialogueAfterBlack()//黑屏转场，给对话结束时用，dialogue的场景会有一个onenable就调用一次启动对话的物体
     {
         SceneManageSystem.Instance.GoToFigureScene("Dialogue");
@@ -196,4 +205,12 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene("Dialogue");
     }
     #endregion
+
+    //开头和结尾视频播放
+    [SerializeField]
+    private bool startVideoPlay;
+    private bool endVideoPlay;
+    public bool StartVideoPlay { get => startVideoPlay; set => startVideoPlay = value; }
+    public bool EndVideoPlay { get => endVideoPlay; set => endVideoPlay = value; }
+
 }

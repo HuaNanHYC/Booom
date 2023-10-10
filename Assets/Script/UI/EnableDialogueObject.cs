@@ -7,6 +7,8 @@ public class EnableDialogueObject : MonoBehaviour
     public UIDialogue uIDialogue;
     [Header("停留的图片")]
     public GameObject continueSprite;
+    public Canvas backGround;
+    private bool ifPreviousContinue;
     private void OnEnable()
     {
         StartCoroutine(StartDialogue());
@@ -16,8 +18,9 @@ public class EnableDialogueObject : MonoBehaviour
         if(LevelManager.Instance.ContinueSprite)
         {
             continueSprite.SetActive(true);
-            LevelManager.Instance.ContinueSprite = false;
-            yield return new WaitForSeconds(1);
+            LevelManager.Instance.ContinueSprite = false; 
+            ifPreviousContinue = true;
+            yield return new WaitForSeconds(2);
         }
 
 
@@ -36,5 +39,12 @@ public class EnableDialogueObject : MonoBehaviour
         DialogueManager.Instance.StartDialogue(dialogue);
         continueSprite.SetActive(false);
         uIDialogue.gameObject.SetActive(true);
+        //先出背景再出对话
+        if (!ifPreviousContinue)
+        {
+            backGround.sortingOrder = 101;
+            yield return new WaitForSeconds(1);
+            backGround.sortingOrder = 0;
+        }
     }
 }

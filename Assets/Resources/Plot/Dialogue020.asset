@@ -1,0 +1,152 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6835808679069557333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d2ef30bde2b84041a278eee1d8556ae, type: 3}
+  m_Name: 9de8cde7-5421-4e35-bef8-5add48122797
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 225
+    y: 541
+    width: 200
+    height: 100
+  children:
+  - 7f4b304c-fd6b-450d-9526-f42b47ed142d
+  condition:
+    and: []
+  actor: {fileID: 11400000, guid: 1ac58d8f139ba654eb88bdf424236114, type: 2}
+  text: "\u7B49\u7B49\uFF0C\u8FD9\u6BB5\u5BF9\u8BDD\u597D\u50CF\u5728\u54EA\u53D1\u751F\u8FC7\uFF1F"
+  onEnterActions: []
+  onExitActions: []
+--- !u!114 &-6199575914781603645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d2ef30bde2b84041a278eee1d8556ae, type: 3}
+  m_Name: 262594c8-0a95-4acd-b85a-64bf186d5071
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 231
+    y: 422
+    width: 200
+    height: 100
+  children:
+  - 9de8cde7-5421-4e35-bef8-5add48122797
+  condition:
+    and: []
+  actor: {fileID: 11400000, guid: 9d861644560394043b57170f4f355073, type: 2}
+  text: "\u884C\uFF0C\u542C\u4F60\u7684\u3002"
+  onEnterActions:
+  - actionName: SetDisplayActor
+    actionArgs:
+    - 0
+  onExitActions: []
+--- !u!114 &-3483748553065174901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d2ef30bde2b84041a278eee1d8556ae, type: 3}
+  m_Name: 3b62fb7e-7831-49c2-b60b-37c8a73b3762
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 252
+    y: 294
+    width: 200
+    height: 100
+  children:
+  - 262594c8-0a95-4acd-b85a-64bf186d5071
+  condition:
+    and: []
+  actor: {fileID: 11400000, guid: 1ac58d8f139ba654eb88bdf424236114, type: 2}
+  text: "6\u4E2A\u5F39\u4ED3\uFF0C1\u679A\u5B50\u5F39\uFF0C\u8C01\u4E2D\u8C01\u6B7B\u3002"
+  onEnterActions:
+  - actionName: SetDisplayActor
+    actionArgs:
+    - 2
+  onExitActions: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20020754e2d077c45a6d80bb16361ff0, type: 3}
+  m_Name: Dialogue020
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 4529602499226632242}
+  - {fileID: -3483748553065174901}
+  - {fileID: -6199575914781603645}
+  - {fileID: -6835808679069557333}
+  - {fileID: 7936488723914547061}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &4529602499226632242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 822a81aab4654797922d52078d026c07, type: 3}
+  m_Name: Start
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 43
+    y: 202
+    width: 200
+    height: 100
+  children:
+  - 3b62fb7e-7831-49c2-b60b-37c8a73b3762
+  condition:
+    and: []
+--- !u!114 &7936488723914547061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d2ef30bde2b84041a278eee1d8556ae, type: 3}
+  m_Name: 7f4b304c-fd6b-450d-9526-f42b47ed142d
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 231
+    y: 663
+    width: 200
+    height: 100
+  children: []
+  condition:
+    and: []
+  actor: {fileID: 11400000, guid: 9d861644560394043b57170f4f355073, type: 2}
+  text: "\u5FEB\u5F00\u59CB\u5427\uFF0C\u51EF\u9171~"
+  onEnterActions: []
+  onExitActions: []

@@ -283,6 +283,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 39448595563755552, guid: 407b8a2ec67a6914785c82521430843c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042841346546040395, guid: 407b8a2ec67a6914785c82521430843c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380849460272990437, guid: 407b8a2ec67a6914785c82521430843c, type: 3}
+      propertyPath: index
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -613,196 +625,8 @@ PrefabInstance:
       value: LevelManager
       objectReference: {fileID: 0}
     - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogue1
-      value: 
-      objectReference: {fileID: 11400000, guid: 244f2c0931763c6458eb6d1c7fc1fa42, type: 2}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogue8
-      value: 
-      objectReference: {fileID: 11400000, guid: 244f2c0931763c6458eb6d1c7fc1fa42, type: 2}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[0].levelId
-      value: 30001
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[1].levelId
-      value: 30002
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[2].levelId
-      value: 30003
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[3].levelId
-      value: 30004
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[4].levelId
-      value: 30005
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[5].levelId
-      value: 30006
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[6].levelId
-      value: 30007
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[7].levelId
-      value: 30008
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[0].specialDialoguePath
-      value: Plot/TestDialogue1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[7].specialDialoguePath
-      value: Plot/TestDialogue2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: levelList.Array.data[1].steadyBulletID.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: levelList.Array.data[1].steadyBulletID.Array.data[0]
-      value: 10001
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[0].endDialoguePath.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[1].endDialoguePath.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[2].endDialoguePath.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[3].endDialoguePath.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[4].endDialoguePath.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[6].endDialoguePath.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[7].endDialoguePath.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[0].startDialoguePath.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[1].startDialoguePath.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[2].startDialoguePath.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[3].startDialoguePath.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[4].startDialoguePath.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[6].startDialoguePath.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[7].startDialoguePath.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: levelList.Array.data[1].steadyBulletPosition.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[0].endDialoguePath.Array.data[0]
-      value: Plot/TestDialogue
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[0].endDialoguePath.Array.data[1]
-      value: Plot/TestDialogue
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[1].endDialoguePath.Array.data[0]
-      value: Plot/TestDialogue
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[2].endDialoguePath.Array.data[0]
-      value: Plot/TestDialogue
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[3].endDialoguePath.Array.data[0]
-      value: Plot/TestDialogue
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[4].endDialoguePath.Array.data[0]
-      value: Plot/TestDialogue
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[6].endDialoguePath.Array.data[0]
-      value: Plot/TestDialogue
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[7].endDialoguePath.Array.data[0]
-      value: Plot/TestDialogue
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[0].startDialoguePath.Array.data[0]
-      value: Plot/Dialogue001
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[0].startDialoguePath.Array.data[1]
-      value: Plot/TestDialogue3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[0].startDialoguePath.Array.data[2]
-      value: Plot/TestDialogue
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[1].startDialoguePath.Array.data[0]
-      value: Plot/TestDialogue
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[2].startDialoguePath.Array.data[0]
-      value: Plot/TestDialogue
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[3].startDialoguePath.Array.data[0]
-      value: Plot/TestDialogue
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[4].startDialoguePath.Array.data[0]
-      value: Plot/TestDialogue
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[6].startDialoguePath.Array.data[0]
-      value: Plot/TestDialogue
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[7].startDialoguePath.Array.data[0]
-      value: Plot/TestDialogue
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: levelList.Array.data[1].steadyBulletPosition.Array.data[0]
-      value: 5
+      propertyPath: dialogueList.Array.data[5].endDialoguePath.Array.data[0]
+      value: Plot/Dialogue015
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

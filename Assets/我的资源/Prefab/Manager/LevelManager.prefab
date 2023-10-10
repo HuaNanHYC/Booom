@@ -54,8 +54,8 @@ MonoBehaviour:
     ableBulletID: 112700001527000016270000
   - levelID: 30002
     enemyID: 20002
-    steadyBulletID: 
-    steadyBulletPosition: 
+    steadyBulletID: 11270000
+    steadyBulletPosition: 05000000
     ableBulletID: 11270000152700001627000013270000
   - levelID: 30003
     enemyID: 20003
@@ -87,3 +87,55 @@ MonoBehaviour:
     steadyBulletID: 11270000
     steadyBulletPosition: 01000000
     ableBulletID: 
+  dialogueList:
+  - levelId: 30001
+    startDialoguePath:
+    - Plot/Dialogue001
+    - Plot/Dialogue002
+    endDialoguePath:
+    - Plot/Dialogue004
+    specialDialoguePath: Plot/Dialogue003
+  - levelId: 30002
+    startDialoguePath:
+    - Plot/Dialogue005
+    endDialoguePath:
+    - Plot/Dialogue006
+    - Plot/Dialogue007
+    - Plot/Dialogue008
+    specialDialoguePath: 
+  - levelId: 30003
+    startDialoguePath:
+    - Plot/Dialogue009
+    endDialoguePath:
+    - Plot/Dialogue010
+    specialDialoguePath: 
+  - levelId: 30004
+    startDialoguePath: []
+    endDialoguePath:
+    - Plot/Dialogue011
+    specialDialoguePath: 
+  - levelId: 30005
+    startDialoguePath:
+    - Plot/Dialogue012
+    endDialoguePath:
+    - Plot/Dialogue013
+    - Plot/Dialogue014
+    specialDialoguePath: 
+  - levelId: 30006
+    startDialoguePath: []
+    endDialoguePath:
+    - Plot/Dialogue0015
+    specialDialoguePath: 
+  - levelId: 30007
+    startDialoguePath:
+    - Plot/Dialogue016
+    endDialoguePath:
+    - Plot/Dialogue017
+    - Plot/Dialogue018
+    specialDialoguePath: 
+  - levelId: 30008
+    startDialoguePath:
+    - Plot/Dialogue019
+    endDialoguePath:
+    - Plot/Dialogue021
+    specialDialoguePath: Plot/Dialogue020
