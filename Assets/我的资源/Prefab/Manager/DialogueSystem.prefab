@@ -96,7 +96,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   imgTest: {fileID: 0}
-  testSprites: []
+  testSprites:
+  - {fileID: 21300000, guid: 5a4f8ce2855203843bb0b26d8c0a572d, type: 3}
+  - {fileID: 21300000, guid: bb4a27b35bd10f64c94df53407a35492, type: 3}
 --- !u!114 &9197141443496634742
 MonoBehaviour:
   m_ObjectHideFlags: 0
