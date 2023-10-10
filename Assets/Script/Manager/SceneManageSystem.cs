@@ -32,7 +32,7 @@ public class SceneManageSystem : MonoBehaviour
         GameObject fade=Instantiate(fadePrefab);
         asyncOperation=SceneManager.LoadSceneAsync(name);
         asyncOperation.allowSceneActivation = false;
-        yield return new WaitForSecondsRealtime(1);
+        yield return new WaitForSecondsRealtime(0.5f);
         while(asyncOperation.progress<0.9f)
         {
             yield return _endOfFrame;

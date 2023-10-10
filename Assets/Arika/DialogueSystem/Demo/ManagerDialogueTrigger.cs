@@ -37,5 +37,10 @@ namespace DialogueSystem.Demo
                 return;
             }
         }
+
+        public void NextDialogue()//重新黑屏加载本场景，由另一个物体判断对话
+        {
+            LevelManager.Instance.DialogueAfterBlack();
+        }
     }
 }

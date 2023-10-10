@@ -24,7 +24,7 @@ public class LevelButton : MonoBehaviour
     }
     public void StartGame()//按钮点击后开始游戏，跳转场景
     {
-        SceneManageSystem.Instance.GoToFigureScene("Level" + (SceneManager.GetActiveScene().buildIndex + index).ToString());
+        LevelManager.Instance.DialogueAfterBlack();
     }
     public void ButtonOnClick()
     {
