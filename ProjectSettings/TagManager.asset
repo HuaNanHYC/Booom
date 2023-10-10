@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - BattleSystem
   - Gun
+  - UiDialogue
   layers:
   - Default
   - TransparentFX

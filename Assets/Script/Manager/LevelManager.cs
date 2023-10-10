@@ -77,20 +77,34 @@ public class LevelManager : MonoBehaviour
 
     #region 剧情配置
 
-    [Header("特殊剧情，例如第一关失败插入的剧情等")]
+    /*[Header("特殊剧情，例如第一关失败插入的剧情等,手动拖拽配置")]
     public Dialogue dialogue1;//第一关输了的剧情
-    public Dialogue dialogue2;//最后一关必定失败的剧情
-    public int specialDialogueIndex;//到时后需要特殊剧情时设置一下
-    public void StartSpecialDialogue()
+    private bool if_Dialogue1Show;//第一关输的剧情是否已经播放过
+    public Dialogue dialogue8;//最后一关必定失败的剧情
+    private bool if_Dialogue8Show;//第八关输的剧情是否已经播放过*/
+    public void LastLevelDialogue()//最后一关的特殊对话判断
     {
-        if(specialDialogueIndex == 1)
+        if (lastLevelJudge&&currentLevelId==30008)
         {
-            DialogueManager.Instance.StartDialogue(dialogue1);
+            if(StartSpecialDialogue())
+                return;
         }
-        else if (specialDialogueIndex == 2)
+    }
+    public bool StartSpecialDialogue()
+    {
+        DialogueInfo dialogueInfo = dialogueDic[currentLevelId];
+        Dialogue dialogue = Resources.Load<Dialogue>(dialogueInfo.specialDialoguePath);
+        bool if_HaveShow = dialogueInfo.If_SpecialDialogueShow;
+        if (dialogue != null&&!if_HaveShow)
         {
-            DialogueManager.Instance.StartDialogue(dialogue2);
+            DialogueManager.Instance.StartDialogue(dialogue);
+            GameObject.FindWithTag("UiDialogue").transform.GetChild(0).gameObject.SetActive(true);
+
+            dialogueInfo.IfSpecialDialogueShow(true);
+            dialogueDic[currentLevelId] = dialogueInfo;
+            return true;
         }
+        return false;
     }
     [System.Serializable]
     public struct DialogueInfo
@@ -98,6 +112,8 @@ public class LevelManager : MonoBehaviour
         public int levelId;
         public string[] startDialoguePath;
         public string[] endDialoguePath;
+        public string specialDialoguePath;
+        private bool if_SpecialDialogueShow;//特殊剧情是否播放过
         private int startDialogueIndex;
         private int endDialogueIndex;
         public void StartIndexAdd()
@@ -108,8 +124,13 @@ public class LevelManager : MonoBehaviour
         {
             this.endDialogueIndex += 1;
         }
+        public void IfSpecialDialogueShow(bool setting)
+        {
+            this.if_SpecialDialogueShow = setting;
+        }
         public int StartDialogueIndex { get => startDialogueIndex; }
         public int EndDialogueIndex { get => endDialogueIndex;}
+        public bool If_SpecialDialogueShow { get => if_SpecialDialogueShow;}
     }
     [SerializeField]
     public List<DialogueInfo> dialogueList = new List<DialogueInfo>();//关卡列表

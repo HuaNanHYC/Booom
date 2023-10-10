@@ -38,9 +38,13 @@ namespace DialogueSystem.Demo
             }
         }
 
-        public void NextDialogue()//重新黑屏加载本场景，由另一个物体判断对话
+        public void NextDialogue()//重新黑屏加载对话场景，由另一个物体判断对话
         {
             LevelManager.Instance.DialogueAfterBlack();
+        }
+        public void CurrentLevel()
+        {
+            LevelManager.Instance.CurrentLevel();//重新加载本关
         }
     }
 }

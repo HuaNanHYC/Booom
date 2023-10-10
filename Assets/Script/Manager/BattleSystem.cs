@@ -25,15 +25,30 @@ public class BattleSystem : MonoBehaviour
     public GameEndPage endPage;//游戏结束页面
     public PlayerInfoPage playerInfoPage;
     public EnemyInfoPage enemyInfoPage;
+
+    private bool ifLastLevel;
     private void Start()
     {
         bulletIndexBeforeShoot = 0;
         currentEnemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();//找到本场景敌人
         currentEnemy.GetComponent<Enemy>().BattleSystem = this;
 
-        if (LevelManager.Instance.currentLevelId == 30008) LevelManager.Instance.lastLevelJudge = true;
-        else LevelManager.Instance.lastLevelJudge = false;
+        if (LevelManager.Instance.currentLevelId == 30008)
+        {
+            ifLastLevel = true;
+            BulletManager.Instance.LoadBullet();
+        }
+        else
+        {
+            LevelManager.Instance.lastLevelJudge = false;
+            ifLastLevel = false;
+        }
     }
+    private void OnEnable()
+    {
+        LevelManager.Instance.LastLevelDialogue();
+    }
+   
     private void Update()
     {
         if (BulletManager.Instance.loadedBulletList.Count > 0 && !if_BattleCanStart) if_BattleCanStart = true;//如果没开始战斗且满足条件，设置开始战斗
@@ -54,9 +69,8 @@ public class BattleSystem : MonoBehaviour
     public void RandomBulletQueue()//随机选取子弹
     {
         //最后一关第一次必失败
-        if(LevelManager.Instance.lastLevelJudge)
+        if (ifLastLevel && !LevelManager.Instance.lastLevelJudge)
         {
-            LevelManager.Instance.lastLevelJudge = false;
             bullets.Clear();
             for (int i = 0; i < BulletManager.Instance.loadedBulletList.Count; i++)
             { 
@@ -77,6 +91,7 @@ public class BattleSystem : MonoBehaviour
                 else if (random > 30 && random <= 60) bullets[3] = newBullet;
                 else if (random > 60) bullets[5] = newBullet;
             }
+
             return;
         }
 

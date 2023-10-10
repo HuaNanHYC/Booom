@@ -363,6 +363,8 @@ MonoBehaviour:
   tmpDialogueText: {fileID: 2470808928035423512}
   btnNext: {fileID: 6799847690498377480}
   btnQuit: {fileID: 0}
+  actorSpeakingColor: {r: 1, g: 1, b: 1, a: 1}
+  actorNotSpeakingColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &3782007255129065938
 GameObject:
   m_ObjectHideFlags: 0

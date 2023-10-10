@@ -17,7 +17,6 @@ public class BulletManager : MonoBehaviour
     {
         bulletList.Clear();
         CreateBulletSelect();
-        if (LevelManager.Instance.lastLevelJudge) LoadBullet();
     }
     [System.Serializable]
     public struct BulletInfo
@@ -50,7 +49,8 @@ public class BulletManager : MonoBehaviour
         //清除列表及列表生成的子物体
         for (int i = bulletList.Count - 1; i >= 0; i--)
         {
-            Destroy(transform.GetChild(i));
+            if (i<transform.childCount)
+                Destroy(transform.GetChild(i));
         }
         loadedBulletList.Clear();
         
