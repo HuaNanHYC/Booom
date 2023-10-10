@@ -95,6 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9a4ad64c543463fa92d8eaa36bd8a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  imgTest: {fileID: 0}
+  testSprites: []
 --- !u!114 &9197141443496634742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,7 +117,7 @@ MonoBehaviour:
         - m_Target: {fileID: 4575060319992198248}
           m_TargetAssemblyTypeName: DialogueSystem.Demo.ManagerDialogueTrigger, Assembly-CSharp
           m_MethodName: SetDisplayActor
-          m_Mode: 5
+          m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -131,7 +133,7 @@ MonoBehaviour:
         - m_Target: {fileID: 4575060319992198248}
           m_TargetAssemblyTypeName: DialogueSystem.Demo.ManagerDialogueTrigger, Assembly-CSharp
           m_MethodName: ActorLeaveDialogue
-          m_Mode: 1
+          m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -164,6 +166,38 @@ MonoBehaviour:
           m_TargetAssemblyTypeName: DialogueSystem.Demo.ManagerDialogueTrigger, Assembly-CSharp
           m_MethodName: CurrentLevel
           m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - actionName: ChangeActorSprite
+    triggerEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4575060319992198248}
+          m_TargetAssemblyTypeName: DialogueSystem.Demo.ManagerDialogueTrigger, Assembly-CSharp
+          m_MethodName: ChangeActorSprite
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - actionName: ChangeBackgroundSprite
+    triggerEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4575060319992198248}
+          m_TargetAssemblyTypeName: DialogueSystem.Demo.ManagerDialogueTrigger, Assembly-CSharp
+          m_MethodName: ChangeBackgroundSprite
+          m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

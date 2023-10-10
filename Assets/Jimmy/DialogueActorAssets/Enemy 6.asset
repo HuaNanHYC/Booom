@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14589bee7512e494faabd31c8ad962c8, type: 3}
-  m_Name: DialogueActor Test2
+  m_Name: Enemy 6
   m_EditorClassIdentifier: 
-  actorName: 2222222222
+  actorName: "\u62C9\u6590\u5C14"
   actorSprites:
-  - {fileID: 21300000, guid: 04d2927ad76914d49bcfb1cd80104be3, type: 3}
+  - {fileID: 21300000, guid: 63a1b92af3a32d34f8c17b8407c7d024, type: 3}

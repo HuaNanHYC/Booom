@@ -285,7 +285,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4920725927965585712, guid: 407b8a2ec67a6914785c82521430843c, type: 3}
       propertyPath: index
-      value: 8
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -701,6 +701,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
+      propertyPath: dialogueList.Array.data[7].endDialoguePath.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
       propertyPath: dialogueList.Array.data[0].startDialoguePath.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -722,6 +726,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
       propertyPath: dialogueList.Array.data[6].startDialoguePath.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
+      propertyPath: dialogueList.Array.data[7].startDialoguePath.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
@@ -757,8 +765,12 @@ PrefabInstance:
       value: Plot/TestDialogue
       objectReference: {fileID: 0}
     - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
-      propertyPath: dialogueList.Array.data[0].startDialoguePath.Array.data[0]
+      propertyPath: dialogueList.Array.data[7].endDialoguePath.Array.data[0]
       value: Plot/TestDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
+      propertyPath: dialogueList.Array.data[0].startDialoguePath.Array.data[0]
+      value: Plot/Dialogue001
       objectReference: {fileID: 0}
     - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
       propertyPath: dialogueList.Array.data[0].startDialoguePath.Array.data[1]
@@ -782,6 +794,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
       propertyPath: dialogueList.Array.data[6].startDialoguePath.Array.data[0]
+      value: Plot/TestDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
+      propertyPath: dialogueList.Array.data[7].startDialoguePath.Array.data[0]
       value: Plot/TestDialogue
       objectReference: {fileID: 0}
     - target: {fileID: 5146264335846723226, guid: 10c21717b71515b49b3bb92a7041f2fa, type: 3}
