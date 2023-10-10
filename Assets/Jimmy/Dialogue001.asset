@@ -80,9 +80,7 @@ MonoBehaviour:
   actor: {fileID: 11400000, guid: 1ac58d8f139ba654eb88bdf424236114, type: 2}
   text: "\u8FD9\u4E48\u5927\u65B9\uFF1F\u4F60\u771F\u7684\u662F\u90A3\u4E2A\u9EA6\u514B\uFF1F\u884C\uFF0C\u573A\u5B50\u5F52\u4F60\u4E86\u3002\u4E09\u4E2A\u89C4\u77E9\uFF1A\u4E0D\u80FD\u6B7B\u4EBA\uFF0C\u4E0D\u80FD\u7834\u574F\u684C\u6905\uFF0C\u9152\u94B1\u7167\u4ED8\u3002"
   onEnterActions: []
-  onExitActions:
-  - actionName: NextDialogue
-    actionArgs: []
+  onExitActions: []
 --- !u!114 &-3483748553065174901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,9 +191,7 @@ MonoBehaviour:
   - actionName: ChangeActorSprite
     actionArgs:
     - 0
-  onExitActions:
-  - actionName: NextDialogue
-    actionArgs: []
+  onExitActions: []
 --- !u!114 &-1524899715487818349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,6 +375,4 @@ MonoBehaviour:
   actor: {fileID: 11400000, guid: 1ac58d8f139ba654eb88bdf424236114, type: 2}
   text: "\u54DF\uFF0C\u8FD9\u4E0D\u662F\u5927\u540D\u9F0E\u9F0E\u7684\u9EA6\u514B\u5417\uFF1F\u5931\u8E2A\u4E86\u8FD9\u4E48\u591A\u5E74\uFF0C\u600E\u4E48\u73B0\u5728\u6709\u96C5\u5174\u5149\u4E34\u6211\u8FD9\u7834\u9152\u9986\uFF1F"
   onEnterActions: []
-  onExitActions:
-  - actionName: NextDialogue
-    actionArgs: []
+  onExitActions: []

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using DialogueSystem;
 public class LevelManager : MonoBehaviour
 {
@@ -183,9 +184,16 @@ public class LevelManager : MonoBehaviour
             return null;
         }
     }
+    private bool continueSprite;//停留图片判断
+    public bool ContinueSprite { get { return continueSprite; } set { continueSprite = value; } }
     public void DialogueAfterBlack()//黑屏转场，给对话结束时用，dialogue的场景会有一个onenable就调用一次启动对话的物体
     {
         SceneManageSystem.Instance.GoToFigureScene("Dialogue");
+    }
+    public void DialogueNoBlack()
+    {
+        continueSprite = true;
+        SceneManager.LoadScene("Dialogue");
     }
     #endregion
 }

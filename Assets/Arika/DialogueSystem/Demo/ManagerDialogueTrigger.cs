@@ -125,5 +125,9 @@ namespace DialogueSystem.Demo
         {
             LevelManager.Instance.CurrentLevel();//重新加载本关
         }
+        public void NextDialogueNoBlack()
+        {
+            LevelManager.Instance.DialogueNoBlack();
+        }
     }
 }

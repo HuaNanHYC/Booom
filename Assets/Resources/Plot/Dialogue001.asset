@@ -191,7 +191,9 @@ MonoBehaviour:
   - actionName: ChangeActorSprite
     actionArgs:
     - 0
-  onExitActions: []
+  onExitActions:
+  - actionName: NextDialogue
+    actionArgs: []
 --- !u!114 &-1524899715487818349
 MonoBehaviour:
   m_ObjectHideFlags: 0

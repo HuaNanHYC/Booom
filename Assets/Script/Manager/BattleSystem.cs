@@ -21,6 +21,7 @@ public class BattleSystem : MonoBehaviour
     public GameObject battlePage;//用于控制左轮旋转
     [Header("开枪按钮")]
     public Button playerShootButton;//到玩家时，让玩家点击射击开枪的按钮
+    public Button playerAutoShootButton;//到玩家时，让玩家点击射击开枪的按钮
     [Header("结束页面")]
     public GameEndPage endPage;//游戏结束页面
     public PlayerInfoPage playerInfoPage;
@@ -30,6 +31,7 @@ public class BattleSystem : MonoBehaviour
     private void Start()
     {
         bulletIndexBeforeShoot = 0;
+        if_AutoShoot = false;
         currentEnemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();//找到本场景敌人
         currentEnemy.GetComponent<Enemy>().BattleSystem = this;
 
@@ -167,13 +169,19 @@ public class BattleSystem : MonoBehaviour
         if_ShootStart = true;
         StartCoroutine(StartShootAfterSpin());
     }
+    public bool if_AutoShoot;
     public void StartShoot()//开始射击后玩家和敌人的动作表现
     {
         if (ShootEnd()) return;
         JudgeWhoShootImage(if_PlayerShoot, !if_PlayerShoot);//回合图片显示
         if (if_PlayerShoot)
         {
-            playerShootButton.gameObject.SetActive(true);
+            if(if_AutoShoot)
+                playerShootButton.GetComponent<PlayerShootButton>().JudgeShoot();
+            else 
+            {
+                playerShootButton.gameObject.SetActive(true);
+            }
             //点击按钮后播放开枪动画
         }
         else
