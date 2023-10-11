@@ -19,6 +19,7 @@ public class StartGame : MonoBehaviour
     public void ContinueTheGame()
     {
         LevelManager.Instance.LoadTheGame();
+        if (LevelManager.Instance.currentLevelId <= 30000) return;
         LevelManager.Instance.InitializeAllIndexInDialogueDic();//ÇåÁã
         if (LevelManager.Instance.currentLevelId == 30001)
         {

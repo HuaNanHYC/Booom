@@ -65,7 +65,7 @@ public class AudioManager : MonoBehaviour
     }
     public void SetVolumn(float volumn)
     {
-        audioSource1MainSource.volume = volumn;
+        audioSource1MainSource.volume = Mathf.Min(0.5f,volumn);
         audioSource2EffectSource.volume = volumn;
     }
     public void UpdateAudioClipResource()
@@ -80,5 +80,6 @@ public class AudioManager : MonoBehaviour
         bulletsTurn = Resources.Load<AudioClip>(BulletsTurnPath);
         dialogueMusic = Resources.Load<AudioClip>(DialogueMusicPath);
         fightMusic = Resources.Load<AudioClip>(FightMusicPath);
+
     }
 }

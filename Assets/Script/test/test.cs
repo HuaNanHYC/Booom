@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class test : MonoBehaviour
 {
-    public void getbullet()
+    /*public void getbullet()
     {
         InventoryManager.Instance.AddBullet(10001);
         InventoryManager.Instance.AddBullet(10002); 
@@ -15,5 +15,5 @@ public class test : MonoBehaviour
     public void NextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
+    }*/
 }

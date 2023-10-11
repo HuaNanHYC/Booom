@@ -9,16 +9,18 @@ public class EnableDialogueObject : MonoBehaviour
     public GameObject continueSprite;
     public Canvas backGround;
     private bool ifPreviousContinue;
-    private void OnEnable()
+
+    public DialogueManager dialogueManager;
+    private void Awake()
     {
         StartCoroutine(StartDialogue());
     }
-    IEnumerator StartDialogue()
+    public IEnumerator StartDialogue()
     {
-        if(LevelManager.Instance.ContinueSprite)
+        if (LevelManager.Instance.ContinueSprite)
         {
             continueSprite.SetActive(true);
-            LevelManager.Instance.ContinueSprite = false; 
+            LevelManager.Instance.ContinueSprite = false;
             ifPreviousContinue = true;
             yield return new WaitForSeconds(2);
         }
@@ -26,7 +28,7 @@ public class EnableDialogueObject : MonoBehaviour
 
         Dialogue dialogue = null;
         bool if_StartDialogue = LevelManager.Instance.If_StartDialogue;
-        if(if_StartDialogue)
+        if (if_StartDialogue)
             dialogue = LevelManager.Instance.NextDialogueInStartDialogue();
         else
             dialogue = LevelManager.Instance.NextDialogueInEndDialogue();
@@ -43,7 +45,7 @@ public class EnableDialogueObject : MonoBehaviour
             AudioManager.Instance.AudioSource1MainSource.Play();
         }
 
-
+        //dialogueManager.StartDialogue(dialogue);
         DialogueManager.Instance.StartDialogue(dialogue);
         continueSprite.SetActive(false);
         uIDialogue.gameObject.SetActive(true);

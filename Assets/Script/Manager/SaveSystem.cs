@@ -71,7 +71,7 @@ public class SaveSystem
     /// É¾³ý´æµµ
     /// </summary>
     /// <param name="saveFileName"></param>
-    public static bool DeleteSaveFile(string saveFileName, string savePath)
+    /*public static bool DeleteSaveFile(string saveFileName, string savePath)
     {
         var path = Path.Combine(savePath, saveFileName);
         try { File.Delete(path);return true; }
@@ -82,6 +82,6 @@ public class SaveSystem
             return false;
 #endif
         }
-    }
+    }*/
     #endregion
 }

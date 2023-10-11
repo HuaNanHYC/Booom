@@ -95,7 +95,7 @@ public class InventoryManager : MonoBehaviour
 
 
     #region 保存玩家属性的方法，9.29日弃用
-
+    /*
     private string PLAYER_DATA_FILE_NAME = "PlayerData.GameSave";
 
     [SerializeField]
@@ -150,9 +150,9 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void ClearPlayerData()//清除存档
+    /*public void ClearPlayerData()//清除存档
     {
         SaveSystem.DeleteSaveFile(PLAYER_DATA_FILE_NAME, Application.persistentDataPath);
-    }
+    }*/
     #endregion
 }

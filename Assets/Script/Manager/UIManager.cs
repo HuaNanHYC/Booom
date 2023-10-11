@@ -37,14 +37,14 @@ public class UIManager : MonoBehaviour
     {
         SceneManageSystem.Instance.GoToFigureScene(targetSceneName);
     }
-    public void SaveGame()//保存游戏
+    /*public void SaveGame()//保存游戏
     {
         InventoryManager.Instance.SavePlayerData();
     }
     public void ClearData()//清除存档
     {
         InventoryManager.Instance.ClearPlayerData();
-    }
+    }*/
 
     public void QuitTheGame()//退出游戏
     {

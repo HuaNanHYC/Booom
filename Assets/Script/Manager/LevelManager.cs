@@ -216,7 +216,7 @@ public class LevelManager : MonoBehaviour
             dialogueInfo.Initialize();
             dialogueDic[index.Key] = dialogueInfo;
         }
-        If_StartDialogue = true;
+        if_StartDialogue = true;
     }
     #endregion
 
