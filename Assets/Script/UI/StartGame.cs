@@ -14,8 +14,20 @@ public class StartGame : MonoBehaviour
     {
         UIManager.Instance.LoadScene("StartAndEnd");
     }
+    public void ContinueTheGame()
+    {
+        LevelManager.Instance.LoadTheGame();
+        if (LevelManager.Instance.currentLevelId == 30000)
+        {
+            StartTheGame();
+            return;
+        }
+        else
+        {
+            LevelManager.Instance.DialogueAfterBlack();
+        }
+    }
     public void ButtonOnClick()
     {
-        button.onClick.AddListener(StartTheGame);
     }
 }

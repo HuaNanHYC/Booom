@@ -49,8 +49,9 @@ public class BattleSystem : MonoBehaviour
     private void OnEnable()
     {
         LevelManager.Instance.LastLevelDialogue();
+        LevelManager.Instance.SaveTheGame();
     }
-   
+
     private void Update()
     {
         if (BulletManager.Instance.loadedBulletList.Count > 0 && !if_BattleCanStart) if_BattleCanStart = true;//如果没开始战斗且满足条件，设置开始战斗

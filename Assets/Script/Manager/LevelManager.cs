@@ -206,11 +206,36 @@ public class LevelManager : MonoBehaviour
     }
     #endregion
 
-    //开头和结尾视频播放
+    #region 开头和结尾视频播放
     [SerializeField]
     private bool startVideoPlay;
     private bool endVideoPlay;
     public bool StartVideoPlay { get => startVideoPlay; set => startVideoPlay = value; }
     public bool EndVideoPlay { get => endVideoPlay; set => endVideoPlay = value; }
+    #endregion
 
+    #region 关卡保存以继续游戏
+    string LEVELID_SAVE_FILE = "PlayerData.Level";
+    [System.Serializable]public class LevelSave
+    {
+        public int levelId;//当前已经到达的关卡
+    }
+    public void SaveTheGame()//保存当前关卡
+    {
+        LevelSave levelSave = new LevelSave();
+        levelSave.levelId = currentLevelId;
+        if(SaveSystem.SaveByJson(LEVELID_SAVE_FILE, levelSave, Application.persistentDataPath))Debug.Log("保存成功");
+    }
+    public void LoadTheGame()
+    {
+        LevelSave levelSave = SaveSystem.LoadFromJson<LevelSave>(LEVELID_SAVE_FILE, Application.persistentDataPath);
+        if (levelSave == null)
+        {
+            Debug.Log("读取失败");
+            return;
+        }
+        currentLevelId = levelSave.levelId;
+        Debug.Log("读取成功");
+    }
+    #endregion
 }

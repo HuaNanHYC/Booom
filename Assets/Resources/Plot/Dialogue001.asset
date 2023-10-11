@@ -96,7 +96,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 285
-    y: 346
+    y: 345
     width: 200
     height: 100
   children:
@@ -107,10 +107,14 @@ MonoBehaviour:
   text: "\u8001\u677F\u5A18\uFF0C\u6765\u676F\u5927\u536B\xB7\u9A6C\u4E01\u5185\u65AF\u3002"
   onEnterActions:
   - actionName: SetDisplayActor
-    actionArgs: []
+    actionArgs:
+    - 0
   - actionName: ChangeActorSprite
     actionArgs:
     - 1
+  - actionName: ChangeBackgroundSprite
+    actionArgs:
+    - 0
   onExitActions: []
 --- !u!114 &-2747569073217822851
 MonoBehaviour:
@@ -299,7 +303,8 @@ MonoBehaviour:
   text: "\u6765\u4E86\uFF01"
   onEnterActions:
   - actionName: SetDisplayActor
-    actionArgs: []
+    actionArgs:
+    - 2
   onExitActions: []
 --- !u!114 &3447501518271982018
 MonoBehaviour:

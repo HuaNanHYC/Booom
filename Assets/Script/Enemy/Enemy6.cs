@@ -15,23 +15,23 @@ public class Enemy6 : Enemy
     public override IEnumerator EnemyShooting()
     {
         //敌人拿枪
-        yield return new WaitForSeconds(0.5f);//等待0.5秒
+        yield return new WaitForSeconds(beforeActionInterval);//等待0.5秒
         EnemyAction(true);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(actionToReadyInterval);
         EnemyReady(false);
         //准备开枪
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(readyToShootInterval);
         //剩1滴血时将枪口对准你
         if(currentHealth==1&&!if_ShootYou)
         {
             if_ShootYou = true;
             enemySpriteRenderer.sprite = shootToYouImage;
             battleSystem.if_PlayerShoot = true;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(shootToReadyInterval);
             battleSystem.JudegeShoot();
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(readyToActionInterval);
             EnemyAction(true);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(actionToIdleInterval);
             actionHand.SetActive(false);
             EnemyIdle();
             battleSystem.if_PlayerShoot = true;
@@ -41,11 +41,11 @@ public class Enemy6 : Enemy
         else if (battleSystem.JudegeShoot())
         {
             EnemyShot();//中枪
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(shootToReadyInterval);
             EnemyReady(false);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(readyToActionInterval);
             EnemyAction(true);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(actionToIdleInterval);
             actionHand.SetActive(false);
             EnemyIdle();
             battleSystem.StartShoot();
@@ -54,12 +54,12 @@ public class Enemy6 : Enemy
         else
         {
             EnemyDodge();//没中枪
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(shootToReadyInterval);
             EnemyReady(false);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(readyToActionInterval);
             EnemyDodgeAction();
             actionHand.SetActive(true);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(actionToIdleInterval);
             actionHand.SetActive(false);
             EnemyIdle();
             battleSystem.StartShoot();

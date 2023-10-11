@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using DialogueSystem;
+using UnityEngine.UI;
 public class GameEndPage : MonoBehaviour
 {
     public GameObject win;
     public GameObject lose;
+    public GameObject panel;
     public void Win()//游戏胜利的方法
     {
         LevelManager.Instance.DialogueAfterBlack();//进入关卡结束剧情
@@ -18,6 +20,7 @@ public class GameEndPage : MonoBehaviour
         {
             if (LevelManager.Instance.StartSpecialDialogue())
             {
+                panel.gameObject.SetActive(true);
                 return;
             }
         }

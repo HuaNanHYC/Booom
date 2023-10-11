@@ -44,3 +44,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43fab5618223d8c438915ef3d2fb1031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beforeActionInterval: 0.5
+  actionToReadyInterval: 0.5
+  readyToShootInterval: 0.5
+  shootToReadyInterval: 0.5
+  readyToActionInterval: 0.5
+  actionToIdleInterval: 0.5
+  beforeActionIntervalPlayer: 0.5
+  actionToReadyIntervalPlayer: 0.5
+  readyToShootIntervalPlayer: 0.5
+  shootToReadyIntervalPlayer: 0.5
+  readyToActionIntervalPlayer: 0.5
+  actionToIdleIntervalPlayer: 0.5
+  if_Teach1: 0
+  if_Teach2: 0
+  if_Teach3: 0
