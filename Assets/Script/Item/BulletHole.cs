@@ -2,14 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class BulletHole : MonoBehaviour
+public class BulletHole : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler,IPointerExitHandler
 {
     private Image image;
     public int number;//左轮洞的序号
     public Bullet currentBullet;
     public bool if_Load;
     public bool if_AutoLoad;//判断这个洞玩家是否能用来装自己的子弹
+    public GameObject bulletDesc;//子弹的描述框显示
+    private GameObject descriptionBoard;
+    private RectTransform bulletInfoRectTransform;
     private void Awake()
     {
         if_AutoLoad = false;//开始玩家可以装填
@@ -23,7 +27,7 @@ public class BulletHole : MonoBehaviour
 
     void Update()
     {
-        
+        if (currentBullet == null && descriptionBoard != null) descriptionBoard.SetActive(false);
     }
 
     #region 装填子弹
@@ -99,6 +103,60 @@ public class BulletHole : MonoBehaviour
                 Image childIconImage = transform.Find("bulletIcon").GetComponent<Image>();
                 childIconImage.sprite = unLoadSprite;
             }
+        }
+    }
+    public void UpdateBulletInfo()//让信息更新
+    {
+        descriptionBoard.transform.GetChild(0).GetComponent<Text>().text = currentBullet.bulletName;
+        descriptionBoard.transform.GetChild(1).GetComponent<Text>().text = currentBullet.bulletDescription;
+        descriptionBoard.transform.GetComponent<Image>().SetNativeSize();
+        //currentBulletInfo.transform.GetChild(2).GetComponent<Text>().text = extraDescription;
+    }
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if(currentBullet!=null)
+        {
+            if (descriptionBoard != null)
+            {
+                UpdateBulletInfo();
+                descriptionBoard.SetActive(true);
+                return;
+            }
+            descriptionBoard = Instantiate(bulletDesc);
+            descriptionBoard.transform.SetParent(transform,false);
+            bulletInfoRectTransform = descriptionBoard.GetComponent<RectTransform>();
+            descriptionBoard.transform.localScale = new Vector3(1.5f,1.5f,1.5f);
+            UpdateBulletInfo();
+        }
+    }
+
+    public void OnPointerMove(PointerEventData eventData)
+    {
+        if (bulletInfoRectTransform == null) return;
+        Vector2 localMousePos;
+        // 获取UI元素的宽高
+        float uiElementWidth = bulletInfoRectTransform.rect.width;
+        float uiElementHeight = bulletInfoRectTransform.rect.height;
+
+        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                bulletInfoRectTransform.parent as RectTransform,
+                eventData.position,
+                eventData.pressEventCamera,
+                out localMousePos))
+        {
+            // 根据UI元素的大小自动计算偏移量，确保不重叠
+            Vector2 offset = new Vector2(0, -uiElementHeight / 1f);
+
+            // 设置UI元素的位置
+            bulletInfoRectTransform.localPosition = localMousePos + offset;
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if(descriptionBoard!=null)
+        {
+            descriptionBoard.SetActive(false);
         }
     }
     #endregion

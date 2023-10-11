@@ -7,6 +7,9 @@ public class UIManager : MonoBehaviour
 {
     private static UIManager instance;
     public static UIManager Instance { get { return instance; } }
+    public bool if_Teach1;//判断各关卡的教程，保证只有一次教程
+    public bool if_Teach2;
+    public bool if_Teach3;
 
     private void Awake()
     {

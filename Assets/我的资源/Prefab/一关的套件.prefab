@@ -1426,6 +1426,7 @@ MonoBehaviour:
   currentBullet: {fileID: 0}
   if_Load: 0
   if_AutoLoad: 0
+  bulletDesc: {fileID: 5442800205186458850, guid: 3c5f505e242f5844f93153bfefd20560, type: 3}
   loadedSprite: {fileID: 21300000, guid: e0727f2a1d9851346bcaea6fcd567386, type: 3}
   unLoadSprite: {fileID: -703705473, guid: c6efdd71b37e50243b44eb0c4c9c0e08, type: 3}
   loadSprite: {fileID: -703705473, guid: c6efdd71b37e50243b44eb0c4c9c0e08, type: 3}
@@ -1925,6 +1926,7 @@ MonoBehaviour:
   currentBullet: {fileID: 0}
   if_Load: 0
   if_AutoLoad: 0
+  bulletDesc: {fileID: 5442800205186458850, guid: 3c5f505e242f5844f93153bfefd20560, type: 3}
   loadedSprite: {fileID: 21300000, guid: e0727f2a1d9851346bcaea6fcd567386, type: 3}
   unLoadSprite: {fileID: -703705473, guid: c6efdd71b37e50243b44eb0c4c9c0e08, type: 3}
   loadSprite: {fileID: -703705473, guid: c6efdd71b37e50243b44eb0c4c9c0e08, type: 3}
@@ -3901,9 +3903,17 @@ PrefabInstance:
       value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 1716230281560120484, guid: ee41dfa1db57af94f9eed927fd88cafc, type: 3}
+      propertyPath: bulletDesc
+      value: 
+      objectReference: {fileID: 5442800205186458850, guid: 3c5f505e242f5844f93153bfefd20560, type: 3}
+    - target: {fileID: 1716230281560120484, guid: ee41dfa1db57af94f9eed927fd88cafc, type: 3}
       propertyPath: loadedSprite
       value: 
       objectReference: {fileID: 21300000, guid: e0727f2a1d9851346bcaea6fcd567386, type: 3}
+    - target: {fileID: 1814791289879769602, guid: ee41dfa1db57af94f9eed927fd88cafc, type: 3}
+      propertyPath: bulletDesc
+      value: 
+      objectReference: {fileID: 5442800205186458850, guid: 3c5f505e242f5844f93153bfefd20560, type: 3}
     - target: {fileID: 1814791289879769602, guid: ee41dfa1db57af94f9eed927fd88cafc, type: 3}
       propertyPath: loadedSprite
       value: 
@@ -4024,6 +4034,10 @@ PrefabInstance:
       propertyPath: m_FontData.m_Alignment
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4117743715074300398, guid: ee41dfa1db57af94f9eed927fd88cafc, type: 3}
+      propertyPath: bulletDesc
+      value: 
+      objectReference: {fileID: 5442800205186458850, guid: 3c5f505e242f5844f93153bfefd20560, type: 3}
     - target: {fileID: 4117743715074300398, guid: ee41dfa1db57af94f9eed927fd88cafc, type: 3}
       propertyPath: loadedSprite
       value: 
@@ -4480,6 +4494,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 466
       objectReference: {fileID: 0}
+    - target: {fileID: 8039557082426017036, guid: ee41dfa1db57af94f9eed927fd88cafc, type: 3}
+      propertyPath: bulletDesc
+      value: 
+      objectReference: {fileID: 5442800205186458850, guid: 3c5f505e242f5844f93153bfefd20560, type: 3}
     - target: {fileID: 8039557082426017036, guid: ee41dfa1db57af94f9eed927fd88cafc, type: 3}
       propertyPath: loadedSprite
       value: 

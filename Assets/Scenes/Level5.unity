@@ -406,6 +406,7 @@ MonoBehaviour:
   currentBullet: {fileID: 0}
   if_Load: 0
   if_AutoLoad: 0
+  bulletDesc: {fileID: 1213005120890867735, guid: ef58cff918a10b8478eebb765955762c, type: 3}
   loadedSprite: {fileID: 21300000, guid: e0727f2a1d9851346bcaea6fcd567386, type: 3}
   unLoadSprite: {fileID: -703705473, guid: c6efdd71b37e50243b44eb0c4c9c0e08, type: 3}
   loadSprite: {fileID: -703705473, guid: c6efdd71b37e50243b44eb0c4c9c0e08, type: 3}
