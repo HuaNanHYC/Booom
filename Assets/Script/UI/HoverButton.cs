@@ -10,6 +10,8 @@ public class HoverButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public Sprite normalSprite;
     public Sprite hoverSprite;
     public Sprite pressedSprite;
+
+
     private void Awake()
     {
         selfImage = GetComponent<Image>();
@@ -20,6 +22,7 @@ public class HoverButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnPointerEnter(PointerEventData eventData)
     {
         selfImage.sprite = hoverSprite;
+        AudioManager.Instance.AudioSource2EffectSource.PlayOneShot(AudioManager.Instance.HangMusic);
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -30,6 +33,7 @@ public class HoverButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnPointerDown(PointerEventData eventData)
     {
         selfImage.sprite = pressedSprite;
+        AudioManager.Instance.AudioSource2EffectSource.PlayOneShot(AudioManager.Instance.ClickMusic);
     }
 
     public void OnPointerUp(PointerEventData eventData)

@@ -43,6 +43,9 @@ public class BulletHole : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler
             if (BulletManager.Instance.JudgeExistTogether_IfCanPutIn(BulletManager.Instance.currentBullet.ID) == false) return;
             if_Load = true;
             PointerExitLoadedSpriteInChildWhenEmpty();
+            //音效
+            AudioManager.Instance.AudioSource2EffectSource.PlayOneShot(AudioManager.Instance.BulletsIn);
+
             currentBullet = BulletManager.Instance.currentBullet;//记录现在装填的子弹
 
             image.sprite = loadedSprite;//设置成装填图片样式

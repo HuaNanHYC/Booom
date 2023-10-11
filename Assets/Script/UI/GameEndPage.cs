@@ -37,6 +37,7 @@ public class GameEndPage : MonoBehaviour
     }
     public void ReturnLevelSelectScene()
     {
+        AudioManager.Instance.AudioSource1MainSource.Stop();
         UIManager.Instance.LoadScene("Menu");
     }
     

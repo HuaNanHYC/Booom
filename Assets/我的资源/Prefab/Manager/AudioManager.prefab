@@ -46,11 +46,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9fdd9beac5f8bb4382fb436618971b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource2EffectSource: {fileID: 0}
+  audioSource2EffectSource: {fileID: 5683682351020367990}
   revolver_Spin_Path: Music/Revolver-Spin
   revolver_Fire_Path: Music/Revolver-Fire
   revolver_NoBullet_Path: Music/Revolver-NoBullet
   revelver_MissFire_Path: Music/Revolver-MissFire
+  hangMusicPath: Music/Hang
+  clickMusicPath: Music/Click
 --- !u!82 &6661702511298613744
 AudioSource:
   m_ObjectHideFlags: 0

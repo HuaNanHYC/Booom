@@ -18,6 +18,7 @@ public class Enemy5 : Enemy
         EnemyAction(true);
         yield return new WaitForSeconds(actionToReadyInterval);
         EnemyReady(false);
+        EnemyBulletTurnAudio();
         //×¼±¸¿ªÇ¹
         yield return new WaitForSeconds(readyToShootInterval);
         if (immuteCount == 3)

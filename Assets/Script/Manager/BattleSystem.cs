@@ -45,11 +45,19 @@ public class BattleSystem : MonoBehaviour
             LevelManager.Instance.lastLevelJudge = false;
             ifLastLevel = false;
         }
+        
     }
     private void OnEnable()
     {
         LevelManager.Instance.LastLevelDialogue();
         LevelManager.Instance.SaveTheGame();
+        //bgmÇÐ»»ÎªÕ½¶·bgm
+        AudioManager.Instance.AudioSource1MainSource.clip = AudioManager.Instance.FightMusic;
+        AudioManager.Instance.AudioSource1MainSource.Play();
+    }
+    private void OnDisable()
+    {
+
     }
 
     private void Update()

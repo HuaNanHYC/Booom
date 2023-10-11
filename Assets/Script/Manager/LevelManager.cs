@@ -135,6 +135,12 @@ public class LevelManager : MonoBehaviour
         {
             this.if_SpecialDialogueShow = setting;
         }
+        public void Initialize()
+        {
+            startDialogueIndex = 0;
+            endDialogueIndex = 0;
+            if_SpecialDialogueShow = false;
+        }
         public int StartDialogueIndex { get => startDialogueIndex; }
         public int EndDialogueIndex { get => endDialogueIndex;}
         public bool If_SpecialDialogueShow { get => if_SpecialDialogueShow;}
@@ -192,9 +198,6 @@ public class LevelManager : MonoBehaviour
     }
     private bool continueSprite;//停留图片判断
     public bool ContinueSprite { get { return continueSprite; } set { continueSprite = value; } }
-
-
-
     public void DialogueAfterBlack()//黑屏转场，给对话结束时用，dialogue的场景会有一个onenable就调用一次启动对话的物体
     {
         SceneManageSystem.Instance.GoToFigureScene("Dialogue");
@@ -203,6 +206,17 @@ public class LevelManager : MonoBehaviour
     {
         continueSprite = true;
         SceneManager.LoadScene("Dialogue");
+    }
+    public void InitializeAllIndexInDialogueDic()
+    {
+        Dictionary<int, DialogueInfo> newDialogueDic = new Dictionary<int, DialogueInfo>(dialogueDic);
+        foreach(KeyValuePair<int,DialogueInfo> index in newDialogueDic)
+        {
+            DialogueInfo dialogueInfo = dialogueDic[index.Key];
+            dialogueInfo.Initialize();
+            dialogueDic[index.Key] = dialogueInfo;
+        }
+        If_StartDialogue = true;
     }
     #endregion
 

@@ -126,7 +126,7 @@ public class Enemy : MonoBehaviour
         EnemyAction(true);
         yield return new WaitForSeconds(actionToReadyInterval);
         EnemyReady(false);
-        
+        EnemyBulletTurnAudio();
         //×¼±¸¿ªÇ¹
         yield return new WaitForSeconds(readyToShootInterval);
         if (battleSystem.JudegeShoot())
@@ -198,7 +198,10 @@ public class Enemy : MonoBehaviour
         actionHand.SetActive(hand);
         shootText.sprite = null;
     }
-
+    protected void EnemyBulletTurnAudio()
+    {
+        AudioManager.Instance.AudioSource2EffectSource.PlayOneShot(AudioManager.Instance.BulletsTurn);
+    }
 
     #endregion
 }

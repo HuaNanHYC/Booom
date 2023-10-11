@@ -19,6 +19,7 @@ public class Enemy6 : Enemy
         EnemyAction(true);
         yield return new WaitForSeconds(actionToReadyInterval);
         EnemyReady(false);
+        EnemyBulletTurnAudio();
         //准备开枪
         yield return new WaitForSeconds(readyToShootInterval);
         //剩1滴血时将枪口对准你

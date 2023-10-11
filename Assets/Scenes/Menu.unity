@@ -325,7 +325,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4380849460272990437, guid: 407b8a2ec67a6914785c82521430843c, type: 3}
       propertyPath: index
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7676147087733178290, guid: 407b8a2ec67a6914785c82521430843c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -527,11 +527,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &1006363901 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 5683682351020367990, guid: 048776cd1c003b8408ef266d40222036, type: 3}
-  m_PrefabInstance: {fileID: 3416789400032931140}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1893099707 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3381215750010203404, guid: 407b8a2ec67a6914785c82521430843c, type: 3}
@@ -602,9 +597,29 @@ PrefabInstance:
       value: AudioManager
       objectReference: {fileID: 0}
     - target: {fileID: 5295653865530646667, guid: 048776cd1c003b8408ef266d40222036, type: 3}
-      propertyPath: audioSource2EffectSource
-      value: 
-      objectReference: {fileID: 1006363901}
+      propertyPath: BulletsInPath
+      value: Music/BulletsIn
+      objectReference: {fileID: 0}
+    - target: {fileID: 5295653865530646667, guid: 048776cd1c003b8408ef266d40222036, type: 3}
+      propertyPath: FightMusicPath
+      value: Music/FightMusic
+      objectReference: {fileID: 0}
+    - target: {fileID: 5295653865530646667, guid: 048776cd1c003b8408ef266d40222036, type: 3}
+      propertyPath: BulletsTurnPath
+      value: Music/BulletsTurn
+      objectReference: {fileID: 0}
+    - target: {fileID: 5295653865530646667, guid: 048776cd1c003b8408ef266d40222036, type: 3}
+      propertyPath: DialogueMusicPath
+      value: Music/DialogueMusic
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661702511298613744, guid: 048776cd1c003b8408ef266d40222036, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661702511298613744, guid: 048776cd1c003b8408ef266d40222036, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

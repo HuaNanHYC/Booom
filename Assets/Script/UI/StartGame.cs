@@ -12,18 +12,22 @@ public class StartGame : MonoBehaviour
     }
     public void StartTheGame()
     {
+        LevelManager.Instance.InitializeAllIndexInDialogueDic();//«Â¡„
+        LevelManager.Instance.StartVideoPlay = false;
         UIManager.Instance.LoadScene("StartAndEnd");
     }
     public void ContinueTheGame()
     {
         LevelManager.Instance.LoadTheGame();
-        if (LevelManager.Instance.currentLevelId == 30000)
+        LevelManager.Instance.InitializeAllIndexInDialogueDic();//«Â¡„
+        if (LevelManager.Instance.currentLevelId == 30001)
         {
+            LevelManager.Instance.StartVideoPlay = false;
             StartTheGame();
-            return;
         }
         else
         {
+            LevelManager.Instance.StartVideoPlay = true;
             LevelManager.Instance.DialogueAfterBlack();
         }
     }

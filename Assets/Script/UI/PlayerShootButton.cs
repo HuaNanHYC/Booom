@@ -44,6 +44,8 @@ public class PlayerShootButton : MonoBehaviour
         //在头顶
         playerSpriteRenderer.sprite = null;
         gunSprite.SetActive(false);
+        //上膛音效
+        PlayerBulletTurnAudio();
         yield return new WaitForSeconds(readyToShootIntervalPlayer);
         //开枪
         if(InventoryManager.Instance.If_Immute)
@@ -64,5 +66,9 @@ public class PlayerShootButton : MonoBehaviour
         yield return new WaitForSeconds(actionToIdleIntervalPlayer);
         playerSpriteRenderer.sprite = null;
         battleSystem.StartShoot();
+    }
+    protected void PlayerBulletTurnAudio()
+    {
+        AudioManager.Instance.AudioSource2EffectSource.PlayOneShot(AudioManager.Instance.BulletsTurn);
     }
 }

@@ -36,6 +36,14 @@ public class EnableDialogueObject : MonoBehaviour
             StopAllCoroutines();
         }
         yield return new WaitForSeconds(0.1f);
+        //bgm²¥·Å
+        if (AudioManager.Instance.AudioSource1MainSource.clip != AudioManager.Instance.DialogueMusic)
+        {
+            AudioManager.Instance.AudioSource1MainSource.clip = AudioManager.Instance.DialogueMusic;
+            AudioManager.Instance.AudioSource1MainSource.Play();
+        }
+
+
         DialogueManager.Instance.StartDialogue(dialogue);
         continueSprite.SetActive(false);
         uIDialogue.gameObject.SetActive(true);

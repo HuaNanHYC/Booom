@@ -44,18 +44,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43fab5618223d8c438915ef3d2fb1031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beforeActionInterval: 0.5
+  beforeActionInterval: 0.7
   actionToReadyInterval: 0.5
-  readyToShootInterval: 0.5
-  shootToReadyInterval: 0.5
-  readyToActionInterval: 0.5
-  actionToIdleInterval: 0.5
+  readyToShootInterval: 1.2
+  shootToReadyInterval: 1.1
+  readyToActionInterval: 0
+  actionToIdleInterval: 0.7
   beforeActionIntervalPlayer: 0.5
   actionToReadyIntervalPlayer: 0.5
-  readyToShootIntervalPlayer: 0.5
-  shootToReadyIntervalPlayer: 0.5
-  readyToActionIntervalPlayer: 0.5
-  actionToIdleIntervalPlayer: 0.5
+  readyToShootIntervalPlayer: 1
+  shootToReadyIntervalPlayer: 1
+  readyToActionIntervalPlayer: 0
+  actionToIdleIntervalPlayer: 0.7
   if_Teach1: 0
   if_Teach2: 0
   if_Teach3: 0

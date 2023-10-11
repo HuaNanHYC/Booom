@@ -13,6 +13,8 @@ public class Teach1 : MonoBehaviour
     public bool if_OpenLoadPage;
     private bool setOnce;
     public Vector3[] textPosition;
+
+    public Canvas QueDingLoadButton;
     private void Start()
     {
         if (UIManager.Instance.if_Teach1)
@@ -36,6 +38,7 @@ public class Teach1 : MonoBehaviour
     {
         if (clickIndex < maxIndex)
             canvas[clickIndex].sortingOrder = 82;
+        if (clickIndex == 2) QueDingLoadButton.sortingOrder = 82;
         switch (clickIndex)
         {
             case 0:
@@ -82,12 +85,6 @@ public class Teach1 : MonoBehaviour
             {
                 if (ifDelay) return;
                 clickIndex++;
-                if(clickIndex==2)
-                {
-                    ifDelay = true;
-                    StartCoroutine(NextTeachDelay());
-                    return;
-                }
                 NextTeach();
             }
             else if(!if_OpenLoadPage)
@@ -104,17 +101,16 @@ public class Teach1 : MonoBehaviour
         canvas[1].sortingOrder = 0;
         canvas[2].sortingOrder = 2;
         canvas[3].sortingOrder = 3;
+        QueDingLoadButton.sortingOrder = 3;
         teachText.text = "";
     }
     public void SetIfOpenLoadPage(bool setting)
     {
-        if_OpenLoadPage=setting; 
+        StartCoroutine(SetIfOpenLoadPageDelay(setting));
     }//¸ø°´Å¥ÅÐ¶Ï
-
-    IEnumerator NextTeachDelay()
+    IEnumerator SetIfOpenLoadPageDelay(bool setting)
     {
-        yield return new WaitForSeconds(0.6f);
-        NextTeach();
-        ifDelay = false;
+        yield return new WaitForSeconds(.6f);
+        if_OpenLoadPage = setting;
     }
 }
