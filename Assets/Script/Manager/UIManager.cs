@@ -34,7 +34,6 @@ public class UIManager : MonoBehaviour
         SetResolution();
     }
 
-
     public void LoadScene(string targetSceneName)//³¡¾°Ìø×ª
     {
         SceneManageSystem.Instance.GoToFigureScene(targetSceneName);

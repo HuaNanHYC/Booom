@@ -12,6 +12,7 @@ public class StartGame : MonoBehaviour
     }
     public void StartTheGame()
     {
+        LevelManager.Instance.currentLevelId = 30000;
         LevelManager.Instance.InitializeAllIndexInDialogueDic();//«Â¡„
         LevelManager.Instance.StartVideoPlay = false;
         UIManager.Instance.LoadScene("StartAndEnd");
