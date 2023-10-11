@@ -214,7 +214,7 @@ MonoBehaviour:
   - 91d93f14-f59d-4fa0-8c28-f733089257c0
   condition:
     and: []
-  actor: {fileID: 11400000, guid: 9d861644560394043b57170f4f355073, type: 2}
+  actor: {fileID: 11400000, guid: 1ac58d8f139ba654eb88bdf424236114, type: 2}
   text: "\u4F60\u8FD8\u662F\u90A3\u4E48\u806A\u660E\u3002\u9EA6\u514B\uFF0C\u7B97\u6211\u62DC\u6258\u4F60\u3002"
   onEnterActions: []
   onExitActions: []
