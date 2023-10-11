@@ -42,6 +42,7 @@ public class BulletHole : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler
         {
             if (BulletManager.Instance.JudgeExistTogether_IfCanPutIn(BulletManager.Instance.currentBullet.ID) == false) return;
             if_Load = true;
+            PointerExitLoadedSpriteInChildWhenEmpty();
             currentBullet = BulletManager.Instance.currentBullet;//记录现在装填的子弹
 
             image.sprite = loadedSprite;//设置成装填图片样式
@@ -90,6 +91,7 @@ public class BulletHole : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler
             {
                 Image childIconImage = transform.Find("bulletIcon").GetComponent<Image>();
                 childIconImage.sprite = currentBullet.BulletIcon;
+                childIconImage.color = Color.white;
             }
         }
         else
@@ -101,7 +103,72 @@ public class BulletHole : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler
             else
             {
                 Image childIconImage = transform.Find("bulletIcon").GetComponent<Image>();
-                childIconImage.sprite = unLoadSprite;
+                childIconImage.color = new Color(1, 1, 1, 0);
+            }
+        }
+    }
+    private const float transparent=0.3f;
+    public void PointEnterLoadedSpriteInChildWhenEmpty()//生成一个子物体用来承载子弹的icon,用于没放子弹但是鼠标移入时
+    {
+        if (currentBullet == null && BulletManager.Instance.currentBullet != null)
+        {
+            //生成子弹底图
+            if (!transform.Find("bulletBackGroundWhenEmpty"))
+            {
+                GameObject childIcon = new GameObject("bulletBackGroundWhenEmpty");
+                childIcon.transform.SetParent(transform, false);
+                Image childIconImage = childIcon.AddComponent<Image>();
+                childIconImage.color = new Color(1, 1, 1, transparent);
+                childIconImage.sprite = loadedSprite;
+                childIconImage.SetNativeSize();
+                childIconImage.transform.SetSiblingIndex(1);//将其移动到指定索引点
+            }
+            else
+            {
+                Image childIconImage = transform.Find("bulletBackGroundWhenEmpty").GetComponent<Image>();
+                childIconImage.sprite = loadedSprite;
+                childIconImage.color = new Color(1, 1, 1, transparent);
+            }
+            //生成子弹图
+            if (!transform.Find("bulletIconWhenEmpty"))
+            {
+                GameObject childIcon = new GameObject("bulletIconWhenEmpty");
+                childIcon.transform.SetParent(transform, false);
+                Image childIconImage = childIcon.AddComponent<Image>();
+                childIconImage.color = new Color(1, 1, 1, transparent);
+                childIconImage.sprite = BulletManager.Instance.currentBullet.BulletIcon;
+            }
+            else
+            {
+                Image childIconImage = transform.Find("bulletIconWhenEmpty").GetComponent<Image>();
+                childIconImage.sprite = BulletManager.Instance.currentBullet.BulletIcon;
+                childIconImage.color = new Color(1, 1, 1, transparent);
+            }
+        }
+        
+    }    
+    public void PointerExitLoadedSpriteInChildWhenEmpty()
+    {
+        if (currentBullet == null && BulletManager.Instance.currentBullet != null)
+        {
+            //生成子弹底图
+            if (!transform.Find("bulletBackGroundWhenEmpty"))
+            {
+                return;
+            }
+            else
+            {
+                Image childIconImage = transform.Find("bulletBackGroundWhenEmpty").GetComponent<Image>();
+                childIconImage.color = new Color(1, 1, 1, 0);
+            }
+            if (!transform.Find("bulletIconWhenEmpty"))
+            {
+                return;
+            }
+            else
+            {
+                Image childIconImage = transform.Find("bulletIconWhenEmpty").GetComponent<Image>();
+                childIconImage.color = new Color(1, 1, 1, 0);
             }
         }
     }
@@ -114,6 +181,7 @@ public class BulletHole : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
+        //生成子弹描述
         if(currentBullet!=null)
         {
             if (descriptionBoard != null)
@@ -128,11 +196,31 @@ public class BulletHole : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler
             descriptionBoard.transform.localScale = new Vector3(1.5f,1.5f,1.5f);
             UpdateBulletInfo();
         }
+        PointEnterLoadedSpriteInChildWhenEmpty();
+
+
     }
 
     public void OnPointerMove(PointerEventData eventData)
     {
+        #region 有子弹时的显示子弹描述
+        if (currentBullet == null) return;
+        //就是鼠标进入那里的方法
+        if (descriptionBoard != null)
+        {
+            UpdateBulletInfo();
+            descriptionBoard.SetActive(true);
+        }
+        else
+        {
+            descriptionBoard = Instantiate(bulletDesc);
+            descriptionBoard.transform.SetParent(transform, false);
+            bulletInfoRectTransform = descriptionBoard.GetComponent<RectTransform>();
+            descriptionBoard.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+            UpdateBulletInfo();
+        }
         if (bulletInfoRectTransform == null) return;
+
         Vector2 localMousePos;
         // 获取UI元素的宽高
         float uiElementWidth = bulletInfoRectTransform.rect.width;
@@ -150,6 +238,7 @@ public class BulletHole : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler
             // 设置UI元素的位置
             bulletInfoRectTransform.localPosition = localMousePos + offset;
         }
+        #endregion
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -158,6 +247,8 @@ public class BulletHole : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler
         {
             descriptionBoard.SetActive(false);
         }
+        PointerExitLoadedSpriteInChildWhenEmpty();
+
     }
     #endregion
 }

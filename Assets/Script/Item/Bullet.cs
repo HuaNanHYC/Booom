@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class Bullet : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler,IPointerExitHandler
+public class Bullet : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler,IPointerExitHandler,IPointerClickHandler
 {
     public int ID;
     public string bulletName;
@@ -113,12 +113,34 @@ public class Bullet : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler,IPo
             transform.GetChild(0).GetComponent<Text>().color = new Color(0.9568627f, 0.4392157f, 0.1607843f);
         }
     }
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        /*if(BulletManager.Instance.currentBullet==this)
+        {
+            BulletManager.Instance.currentBullet = null;
+        }
+        else if(BulletManager.Instance.currentBullet==null)
+        {
+            SetCurrentBullet();
+        }*/
+    }
     #endregion
 
     #region 用于按钮操作
     public void SetCurrentBullet()//设置现在选择的子弹
     {
-        BulletManager.Instance.currentBullet = this;
+        
+        if (BulletManager.Instance.currentBullet == this)
+        {
+            BulletManager.Instance.currentBullet = null;
+            bulletImageSelf.sprite = bulletImageHover;
+            transform.GetChild(0).GetComponent<Text>().color = new Color(0.9568627f, 0.4392157f, 0.1607843f);
+        }
+        else
+        {
+            BulletManager.Instance.currentBullet = this;
+        }
+
     }
 
     #endregion
@@ -138,6 +160,8 @@ public class Bullet : MonoBehaviour,IPointerEnterHandler,IPointerMoveHandler,IPo
 
         bulletImageSelf.sprite = bulletImageMain;
     }
+
+
 
     #endregion
 }
