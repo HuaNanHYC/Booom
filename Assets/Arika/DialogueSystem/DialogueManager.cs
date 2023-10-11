@@ -86,9 +86,16 @@ namespace DialogueSystem
 
         public void Next()
         {
-            DialogueNodeBasic[] aiChildren = FilterByCondition(CurrentDialogue.GetAllChildren(CurrentNode))
-                .Select(x => (DialogueNodeBasic) x).ToArray();
-            if (aiChildren.Length == 0)
+            // DialogueNodeBasic[] aiChildren = FilterByCondition(CurrentDialogue.GetAllChildren(CurrentNode))
+            //     .Select(x => (DialogueNodeBasic) x).ToArray();
+            // if (aiChildren.Length == 0)
+            // {
+            //     QuitDialogue();
+            //     return;
+            // }
+
+            List<DialogueNode> children = CurrentDialogue.GetAllChildren(CurrentNode).ToList();
+            if (!children.Any())
             {
                 QuitDialogue();
                 return;
@@ -96,9 +103,8 @@ namespace DialogueSystem
 
             //Advance To Next Node
 
-            int randomIndex = UnityEngine.Random.Range(0, aiChildren.Length);
             TriggerNodeExitAction();
-            CurrentNode = aiChildren[randomIndex];
+            CurrentNode = children[0];
             TriggerNodeEnterAction();
             OnConversationUpdated?.Invoke();
         }

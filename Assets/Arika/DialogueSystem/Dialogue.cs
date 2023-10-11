@@ -17,19 +17,25 @@ namespace DialogueSystem
         private void OnValidate()
         {
             ValidateNodeDict();
+        }
 
-            void ValidateNodeDict()
+        private void OnEnable()
+        {
+            ValidateNodeDict();
+        }
+
+        private void ValidateNodeDict()
+        {
+            _nodeDict.Clear();
+            foreach (var node in Nodes)
             {
-                _nodeDict.Clear();
-                foreach (var node in Nodes)
+                if (node is null)
                 {
-                    if (node is null)
-                    {
-                        Debug.LogError($"node is null in {name}, node count: {nodes.Count}");
-                        continue;
-                    }
-                    _nodeDict[node.name] = node;
+                    Debug.LogError($"node is null in {name}, node count: {nodes.Count}");
+                    continue;
                 }
+
+                _nodeDict[node.name] = node;
             }
         }
 

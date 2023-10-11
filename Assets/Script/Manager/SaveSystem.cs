@@ -6,35 +6,33 @@ using System.IO;
 public class SaveSystem
 {
     #region 普通数据保存：设置等
+
     /// <summary>
     /// 存档
     /// </summary>
     /// <param name="saveFileName"></param>
     /// <param name="data"></param>
-    public static bool SaveByJson(string saveFileName, object data,string savePath)
+    public static bool SaveByJson(string saveFileName, object data, string savePath)
     {
-        var jason = JsonUtility.ToJson(data,true);
+        var jason = JsonUtility.ToJson(data, true);
         var path = Path.Combine(savePath, saveFileName);
         try
         {
             File.WriteAllText(path, jason);
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
             Debug.Log($"保存成功{path}");
 #endif
             return true;
-
         }
         catch (System.Exception e)
         {
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
             Debug.Log($"保存失败{path}.\n{e}");
-        #endif
+#endif
             return false;
-
-             
         }
-
     }
+
     /// <summary>
     /// 读档
     /// </summary>
@@ -43,7 +41,6 @@ public class SaveSystem
     /// <returns></returns>
     public static T LoadFromJson<T>(string saveFileName, string savePath)
     {
-
         try
         {
             var path = Path.Combine(savePath, saveFileName);
@@ -55,8 +52,6 @@ public class SaveSystem
             Debug.Log($"读取成功");
 #endif
             return data;
-
-
         }
         catch (System.Exception e)
         {
@@ -65,8 +60,8 @@ public class SaveSystem
 #endif
             return default;
         }
-
     }
+
     /// <summary>
     /// 删除存档
     /// </summary>
@@ -74,14 +69,19 @@ public class SaveSystem
     public static bool DeleteSaveFile(string saveFileName, string savePath)
     {
         var path = Path.Combine(savePath, saveFileName);
-        try { File.Delete(path);return true; }
+        try
+        {
+            File.Delete(path);
+            return true;
+        }
         catch (System.Exception e)
         {
 #if UNITY_EDITOR
             Debug.Log($"failed{e}");
-            return false;
 #endif
+            return false;
         }
     }
+
     #endregion
 }
