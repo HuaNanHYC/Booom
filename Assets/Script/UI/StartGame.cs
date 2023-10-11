@@ -23,6 +23,7 @@ public class StartGame : MonoBehaviour
         LevelManager.Instance.InitializeAllIndexInDialogueDic();//«Â¡„
         if (LevelManager.Instance.currentLevelId == 30001)
         {
+            LevelManager.Instance.currentLevelId = 30000;
             LevelManager.Instance.StartVideoPlay = false;
             StartTheGame();
         }

@@ -7,6 +7,7 @@ public class PlayerShootButton : MonoBehaviour
     public BattleSystem battleSystem;
     private SpriteRenderer playerSpriteRenderer;
     private SpriteRenderer playerHurtSpriteRenderer;
+    public GameObject kada;
     private GameObject gunSprite;
     private float beforeActionIntervalPlayer;
     private float actionToReadyIntervalPlayer;
@@ -51,14 +52,20 @@ public class PlayerShootButton : MonoBehaviour
         if(InventoryManager.Instance.If_Immute)
         {
             playerHurtSpriteRenderer.sprite = null;
+            kada.SetActive(true);
             battleSystem.JudegeShoot();
         }
         else if (battleSystem.JudegeShoot())
         {
             playerHurtSpriteRenderer.sprite = InventoryManager.Instance.PlayerHurtImage;
         }
+        else
+        {
+            kada.SetActive(true);
+        }
         //把枪放回去
         yield return new WaitForSeconds(shootToReadyIntervalPlayer);
+        kada.SetActive(false);
         playerHurtSpriteRenderer.sprite = null;
         yield return new WaitForSeconds(readyToActionIntervalPlayer);
         playerSpriteRenderer.sprite = InventoryManager.Instance.PlayerActionImage;

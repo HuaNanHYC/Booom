@@ -111,8 +111,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3.78, y: 0, z: 0}
-  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3342772388384295796}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -156,7 +156,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -225,8 +225,8 @@ MonoBehaviour:
   readyImagePath: Image/Enemy2/02_03
   shotImagePath: Image/Enemy2/02_04
   shootText: {fileID: 4888348652286764520}
-  dodgeActionText: {fileID: 21300000, guid: 4f8e36f043e13e54cb9a35a4bd432960, type: 3}
-  dodgeText: {fileID: 21300000, guid: 1195c8e76fdffba4cbd3b3e6461129bc, type: 3}
+  dodgeActionText: {fileID: 21300000, guid: 3d71c89586bf99e42a9f5fb38319ae84, type: 3}
+  dodgeText: {fileID: 21300000, guid: 5c1d1820cac91454ba496ef26fb92576, type: 3}
   shotText: {fileID: 21300000, guid: 4a9679ff492d81e44b4587e2012c1847, type: 3}
   keyWordAndDescsList:
   - keyWord: "\u65E0\u7279\u6027"
