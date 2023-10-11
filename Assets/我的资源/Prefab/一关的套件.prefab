@@ -2917,8 +2917,8 @@ RectTransform:
   - {fileID: 7049452889493623760}
   m_Father: {fileID: 7602917482148889021}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3718,9 +3718,9 @@ Transform:
   m_GameObject: {fileID: 8484134539342629400}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.09, y: -1.68, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -0, y: -3.83, z: 0}
+  m_LocalScale: {x: 1.35, y: 1.35, z: 1.35}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7427151723888341199}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3765,12 +3765,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 63daee535479dc040b8b98aa8c02d7aa, type: 3}
+  m_Sprite: {fileID: -88993371, guid: 63daee535479dc040b8b98aa8c02d7aa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.6, y: 1.78}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -4128,7 +4128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 582943182252174099, guid: ee41dfa1db57af94f9eed927fd88cafc, type: 3}
       propertyPath: m_Text
-      value: "\u654C\u4EBA\u5173\u952E\u8BCD\u63CF\u8FF0\u662F\u8FD9\u6837\u7684\u654C\u4EBA\u5173\u952E\u8BCD\u63CF\u8FF0\u662F\u8FD9\u6837\u7684"
+      value: "\u654C\u4EBA\u5173\u952E\u8BCD\u63CF\u8FF0\u662F\u8FD9\u6837\u7684\u654C\u4EBA\u5173\u952E\u8BCD\u63CF\u8FF0\u662F\u8FD9\u6837\u7684\u662F\u8FD9\u6837\u7684\u662F\u8FD9\u6837\u7684"
       objectReference: {fileID: 0}
     - target: {fileID: 582943182252174099, guid: ee41dfa1db57af94f9eed927fd88cafc, type: 3}
       propertyPath: m_FontData.m_BestFit
@@ -4136,7 +4136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 582943182252174099, guid: ee41dfa1db57af94f9eed927fd88cafc, type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 20
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 582943182252174099, guid: ee41dfa1db57af94f9eed927fd88cafc, type: 3}
       propertyPath: m_FontData.m_Alignment
@@ -4668,7 +4668,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5671119764115484751, guid: ee41dfa1db57af94f9eed927fd88cafc, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5711586276320420882, guid: ee41dfa1db57af94f9eed927fd88cafc, type: 3}
       propertyPath: m_Color.a
@@ -4988,7 +4988,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8393005761854756085, guid: ee41dfa1db57af94f9eed927fd88cafc, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 78.368
+      value: 69.5242
       objectReference: {fileID: 0}
     - target: {fileID: 8393005761854756085, guid: ee41dfa1db57af94f9eed927fd88cafc, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -4996,7 +4996,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8393005761854756085, guid: ee41dfa1db57af94f9eed927fd88cafc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 39.184
+      value: 38.8892
       objectReference: {fileID: 0}
     - target: {fileID: 8429948753089921766, guid: ee41dfa1db57af94f9eed927fd88cafc, type: 3}
       propertyPath: m_Color.b
@@ -5024,11 +5024,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8659986886637409284, guid: ee41dfa1db57af94f9eed927fd88cafc, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8659986886637409284, guid: ee41dfa1db57af94f9eed927fd88cafc, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8660844412198327928, guid: ee41dfa1db57af94f9eed927fd88cafc, type: 3}
       propertyPath: m_FontData.m_Font

@@ -217,6 +217,7 @@ public class LevelManager : MonoBehaviour
             dialogueDic[index.Key] = dialogueInfo;
         }
         if_StartDialogue = true;
+        lastLevelJudge = false;
     }
     #endregion
 
@@ -252,4 +253,8 @@ public class LevelManager : MonoBehaviour
         Debug.Log("∂¡»°≥…π¶");
     }
     #endregion
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

@@ -11,6 +11,11 @@ public class Revolver : MonoBehaviour
         if (LevelManager.Instance == null) return;
         steadyBullet = LevelManager.Instance.GetCurentLevelSteadyBulletId();
         steadyPos = LevelManager.Instance.GetCurentLevelSteadyBulletPosition();
+        StartCoroutine(SetTheHole());
+    }
+    IEnumerator SetTheHole()
+    {
+        yield return new WaitForSeconds(0.2f);
         SetHole();
     }
     public void SetHole()//根据关卡配置设置当前的弹匣的子弹

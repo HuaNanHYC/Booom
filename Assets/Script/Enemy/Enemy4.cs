@@ -11,7 +11,7 @@ public class Enemy4 : Enemy
         yield return new WaitForSeconds(beforeActionInterval);//等待0.5秒
         EnemyAction(true);
         yield return new WaitForSeconds(actionToReadyInterval);
-        EnemyReady(false);
+        EnemyReady(false,true);
         EnemyBulletTurnAudio();
         //准备开枪
         yield return new WaitForSeconds(readyToShootInterval);
@@ -19,7 +19,7 @@ A:      if (battleSystem.JudegeShoot())
         {
             EnemyShot();//中枪
             yield return new WaitForSeconds(shootToReadyInterval);
-            EnemyReady(false);
+            EnemyReady(false, false);
             yield return new WaitForSeconds(readyToActionInterval);
             if (!have_ShootTwice)
             {
@@ -40,7 +40,7 @@ A:      if (battleSystem.JudegeShoot())
         {
             EnemyDodge();//没中枪
             yield return new WaitForSeconds(shootToReadyInterval);
-            EnemyReady(false);
+            EnemyReady(false, false);
             yield return new WaitForSeconds(readyToActionInterval);
             if (!have_ShootTwice)
             {

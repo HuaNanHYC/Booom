@@ -34,26 +34,34 @@ public class BattleSystem : MonoBehaviour
         if_AutoShoot = false;
         currentEnemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();//找到本场景敌人
         currentEnemy.GetComponent<Enemy>().BattleSystem = this;
+        StartCoroutine(SetAudio());
+
+
+    }
+    private void OnEnable()
+    {
+        
+    }
+    IEnumerator SetAudio()
+    {
+        yield return new WaitForSeconds(0.5f);
 
         if (LevelManager.Instance.currentLevelId == 30008)
         {
-            ifLastLevel = true;
             BulletManager.Instance.LoadBullet();
+            ifLastLevel = true;
         }
         else
         {
             LevelManager.Instance.lastLevelJudge = false;
             ifLastLevel = false;
         }
-        
-    }
-    private void OnEnable()
-    {
         LevelManager.Instance.LastLevelDialogue();
         LevelManager.Instance.SaveTheGame();
         //bgm切换为战斗bgm
         AudioManager.Instance.AudioSource1MainSource.clip = AudioManager.Instance.FightMusic;
         AudioManager.Instance.AudioSource1MainSource.Play();
+
     }
     private void OnDisable()
     {

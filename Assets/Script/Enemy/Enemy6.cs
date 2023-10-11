@@ -18,7 +18,7 @@ public class Enemy6 : Enemy
         yield return new WaitForSeconds(beforeActionInterval);//等待0.5秒
         EnemyAction(true);
         yield return new WaitForSeconds(actionToReadyInterval);
-        EnemyReady(false);
+        EnemyReady(false, true);
         EnemyBulletTurnAudio();
         //准备开枪
         yield return new WaitForSeconds(readyToShootInterval);
@@ -43,7 +43,7 @@ public class Enemy6 : Enemy
         {
             EnemyShot();//中枪
             yield return new WaitForSeconds(shootToReadyInterval);
-            EnemyReady(false);
+            EnemyReady(false,false);
             yield return new WaitForSeconds(readyToActionInterval);
             EnemyAction(true);
             yield return new WaitForSeconds(actionToIdleInterval);
@@ -56,7 +56,7 @@ public class Enemy6 : Enemy
         {
             EnemyDodge();//没中枪
             yield return new WaitForSeconds(shootToReadyInterval);
-            EnemyReady(false);
+            EnemyReady(false,false);
             yield return new WaitForSeconds(readyToActionInterval);
             EnemyDodgeAction();
             actionHand.SetActive(true);

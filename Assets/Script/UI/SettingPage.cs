@@ -7,12 +7,10 @@ public class SettingPage : MonoBehaviour
 {
     public Slider volunmSlider;
     public Toggle if_FullScreen;
-    private bool if_FullScreenOn;
 
     private void Start()
     {
-        if_FullScreen.isOn = false;
-        if_FullScreenOn = false;
+        if_FullScreen.isOn = true;
     }
     private void Update()
     {
@@ -20,16 +18,7 @@ public class SettingPage : MonoBehaviour
     }
     public void SettingsApply()
     {
-        if (if_FullScreen.isOn && !if_FullScreenOn)
-        {
-            Screen.fullScreen = true;
-            if_FullScreenOn = true;
-        }
-        else if(!if_FullScreen.isOn && if_FullScreenOn)
-        {
-            Screen.fullScreen = false;
-            if_FullScreenOn = false;
-        }
+        Screen.fullScreen = if_FullScreen.isOn;
         AudioManager.Instance.SetVolumn(volunmSlider.value);
     }
     public void BackToLevelSelect()

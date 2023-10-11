@@ -60,7 +60,6 @@ public class Teach1 : MonoBehaviour
             default:break;
         }
     }
-    private bool ifDelay;
     public void PlayerOperation()//判断玩家的点击操作
     {
         if (clickIndex > maxIndex - 1)
@@ -78,12 +77,11 @@ public class Teach1 : MonoBehaviour
             setOnce = true;
         }
 
-        if (Input.GetMouseButtonDown(0)&&!ifDelay)
+        if (Input.GetMouseButtonDown(0))
         {
             SetAllCanvas();
             if (clickIndex < 1 || if_OpenLoadPage)
             {
-                if (ifDelay) return;
                 clickIndex++;
                 NextTeach();
             }
