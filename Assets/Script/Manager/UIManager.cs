@@ -60,6 +60,6 @@ public class UIManager : MonoBehaviour
         int screenWidth = Screen.width;
         int screenHeight = Screen.height;
         bool isFullscreen = true; // 你可以根据需要更改这个值
-        Screen.SetResolution(1920, 1080, isFullscreen);
+        //Screen.SetResolution(1920, 1080, isFullscreen);
     }
 }

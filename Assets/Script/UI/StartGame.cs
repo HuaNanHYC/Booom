@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class StartGame : MonoBehaviour
 {
     Button button;
+    public bool if_JumpVideo;
     private void Start()
     {
         button = GetComponent<Button>();
@@ -15,6 +16,11 @@ public class StartGame : MonoBehaviour
         LevelManager.Instance.currentLevelId = 30000;
         LevelManager.Instance.InitializeAllIndexInDialogueDic();//«Â¡„
         LevelManager.Instance.StartVideoPlay = false;
+        if(if_JumpVideo)
+        {
+            LevelManager.Instance.NextLevel();
+            return;
+        }
         UIManager.Instance.LoadScene("StartAndEnd");
     }
     public void ContinueTheGame()

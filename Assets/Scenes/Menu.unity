@@ -371,6 +371,10 @@ PrefabInstance:
       propertyPath: index
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 5851649487284134304, guid: 407b8a2ec67a6914785c82521430843c, type: 3}
+      propertyPath: if_JumpVideo
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7676147087733178290, guid: 407b8a2ec67a6914785c82521430843c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -619,6 +623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a4e9b53110b6a143901166491de6028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  if_JumpVideo: 0
 --- !u!1001 &3416789400032931140
 PrefabInstance:
   m_ObjectHideFlags: 0
